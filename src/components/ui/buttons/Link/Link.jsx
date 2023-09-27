@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Link.css'
 
-const Link = ({ className, wayTo, title }) => {
+const Link = ({ linkBEMRelate, wayTo, title, isMainPage }) => {
   
   return (
-    <NavLink to={wayTo} className={`link ${className}`}>{title}</NavLink>
+    <NavLink to={wayTo} className={`${linkBEMRelate} link ${isMainPage && 'link_main'}`}>{title}</NavLink>
   );
 };
 

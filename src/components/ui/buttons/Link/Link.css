@@ -1,6 +1,14 @@
 .link {
   text-decoration: none;
+  color: black;
   transition: opacity 0.2s ease-out;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.link_main {
+  color: #FFFFFF;
 }
 
 .link:hover {
