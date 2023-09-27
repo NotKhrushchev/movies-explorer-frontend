@@ -1,0 +1,18 @@
+.header__accountBtn {
+  background-color: #2BE080;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 12px;
+  padding: 3px 3px 3px 11px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.header__accountBtn__icon {
+  border-radius: 100px;
+  padding: 8px;
+  background-color: #F9F9F9;
+}

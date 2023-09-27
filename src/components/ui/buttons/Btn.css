@@ -1,0 +1,13 @@
+.btn {
+  background: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: opacity 0.2s ease-out;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
