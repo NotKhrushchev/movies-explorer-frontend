@@ -7,9 +7,13 @@ import Link from '../ui/buttons/Link/Link';
 import burgerMenuIconBright from '../../images/burger-menu-icon-bright.svg';
 import burgerMenuIconDark from '../../images/burger-menu-icon-dark.svg';
 
-const Header = () => {
+const Header = ({ setSideBar }) => {
 
-  const isMainPage = false
+  const showSideBar = () => {
+    setSideBar(true);
+  };
+
+  const isMainPage = true;
 
   return (
     <header className={`header ${isMainPage && 'header_main'}`}>
@@ -36,7 +40,8 @@ const Header = () => {
       <img 
         src={isMainPage ? burgerMenuIconBright : burgerMenuIconDark} 
         alt={resources_ru.burger_menu_icon} 
-        className={'header__burger-menu-icon'} 
+        className={'header__burger-menu-icon'}
+        onClick={showSideBar}
       />
     </header>
   );
