@@ -3,7 +3,7 @@ import { resources_ru } from '../../translations/resources_ru';
 import Header from '../Header/Header';
 import BurgerMenu from '../ui/BurgerMenu/BurgerMenu';
 import './App.css';
-import Promo from '../Promo/Promo';
+import Main from '../Main/Main';
 
 /** Корневой компонент */
 function App() {
@@ -28,14 +28,14 @@ function App() {
   
   return (
     <div className="app">
-      <Header setSideBar={setSideBar}/>
+      <Header setSideBar={setSideBar} />
       <BurgerMenu 
         sideBar={sideBar} 
         setSideBar={setSideBar} 
         navItems={sideBarLinks} 
         accountBtnRequired={true} 
       />
-      <Promo/>
+      <Main />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 import './Promo.css'
-import { resources_ru } from '../../translations/resources_ru';
-import promoPicture from '../../images/promo-picture.svg';
-import FindOutBtn from '../ui/buttons/FindOutBtn/FindOutBtn';
+import { resources_ru } from '../../../translations/resources_ru';
+import promoPicture from '../../../images/promo-picture.svg';
+import FindOutBtn from '../../ui/buttons/FindOutBtn/FindOutBtn';
 
 const Promo = () => {
   return (
