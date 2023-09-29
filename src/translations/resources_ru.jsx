@@ -6,5 +6,7 @@ export const resources_ru = {
   saved_movies: 'Сохранённые фильмы',
   burger_menu_icon: 'иконка бургер-меню',
   main: 'Главная',
-  cross_icon: 'иконка крестика'
+  cross_icon: 'иконка крестика',
+  login: 'Войти',
+  registration: 'Регистрация'
 }

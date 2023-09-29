@@ -6,8 +6,10 @@ import { resources_ru } from '../../translations/resources_ru';
 import Link from '../ui/buttons/Link/Link';
 import burgerMenuIconBright from '../../images/burger-menu-icon-bright.svg';
 import burgerMenuIconDark from '../../images/burger-menu-icon-dark.svg';
+import LoginBtn from '../ui/buttons/LoginBtn/LoginBtn';
+import RegBtn from '../ui/buttons/RegBtn/RegBtn';
 
-const Header = ({ setSideBar }) => {
+const Header = ({ loggedIn = false, setSideBar }) => {
 
   const showSideBar = () => {
     setSideBar(true);
@@ -18,31 +20,43 @@ const Header = ({ setSideBar }) => {
   return (
     <header className={`header ${isMainPage && 'header_main'}`}>
       <img src={moviesExplorerLogo} alt={resources_ru.movies_explorer_logo} />
-      <div className='header__nav'>
-        <Link 
-          linkBEMRelate={'header__nav__link'} 
-          wayTo={'/movies'} 
-          title={resources_ru.movies} 
-          isMainPage={isMainPage} 
-        />
-        <Link 
-          linkBEMRelate={'header__nav__link'} 
-          wayTo={'/saved-movies'} 
-          title={resources_ru.saved_movies} 
-          isMainPage={isMainPage} 
-        />
-      </div>
-      <AccountBtn
-        btnBEMRelate={'header__account'} 
-        iconBEMRelate={'header__account__icon'} 
-        isMainPage={isMainPage}
-      />
-      <img 
-        src={isMainPage ? burgerMenuIconBright : burgerMenuIconDark} 
-        alt={resources_ru.burger_menu_icon} 
-        className={'header__burger-menu-icon'}
-        onClick={showSideBar}
-      />
+      {loggedIn === true
+        ?
+        <>
+          <nav className='header__nav'>
+            <Link 
+              linkBEMRelate={'header__nav__link'} 
+              wayTo={'/movies'} 
+              title={resources_ru.movies} 
+              isMainPage={isMainPage} 
+            />
+            <Link 
+              linkBEMRelate={'header__nav__link'} 
+              wayTo={'/saved-movies'} 
+              title={resources_ru.saved_movies} 
+              isMainPage={isMainPage} 
+            />
+          </nav>
+          <AccountBtn
+            btnBEMRelate={'header__account-btn'} 
+            iconBEMRelate={'header__account-btn__icon'} 
+            isMainPage={isMainPage}
+          />
+          <img 
+            src={isMainPage ? burgerMenuIconBright : burgerMenuIconDark} 
+            alt={resources_ru.burger_menu_icon} 
+            className={'header__burger-menu-icon'}
+            onClick={showSideBar}
+          />
+        </>
+        :
+        <>
+          <nav className={'header__auth-nav'}>
+            <RegBtn btnBEMRelate={'header__auth-nav__reg-btn'} />
+            <LoginBtn btnBEMRelate={'header__auth-nav__login-btn'} />
+          </nav>
+        </>
+      }
     </header>
   );
 };

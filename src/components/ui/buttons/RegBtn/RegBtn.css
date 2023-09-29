@@ -1,0 +1,13 @@
+.reg-btn {
+  background: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+@media screen and (max-width: 320px) {
+  .reg-btn {
+    font-size: 10px;
+  }
+}

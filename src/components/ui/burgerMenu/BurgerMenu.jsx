@@ -25,8 +25,8 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
         </ul>
         {accountBtnRequired && 
           <AccountBtn 
-            btnBEMRelate={'side-bar__menu__account'} 
-            iconBEMRelate={'side-bar__menu__account__icon'} 
+            btnBEMRelate={'side-bar__menu__account-btn'} 
+            iconBEMRelate={'side-bar__menu__account-btn__icon'} 
             isMainPage={false}
           />
         }

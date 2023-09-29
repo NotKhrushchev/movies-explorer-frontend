@@ -12,7 +12,14 @@
 
 .header__nav {
   display: flex;
+  align-items: center;
   gap: 16px;
+}
+
+.header__auth-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .header__burger-menu-icon {
@@ -32,10 +39,19 @@
   .header__nav {
     display: none;
   }
+  .header__nav__link {
+    font-size: 22px;
+  }
   .header__burger-menu-icon {
     display: block;
   }
-  .header__account {
+  .header__account-btn {
     display: none !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header__auth-nav {
+    gap: 14px;
   }
 }

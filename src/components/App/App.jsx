@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { resources_ru } from '../../translations/resources_ru';
 import Header from '../Header/Header';
-import BurgerMenu from '../ui/burgerMenu/BurgerMenu';
+import BurgerMenu from '../ui/BurgerMenu/BurgerMenu';
 import './App.css';
 
 /** Корневой компонент */
