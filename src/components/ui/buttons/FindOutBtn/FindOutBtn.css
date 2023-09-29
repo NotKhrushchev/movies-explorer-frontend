@@ -1,0 +1,11 @@
+.find-out-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.600);
+  border-radius: 3px;
+  padding: 10px 20px;
+  max-width: fit-content;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}

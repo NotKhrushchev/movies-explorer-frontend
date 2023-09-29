@@ -9,7 +9,7 @@ import burgerMenuIconDark from '../../images/burger-menu-icon-dark.svg';
 import LoginBtn from '../ui/buttons/LoginBtn/LoginBtn';
 import RegBtn from '../ui/buttons/RegBtn/RegBtn';
 
-const Header = ({ loggedIn = false, setSideBar }) => {
+const Header = ({ loggedIn = true, setSideBar }) => {
 
   const showSideBar = () => {
     setSideBar(true);
@@ -19,7 +19,7 @@ const Header = ({ loggedIn = false, setSideBar }) => {
 
   return (
     <header className={`header ${isMainPage && 'header_main'}`}>
-      <img src={moviesExplorerLogo} alt={resources_ru.movies_explorer_logo} />
+      <img src={moviesExplorerLogo} alt={resources_ru.movies_explorer_logo} draggable={false} />
       {loggedIn === true
         ?
         <>
@@ -46,6 +46,7 @@ const Header = ({ loggedIn = false, setSideBar }) => {
             src={isMainPage ? burgerMenuIconBright : burgerMenuIconDark} 
             alt={resources_ru.burger_menu_icon} 
             className={'header__burger-menu-icon'}
+            draggable={false}
             onClick={showSideBar}
           />
         </>

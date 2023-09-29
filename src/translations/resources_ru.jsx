@@ -1,12 +1,16 @@
 export const resources_ru = {
   account: 'Аккаунт',
-  movies_explorer_logo: 'логотип movies explorer',
-  account_btn_icon: 'иконка кнопки аккаунт',
+  movies_explorer_logo: 'Логотип movies explorer',
+  account_btn_icon: 'Иконка кнопки аккаунт',
   movies: 'Фильмы',
   saved_movies: 'Сохранённые фильмы',
-  burger_menu_icon: 'иконка бургер-меню',
+  burger_menu_icon: 'Иконка бургер-меню',
   main: 'Главная',
-  cross_icon: 'иконка крестика',
+  cross_icon: 'Иконка крестика',
   login: 'Войти',
-  registration: 'Регистрация'
+  registration: 'Регистрация',
+  promo_title: 'Учебный проект студента факультета Веб-разработки.',
+  promo_subtitle: 'Листайте ниже, чтобы узнать больше про этот проект и его создателя.',
+  globe: 'Глобус',
+  find_out: 'Узнать больше'
 }

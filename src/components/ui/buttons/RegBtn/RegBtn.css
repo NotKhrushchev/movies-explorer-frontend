@@ -1,6 +1,7 @@
 .reg-btn {
   background: none;
   color: white;
+  max-width: fit-content;
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;

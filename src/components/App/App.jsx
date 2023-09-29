@@ -3,6 +3,7 @@ import { resources_ru } from '../../translations/resources_ru';
 import Header from '../Header/Header';
 import BurgerMenu from '../ui/BurgerMenu/BurgerMenu';
 import './App.css';
+import Promo from '../Promo/Promo';
 
 /** Корневой компонент */
 function App() {
@@ -34,6 +35,7 @@ function App() {
         navItems={sideBarLinks} 
         accountBtnRequired={true} 
       />
+      <Promo/>
     </div>
   );
 };
