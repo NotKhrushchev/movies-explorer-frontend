@@ -33,8 +33,8 @@ const Header = ({ setSideBar }) => {
         />
       </div>
       <AccountBtn
-        btnBEMRelate={'header__account-btn'} 
-        iconBEMRelate={'header__account-btn__icon'} 
+        btnBEMRelate={'header__account'} 
+        iconBEMRelate={'header__account__icon'} 
         isMainPage={isMainPage}
       />
       <img 

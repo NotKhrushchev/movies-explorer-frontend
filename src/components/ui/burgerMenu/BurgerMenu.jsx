@@ -13,21 +13,24 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
 
   return (
     <nav className={sideBar ? 'side-bar active' : 'side-bar'}>
-      <img src={crossIcon} alt={resources_ru.cross_icon} className={'side-bar__cross'} onClick={hideSideBar}/>
-      <ul className="side-bar__items">
-        {navItems.map((item, index) => 
-          <li className="side-bar__items__item" key={index}>
-            <NavLink to={item.wayTo} className={'side-bar__items__item__link'}>{item.title}</NavLink>
-          </li>
-        )}
-      </ul>
-      {accountBtnRequired && 
-        <AccountBtn 
-          btnBEMRelate={'side-bar__account'} 
-          iconBEMRelate={'side-bar__account__icon'} 
-          isMainPage={false}
-        />
-      }
+      <div className={sideBar ? 'side-bar__blackout active' : 'side-bar'} />
+      <div className={sideBar ? 'side-bar__menu active' : 'side-bar__menu'}>
+        <img src={crossIcon} alt={resources_ru.cross_icon} className={'side-bar__menu__cross'} onClick={hideSideBar}/>
+        <ul className={'side-bar__menu__items'}>
+          {navItems.map((item, index) => 
+            <li className="side-bar__menu__items__item" key={index}>
+              <NavLink to={item.wayTo} className={'side-bar__menu__items__item__link'}>{item.title}</NavLink>
+            </li>
+          )}
+        </ul>
+        {accountBtnRequired && 
+          <AccountBtn 
+            btnBEMRelate={'side-bar__menu__account'} 
+            iconBEMRelate={'side-bar__menu__account__icon'} 
+            isMainPage={false}
+          />
+        }
+      </div>
     </nav>
   );
 };
