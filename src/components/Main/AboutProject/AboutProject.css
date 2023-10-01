@@ -1,5 +1,4 @@
 .about-project {
-  min-height: 608px;
   background-color: white;
   padding: 110px 70px;
   display: flex;
@@ -8,11 +7,11 @@
 
 .about-project__content {
   max-width: 1846px;
+  width: 100%;
   color: black;
 }
 
-.about-project__content__title {
-  color: black;
+.about-project__content__header {
   font-size: 22px;
   font-weight: normal;
   margin-bottom: 23px;
@@ -50,28 +49,21 @@
   width: 80%;
 }
 
-.about-project__content__progress__back__text {
+.about-project__content__progress__text {
   font-size: 14px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.progress__back__text {
   background-color: #2BE080;
-  text-align: center;
-  padding: 10px 0;
 }
 
-.about-project__content__progress__back__subtext {
-  font-size: 14px;
-  color: #A0A0A0;
-  text-align: center;
-  margin-top: 14px;
-}
-
-.about-project__content__progress__front__text {
-  font-size: 14px;
+.progress__front__text {
   background-color: #F2F2F2;
-  text-align: center;
-  padding: 10px 0;
 }
 
-.about-project__content__progress__front__subtext {
+.about-project__content__progress__subtext {
   font-size: 14px;
   color: #A0A0A0;
   text-align: center;
@@ -106,7 +98,7 @@ hr {
   .about-project {
     padding: 70px 18px;
   }
-  .about-project__content__title {
+  .about-project__content__header {
     font-size: 18px;
   }
   .about-project__content__info {

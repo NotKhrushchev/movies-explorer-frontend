@@ -18,7 +18,7 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
         <img src={crossIcon} alt={resources_ru.cross_icon} className={'side-bar__menu__cross'} draggable={false} onClick={hideSideBar} />
         <ul className={'side-bar__menu__items'}>
           {navItems.map((item, index) => 
-            <li className="side-bar__menu__items__item" key={index}>
+            <li className={'side-bar__menu__items__item'} key={index}>
               <NavLink to={item.wayTo} className={'side-bar__menu__items__item__link'}>{item.title}</NavLink>
             </li>
           )}
