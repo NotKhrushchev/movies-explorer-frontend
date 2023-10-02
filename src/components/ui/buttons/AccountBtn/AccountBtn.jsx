@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../Btn.css';
 import './AccountBtn.css';
-import accountBtnIcon from '../../../../images/account-btn-icon.svg';
+import accountBtnIcon from '../../../../images/icons/account-btn-icon.svg';
 import { resources_ru } from '../../../../translations/resources_ru';
 
 const AccountBtn = ({ btnBEMRelate, iconBEMRelate, isMainPage }) => {

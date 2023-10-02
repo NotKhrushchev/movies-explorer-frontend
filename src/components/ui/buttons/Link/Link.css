@@ -7,6 +7,10 @@
   line-height: 18px;
 }
 
+.link.active {
+  font-weight: 500;
+}
+
 .link_main {
   color: white;
 }

@@ -4,8 +4,8 @@ import './Header.css';
 import AccountBtn from '../ui/buttons/AccountBtn/AccountBtn';
 import { resources_ru } from '../../translations/resources_ru';
 import Link from '../ui/buttons/Link/Link';
-import burgerMenuIconBright from '../../images/burger-menu-icon-bright.svg';
-import burgerMenuIconDark from '../../images/burger-menu-icon-dark.svg';
+import burgerMenuIconBright from '../../images/icons/burger-menu-icon-bright.svg';
+import burgerMenuIconDark from '../../images/icons/burger-menu-icon-dark.svg';
 import LoginBtn from '../ui/buttons/LoginBtn/LoginBtn';
 import RegBtn from '../ui/buttons/RegBtn/RegBtn';
 

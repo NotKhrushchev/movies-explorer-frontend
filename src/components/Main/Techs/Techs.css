@@ -8,7 +8,6 @@
 .techs__content {
   max-width: 1846px;
   width: 100%;
-  color: black;
 }
 
 .techs__header {
@@ -29,14 +28,14 @@ hr {
   margin: 90px 0 100px;
 }
 
-.techs__title {
+.tech__info__title {
   font-size: 50px;
   font-weight: normal;
   line-height: 58px;
   margin-bottom: 26px;
 }
 
-.techs__subtitle {
+.tech__info__subtitle {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -64,10 +63,10 @@ hr {
   .techs__info {
     margin: 80px 0 83px;
   }
-  .techs__title {
+  .tech__info__title {
     margin-bottom: 22px;
   }
-  .techs__subtitle {
+  .tech__info__subtitle {
     font-size: 12px;
     line-height: 18px;
   }
@@ -83,11 +82,11 @@ hr {
   .techs__info {
     margin: 60px 0 70px;
   }
-  .techs__title {
+  .tech__info__title {
     font-size: 30px;
     margin-bottom: 24px;
   }
-  .techs__subtitle {
+  .tech__info__subtitle {
     font-size: 11px;
     line-height: 16px;
   }
