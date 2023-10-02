@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import BurgerMenu from '../ui/BurgerMenu/BurgerMenu';
 import './App.css';
 import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 
 /** Корневой компонент */
 function App() {
@@ -36,6 +37,7 @@ function App() {
         accountBtnRequired={true} 
       />
       <Main />
+      <Footer />
     </div>
   );
 };

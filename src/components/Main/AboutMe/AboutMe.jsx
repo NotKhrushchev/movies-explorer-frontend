@@ -15,7 +15,7 @@ const AboutMe = ({ portfolioItems = [] }) => {
             <h2 className={'about-me__info__text__title'}>{resources_ru.name}</h2>
             <h3 className={'about-me__info__text__subtitle'}>{resources_ru.profession_age}</h3>
             <p className={'about-me__info__text__about'}>{resources_ru.about_me}</p>
-            <a className={'about-me__info__text__gh-link'} href='https://github.com/NickGeek1' target='_blank' rel='noreferrer'>Github</a>
+            <a className={'about-me__info__text__gh-link'} href={'https://github.com/NickGeek1'} target={'_blank'} rel={'noreferrer'}>Github</a>
           </article>
           <div className={'about-me__info__photo'} />
         </div>
