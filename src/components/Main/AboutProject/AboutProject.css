@@ -93,7 +93,7 @@ hr {
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
   .about-project {
     padding: 70px 18px;
   }

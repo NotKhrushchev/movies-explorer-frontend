@@ -26,7 +26,6 @@ hr {
 .about-me__info {
   margin: 66px 0 100px;
   display: flex;
-  align-items: center;
   gap: 270px;
 }
 
@@ -60,7 +59,7 @@ hr {
   text-decoration: none;
   transition: opacity 0.2s ease-out;
   color: black;
-  margin: auto 0 0
+  margin: auto 0 0;
 }
 
 .about-me__info__text__gh-link:hover {
@@ -127,6 +126,7 @@ hr {
     max-width: 270px;
     min-width: 270px;
     height: 327px;
+    margin: 0 auto;
   }
 }
 
@@ -186,6 +186,14 @@ hr {
   .about-me__info__text__about {
     font-size: 11px;
     line-height: 16px;
+  }
+  .about-me__info__text__gh-link {
+    margin-top: 40px;
+  }
+  .about-me__info__photo {
+    max-width: 292px;
+    min-width: 292px;
+    height: 352px;
   }
   .about-me__portfolio__title {
     font-size: 14px;
