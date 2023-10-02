@@ -77,7 +77,7 @@
   opacity: 0.7
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 640px) {
   .side-bar__menu {
     padding: 144px 0 46px;
     width: 100%;

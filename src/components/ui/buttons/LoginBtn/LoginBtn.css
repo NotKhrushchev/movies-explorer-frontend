@@ -9,7 +9,7 @@
   line-height: 16px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 640px) {
   .login-btn {
     font-size: 10px;
     padding: 5px 12px;

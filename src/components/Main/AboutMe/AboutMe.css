@@ -118,7 +118,7 @@ hr {
 }
 
 .about-me__portfolio__list__item:hover .about-me__portfolio__list__item__icon {
-  transform: rotate(-180deg);
+  transform: rotate(-135deg);
 }
 
 @media screen and (max-width: 1280px) {

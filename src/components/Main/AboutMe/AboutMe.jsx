@@ -6,7 +6,7 @@ import LinkIcon from '../../../images/icons/link-icon.svg';
 
 const AboutMe = ({ portfolioItems = [] }) => {
   return (
-    <section className={'about-me'}>
+    <section className={'about-me'} id='me'>
       <div className={'about-me__content'}>
         <p className={'about-me__header'}>{resources_ru.student}</p>
         <hr />
