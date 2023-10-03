@@ -19,7 +19,7 @@ const Footer = () => {
             >{resources_ru.yandex_pr}</a>
             <a 
               className={'footer__info__links__link'} 
-              href={'https://github.com/NickGeek1'}
+              href={'https://github.com/NotKhrushchev'}
               target={'_blank'} 
               rel={'noreferrer'}
             >Github</a>

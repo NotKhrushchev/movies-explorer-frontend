@@ -3,6 +3,7 @@ export const resources_ru = {
   movies_explorer_logo: 'Логотип movies explorer',
   account_btn_icon: 'Иконка кнопки аккаунт',
   movies: 'Фильмы',
+  movie: 'Фильм',
   saved_movies: 'Сохранённые фильмы',
   burger_menu_icon: 'Иконка бургер-меню',
   main: 'Главная',

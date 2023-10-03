@@ -1,0 +1,11 @@
+.search-movie {
+  background-color: white;
+  padding: 145px 70px 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-movie__content {
+  max-width: 1846px;
+  width: 100%;
+}

@@ -3,7 +3,7 @@ import './BurgerMenu.css';
 import AccountBtn from '../buttons/AccountBtn/AccountBtn';
 import crossIcon from '../../../images/icons/cross-icon.svg';
 import { resources_ru } from '../../../translations/resources_ru';
-import Link from '../buttons/Link/Link';
+import Link from '../Link/Link';
 
 const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
 
