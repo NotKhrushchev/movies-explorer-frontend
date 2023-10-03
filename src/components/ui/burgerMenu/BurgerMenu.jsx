@@ -8,6 +8,9 @@ import Link from '../buttons/Link/Link';
 const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
 
   const hideSideBar = () => {
+    /** Возвращаю скролл страницы при закрытии бокового меню */
+    document.querySelector('body').style.removeProperty('overflow');
+
     setSideBar(false);
   };
 

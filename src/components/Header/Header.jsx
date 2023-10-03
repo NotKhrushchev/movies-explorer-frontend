@@ -12,6 +12,9 @@ import RegBtn from '../ui/buttons/RegBtn/RegBtn';
 const Header = ({ loggedIn = true, setSideBar }) => {
 
   const showSideBar = () => {
+    /** Отключаю скролл страницы при открыитии бокового меню */
+    document.querySelector('body').style.overflow = 'hidden';
+    
     setSideBar(true);
   };
 
