@@ -4,6 +4,8 @@
   color: black;
   display: flex;
   justify-content: center;
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .footer__content {

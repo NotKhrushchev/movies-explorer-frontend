@@ -1,8 +1,9 @@
 import React from 'react';
-import './Techs.css'
+import './Techs.css';
 import { resources_ru } from '../../../translations/resources_ru';
 
 const Techs = () => {
+  
   return (
     <section className={'techs'}>
       <div className={'techs__content'}>

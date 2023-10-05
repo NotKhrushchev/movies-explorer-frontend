@@ -1,8 +1,9 @@
 import React from 'react';
-import './Footer.css'
+import './Footer.css';
 import { resources_ru } from '../../translations/resources_ru';
 
 const Footer = () => {
+  
   return (
     <footer className={'footer'}>
       <div className={'footer__content'}>

@@ -1,10 +1,11 @@
 import React from 'react';
-import './AboutMe.css'
+import './AboutMe.css';
 import { resources_ru } from '../../../translations/resources_ru';
 import Link from '../../ui/Link/Link';
 import LinkIcon from '../../../images/icons/link-icon.svg';
 
 const AboutMe = ({ portfolioItems = [] }) => {
+  
   return (
     <section className={'about-me'} id='me'>
       <div className={'about-me__content'}>

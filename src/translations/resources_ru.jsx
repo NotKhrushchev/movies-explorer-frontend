@@ -32,5 +32,7 @@ export const resources_ru = {
   portfolio: 'Портфолио',
   link_icon: 'Иконка ссылки',
   stud_project: 'Учебный проект Яндекс.Практикум х BeatFilm.',
-  yandex_pr: 'Яндекс.Практикум'
+  yandex_pr: 'Яндекс.Практикум',
+  find: 'Найти',
+  short_films: 'Короткометражки'
 }

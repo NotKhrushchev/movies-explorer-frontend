@@ -20,7 +20,9 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+  min-width: 320px;
   color: white;
+  background-color: white;
   position: relative;
   margin: 0 auto;
 }

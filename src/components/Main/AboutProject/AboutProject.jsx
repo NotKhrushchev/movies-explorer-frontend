@@ -1,8 +1,9 @@
 import React from 'react';
-import './AboutProject.css'
+import './AboutProject.css';
 import { resources_ru } from '../../../translations/resources_ru';
 
 const AboutProject = () => {
+  
   return (
     <section className={'about-project'}>
       <div className={'about-project__content'}>
