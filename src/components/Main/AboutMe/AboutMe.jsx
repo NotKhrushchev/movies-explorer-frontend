@@ -12,7 +12,7 @@ const AboutMe = ({ portfolioItems = [] }) => {
         <hr />
         <div className={'about-me__info'}>
           <article className={'about-me__text'}>
-            <h2 className={'about-me__text__title'}>{resources_ru.name}</h2>
+            <h2 className={'about-me__text__title'}>{resources_ru.student_name}</h2>
             <h3 className={'about-me__text__subtitle'}>{resources_ru.profession_age}</h3>
             <p className={'about-me__text__about'}>{resources_ru.about_me}</p>
             <a className={'about-me__text__gh-link'} href={'https://github.com/NotKhrushchev'} target={'_blank'} rel={'noreferrer'}>Github</a>

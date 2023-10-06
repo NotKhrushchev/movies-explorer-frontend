@@ -6,7 +6,7 @@
 .movies-card__poster {
   min-width: 100%;
   aspect-ratio: 270 / 151;
-  background-color: black;
+  background-color: #E8E8E8;
   object-fit: cover;
 }
 

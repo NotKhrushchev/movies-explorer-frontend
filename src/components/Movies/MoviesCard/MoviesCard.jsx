@@ -19,7 +19,7 @@ const MoviesCard = ({ movie }) => {
         <p className={'movies-card__name'}>{movie.nameRU}</p>
         <LikeBtn />
       </div>
-      <hr/>
+      <hr />
       <span className={'movies-card__duration'}>{convertDurationToHours()}</span>
     </article>
   );
