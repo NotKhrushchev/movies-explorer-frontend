@@ -154,8 +154,8 @@ const MoviesCardList = () => {
   return (
     <section className={'movies-card-list'}>
       <div className={'movies-card-list__movies'}>
-        {movies.map(movie => (
-          <MoviesCard movie={movie} />
+        {movies.map((movie, index) => (
+          <MoviesCard movie={movie} key={index} />
         ))}
       </div>
     </section>
