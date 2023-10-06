@@ -17,12 +17,12 @@
   height: 304px;
 }
 
-.promo__info__find-out-btn {
+.promo__find-out-btn {
   margin-top: auto;
   margin-bottom: 0;
 }
 
-.promo__info__title {
+.promo__title {
   margin: 0;
   color: white;
   font-size: 50px;
@@ -30,7 +30,7 @@
   line-height: 58px;
 }
 
-.promo__info__subtitle {
+.promo__subtitle {
   color: rgba(255, 255, 255, 0.500);
   font-size: 13px;
   font-weight: normal;
@@ -49,14 +49,14 @@
     align-items: center;
     text-align: center;
   }
-  .promo__info__title {
+  .promo__title {
     font-size: 40px;
     line-height: 50px;
   }
-  .promo__info__subtitle {
+  .promo__subtitle {
     margin-top: 22px;
   }
-  .promo__info__find-out-btn {
+  .promo__find-out-btn {
     margin-top: 92px;
   }
 }
@@ -65,18 +65,18 @@
   .promo {
     padding: 145px 10px 30px;
   }
-  .promo__info__title {
+  .promo__title {
     font-size: 30px;
     line-height: 38px;
   }
-  .promo__info__subtitle {
+  .promo__subtitle {
     margin-top: 24px;
   }
   .promo__picture {
     width: 210px;
     height: 206px;
   }
-  .promo__info__find-out-btn {
+  .promo__find-out-btn {
     margin-top: 80px;
   }
 }

@@ -16,11 +16,11 @@ const MoviesCard = ({ movie }) => {
     <article className={'movies-card'}>
       <img className={'movies-card__poster'} src={movie.image} alt={resources_ru.movie_poster} />
       <div className={'movies-card__info'}>
-        <p className={'movies-card__info__name'}>{movie.nameRU}</p>
+        <p className={'movies-card__name'}>{movie.nameRU}</p>
         <LikeBtn />
       </div>
       <hr/>
-      <p className={'movies-card__duration'}>{convertDurationToHours()}</p>
+      <span className={'movies-card__duration'}>{convertDurationToHours()}</span>
     </article>
   );
 };

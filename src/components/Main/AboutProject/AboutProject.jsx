@@ -10,13 +10,13 @@ const AboutProject = () => {
         <p className={'about-project__header'}>{resources_ru.about_project}</p>
         <hr />
         <section className={'about-project__info'}>
-          <div className={'about-project__info__about'}>
-            <h2 className={'about-project__info__about__title'}>{resources_ru.diploma_stages}</h2>
-            <p className={'about-project__info__about__subtitle'}>{resources_ru.diploma_stages_info}</p>
+          <div className={'about-project__about'}>
+            <h2 className={'about-project__about__title'}>{resources_ru.diploma_stages}</h2>
+            <p className={'about-project__about__subtitle'}>{resources_ru.diploma_stages_info}</p>
           </div>
-          <div className={'about-project__info__about'}>
-            <h2 className={'about-project__info__about__title'}>{resources_ru.diploma_weeks}</h2>
-            <p className={'about-project__info__about__subtitle'}>{resources_ru.diploma_weeks_info}</p>
+          <div className={'about-project__about'}>
+            <h2 className={'about-project__about__title'}>{resources_ru.diploma_weeks}</h2>
+            <p className={'about-project__about__subtitle'}>{resources_ru.diploma_weeks_info}</p>
           </div>
         </section>
         <section className={'about-project__progress'}>

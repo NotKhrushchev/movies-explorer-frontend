@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
 import { sideBarLinks } from '../../utils/constants';
 import Movies from '../Movies/Movies';
+import Profile from '../Profile/Profile';
 
 /** Корневой компонент */
 function App() {
@@ -24,6 +25,10 @@ function App() {
         <Route 
           path='/movies' 
           element={<Movies />} 
+        />
+        <Route 
+          path='/profile' 
+          element={<Profile />} 
         />
       </Routes>
       <BurgerMenu 

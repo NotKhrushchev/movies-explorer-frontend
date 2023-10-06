@@ -31,13 +31,11 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
             </li>
           )}
         </ul>
-        {accountBtnRequired && 
-          <AccountBtn 
+        <AccountBtn 
             btnBEMRelate={'side-bar__menu__account-btn'} 
             iconBEMRelate={'side-bar__menu__account-btn__icon'} 
             isMainPage={false}
-          />
-        }
+        />
       </div>
     </nav>
   );

@@ -28,31 +28,31 @@ hr {
   gap: 270px;
 }
 
-.about-me__info__text {
+.about-me__text {
   display: flex;
   flex-direction: column;
 }
 
-.about-me__info__text__title {
+.about-me__text__title {
   font-size: 50px;
   font-weight: 400;
   line-height: 58px;
   margin-bottom: 18px;
 }
 
-.about-me__info__text__subtitle {
+.about-me__text__subtitle {
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
   margin-bottom: 26px;
 }
 
-.about-me__info__text__about {
+.about-me__text__about {
   font-size: 14px;
   line-height: 22px;
 }
 
-.about-me__info__text__gh-link {
+.about-me__text__gh-link {
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -61,11 +61,11 @@ hr {
   margin: auto 0 0;
 }
 
-.about-me__info__text__gh-link:hover {
+.about-me__text__gh-link:hover {
   opacity: 0.7;
 }
 
-.about-me__info__photo {
+.about-me__photo {
   max-width: 370px;
   min-width: 370px;
   height: 427px;
@@ -101,6 +101,8 @@ hr {
 }
 
 .about-me__portfolio__list__item__link {
+  text-decoration: none;
+  color: black;
   font-size: 30px;
   font-weight: 400;
   line-height: 50px;
@@ -121,7 +123,7 @@ hr {
 }
 
 @media screen and (max-width: 1280px) {
-  .about-me__info__photo {
+  .about-me__photo {
     max-width: 270px;
     min-width: 270px;
     height: 327px;
@@ -137,21 +139,21 @@ hr {
     margin-bottom: 90px;
     gap: 50px;
   }
-  .about-me__info__text__title {
+  .about-me__text__title {
     font-size: 40px;
     line-height: 40px;
     margin-bottom: 16px;
   }
-  .about-me__info__text__subtitle {
+  .about-me__text__subtitle {
     font-size: 12px;
     line-height: 18px;
     margin-bottom: 20px;
   }
-  .about-me__info__text__about {
+  .about-me__text__about {
     font-size: 12px;
     line-height: 18px;
   }
-  .about-me__info__photo {
+  .about-me__photo {
     max-width: 255px;
     min-width: 255px;
     height: 307px;
@@ -173,23 +175,23 @@ hr {
     margin-bottom: 90px;
     gap: 40px;
   }
-  .about-me__info__text__title {
+  .about-me__text__title {
     font-size: 30px;
     line-height: normal;
     margin-bottom: 20px;
   }
-  .about-me__info__text__subtitle {
+  .about-me__text__subtitle {
     font-size: 11px;
     line-height: 16px;
   }
-  .about-me__info__text__about {
+  .about-me__text__about {
     font-size: 11px;
     line-height: 16px;
   }
-  .about-me__info__text__gh-link {
+  .about-me__text__gh-link {
     margin-top: 40px;
   }
-  .about-me__info__photo {
+  .about-me__photo {
     max-width: 292px;
     min-width: 292px;
     height: 352px;

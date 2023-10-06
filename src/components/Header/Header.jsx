@@ -42,8 +42,7 @@ const Header = ({ loggedIn = true, setSideBar }) => {
             />
           </nav>
           <AccountBtn
-            btnBEMRelate={'header__account-btn'} 
-            iconBEMRelate={'header__account-btn__icon'} 
+            additionalClass={'header__account-btn'} 
             isMainPage={isMainPage}
           />
           <img 

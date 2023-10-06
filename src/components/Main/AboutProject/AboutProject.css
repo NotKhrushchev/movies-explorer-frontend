@@ -22,13 +22,13 @@
   justify-content: space-between;
 }
 
-.about-project__info__about__title {
+.about-project__about__title {
   font-size: 20px;
   font-weight: normal;
   margin-bottom: 26px;
 }
 
-.about-project__info__about__subtitle {
+.about-project__about__subtitle {
   font-size: 14px;
   font-weight: normal;
   line-height: 20px;
@@ -83,10 +83,10 @@ hr {
     margin: 70px 0 93px;
     gap: 30px;
   }
-  .about-project__info__about__title {
+  .about-project__about__title {
     margin-bottom: 22px;
   }
-  .about-project__info__about__subtitle {
+  .about-project__about__subtitle {
     font-size: 12px;
     line-height: 18px;
   }
@@ -104,11 +104,11 @@ hr {
     gap: 56px;
     flex-direction: column;
   }
-  .about-project__info__about__title {
+  .about-project__about__title {
     margin-bottom: 16px;
     font-size: 18px;
   }
-  .about-project__info__about__subtitle {
+  .about-project__about__subtitle {
     font-size: 11px;
     line-height: 16px;
   }

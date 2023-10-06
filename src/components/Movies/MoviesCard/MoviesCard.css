@@ -17,7 +17,7 @@
   justify-content: space-between;
 }
 
-.movies-card__info__name {
+.movies-card__name {
   font-size: 13px;
   font-weight: 500;
 }
@@ -36,7 +36,7 @@ hr {
 }
 
 @media screen and (max-width: 600px) {
-  .movies-card__info__name {
+  .movies-card__name {
     font-size: 12px;
   }
   .movies-card__duration {
