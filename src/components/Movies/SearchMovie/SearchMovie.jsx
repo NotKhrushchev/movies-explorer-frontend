@@ -7,7 +7,7 @@ import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox';
 const SearchMovie = () => {
 
   return (
-    <div className={'search-movie'}>
+    <section className={'search-movie'}>
       <div className={'search-movie__content'}>
         <form className={'form'} name={`search-movie-form`} onSubmit={() => {}}>
           <input 
@@ -20,7 +20,7 @@ const SearchMovie = () => {
         </form>
         <FilterCheckbox />
       </div>
-    </div>
+    </section>
   );
 };
 

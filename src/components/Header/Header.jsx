@@ -23,7 +23,7 @@ const Header = ({ loggedIn = true, setSideBar }) => {
 
   return (
     <header className={`header ${isMainPage && 'header_main'}`}>
-      <img src={moviesExplorerLogo} alt={resources_ru.movies_explorer_logo} draggable={false} />
+      <img src={moviesExplorerLogo} alt={resources_ru.movies_explorer_logo} draggable={false} className={'header__logo'} />
       {loggedIn === true
         ?
         <>

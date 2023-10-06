@@ -34,5 +34,8 @@ export const resources_ru = {
   stud_project: 'Учебный проект Яндекс.Практикум х BeatFilm.',
   yandex_pr: 'Яндекс.Практикум',
   find: 'Найти',
-  short_films: 'Короткометражки'
+  short_films: 'Короткометражки',
+  movie_poster: 'Постер фильма',
+  hours: 'ч',
+  minutes: 'м'
 }
