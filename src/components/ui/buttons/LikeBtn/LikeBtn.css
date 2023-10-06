@@ -2,4 +2,9 @@
   background-image: url(../../../../images/icons/like-btn-icon.svg);
   width: 24px;
   height: 24px;
+  transition: background-image 0.2s;
+}
+
+.like-btn:hover {
+  background-image: url(../../../../images/icons/like-btn-hovered-btn.svg);
 }
