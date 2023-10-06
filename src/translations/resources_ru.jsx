@@ -37,5 +37,6 @@ export const resources_ru = {
   short_films: 'Короткометражки',
   movie_poster: 'Постер фильма',
   hours: 'ч',
-  minutes: 'м'
+  minutes: 'м',
+  more: 'Ещё'
 }

@@ -1,7 +1,8 @@
 .movies-card-list {
   padding: 70px 70px 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .movies-card-list__movies {
@@ -11,6 +12,10 @@
   max-width: 1846px;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 38px 20px;
+}
+
+.movies-card-list__loader {
+  padding: 50px 0 80px;
 }
 
 @media screen and (max-width: 1024px) {

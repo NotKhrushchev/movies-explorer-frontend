@@ -1,6 +1,7 @@
 import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
+import LoadMoreBtn from '../../ui/buttons/LoadMoreBtn/LoadMoreBtn';
 
 const MoviesCardList = () => {
 
@@ -157,6 +158,9 @@ const MoviesCardList = () => {
         {movies.map((movie, index) => (
           <MoviesCard movie={movie} key={index} />
         ))}
+      </div>
+      <div className={'movies-card-list__loader'}>
+        <LoadMoreBtn />
       </div>
     </section>
   );
