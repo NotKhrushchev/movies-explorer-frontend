@@ -1,11 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import './Link.css';
 
-const Link = ({ linkBEMRelate, wayTo, title, isMainPage, onClick }) => {
+const Link = ({ addtlClass, wayTo, title }) => {
   
   return (
-    <NavLink to={wayTo} className={`link ${linkBEMRelate} ${isMainPage && 'link_main'}`} onClick={onClick}>{title}</NavLink>
+    <a href={wayTo} className={`link ${addtlClass}`} target={'_blank'} rel={'noreferrer'}>{title}</a>
   );
 };
 

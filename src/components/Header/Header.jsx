@@ -3,14 +3,14 @@ import moviesExplorerLogo from '../../images/logo/movies-explorer-logo.svg';
 import './Header.css';
 import AccountBtn from '../ui/buttons/AccountBtn/AccountBtn';
 import { resources_ru } from '../../translations/resources_ru';
-import Link from '../ui/Link/Link';
+import NLink from '../ui/NLink/NLink';
 import burgerMenuIconBright from '../../images/icons/burger-menu-icon-bright.svg';
 import burgerMenuIconDark from '../../images/icons/burger-menu-icon-dark.svg';
 import LoginBtn from '../ui/buttons/LoginBtn/LoginBtn';
 import RegBtn from '../ui/buttons/RegBtn/RegBtn';
 import { useLocation } from 'react-router-dom';
 
-const Header = ({ loggedIn = true, setSideBar }) => {
+const Header = ({ loggedIn = false, setSideBar }) => {
 
   const isMainPage = !useLocation().pathname.split('/').pop();
 
@@ -28,21 +28,21 @@ const Header = ({ loggedIn = true, setSideBar }) => {
         ?
         <>
           <nav className='header__nav'>
-            <Link 
-              linkBEMRelate={'header__nav__link'} 
+            <NLink 
+              addtlClass={'header__nav__link'} 
               wayTo={'/movies'} 
               title={resources_ru.movies} 
               isMainPage={isMainPage} 
             />
-            <Link 
-              linkBEMRelate={'header__nav__link'} 
+            <NLink 
+              addtlClass={'header__nav__link'} 
               wayTo={'/saved-movies'} 
               title={resources_ru.saved_movies} 
               isMainPage={isMainPage} 
             />
           </nav>
           <AccountBtn
-            additionalClass={'header__account-btn'} 
+            addtlClass={'header__account-btn'} 
             isMainPage={isMainPage}
           />
           <img 
@@ -56,8 +56,8 @@ const Header = ({ loggedIn = true, setSideBar }) => {
         :
         <>
           <nav className={'header__auth-nav'}>
-            <RegBtn btnBEMRelate={'header__auth-nav__reg-btn'} />
-            <LoginBtn btnBEMRelate={'header__auth-nav__login-btn'} />
+            <RegBtn addtlClass={'header__auth-nav__reg-btn'} />
+            <LoginBtn addtlClass={'header__auth-nav__login-btn'} />
           </nav>
         </>
       }

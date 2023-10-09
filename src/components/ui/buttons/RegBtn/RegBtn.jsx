@@ -4,10 +4,10 @@ import '../Btn.css';
 import './RegBtn.css';
 import { resources_ru } from '../../../../translations/resources_ru';
 
-const RegBtn = ({ btnBEMRelate }) => {
+const RegBtn = ({ addtlClass }) => {
   
   return (
-    <NavLink to='/signup' className={`${btnBEMRelate} btn reg-btn`}>
+    <NavLink to='/signup' className={`${addtlClass} btn reg-btn`}>
       {resources_ru.registration}
     </NavLink>
   );

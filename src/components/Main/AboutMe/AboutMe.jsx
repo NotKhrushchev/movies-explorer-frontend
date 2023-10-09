@@ -2,6 +2,7 @@ import React from 'react';
 import './AboutMe.css';
 import { resources_ru } from '../../../translations/resources_ru';
 import LinkIcon from '../../../images/icons/link-icon.svg';
+import Link from '../../ui/Link/Link';
 
 const AboutMe = ({ portfolioItems = [] }) => {
   
@@ -15,7 +16,11 @@ const AboutMe = ({ portfolioItems = [] }) => {
             <h2 className={'about-me__text__title'}>{resources_ru.student_name}</h2>
             <h3 className={'about-me__text__subtitle'}>{resources_ru.profession_age}</h3>
             <p className={'about-me__text__about'}>{resources_ru.about_me}</p>
-            <a className={'about-me__text__gh-link'} href={'https://github.com/NotKhrushchev'} target={'_blank'} rel={'noreferrer'}>Github</a>
+            <Link 
+              addtlClass={'about-me__text__gh-link'} 
+              wayTo={'https://github.com/NotKhrushchev'} 
+              title={'Github'}
+            />
           </article>
           <div className={'about-me__photo'} />
         </div>
@@ -24,10 +29,11 @@ const AboutMe = ({ portfolioItems = [] }) => {
           <ul className={'about-me__portfolio__list'}>
             {portfolioItems.map((item, index) => 
               <li className={'about-me__portfolio__list__item'} key={index}>
-                <a 
-                  className={'about-me__portfolio__list__item__link'} 
-                  href={item.wayTo}
-                >{item.title}</a>
+                <Link 
+                  addtlClass={'about-me__portfolio__list__item__link'} 
+                  wayTo={item.wayTo}
+                  title={item.title}
+                />
                 <img src={LinkIcon} alt={resources_ru.link_icon} className={'about-me__portfolio__list__item__icon'} />
               </li>
             )}

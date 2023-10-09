@@ -2,11 +2,16 @@ import React from 'react';
 import '../Btn.css';
 import './FindOutBtn.css';
 import { resources_ru } from '../../../../translations/resources_ru';
+import NLink from '../../NLink/NLink';
 
-const FindOutBtn = ({ btnBEMRelate, moveTo }) => {
+const FindOutBtn = ({ addtlClass }) => {
   
   return (
-    <a href={moveTo} className={`${btnBEMRelate} btn find-out-btn`}>{resources_ru.find_out}</a>
+    <NLink 
+      wayTo={'#me'} 
+      addtlClass={`${addtlClass} btn find-out-btn`}
+      title={resources_ru.find_out}
+    />
   );
 };
 

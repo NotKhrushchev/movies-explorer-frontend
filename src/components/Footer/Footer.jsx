@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { resources_ru } from '../../translations/resources_ru';
+import Link from '../ui/Link/Link';
 
 const Footer = () => {
   
@@ -12,18 +13,16 @@ const Footer = () => {
         <div className={'footer__info'}>
           <p className={'footer__info__year'}>© 2023</p>
           <div className={'footer__info__links'}>
-            <a 
-              className={'footer__info__links__link'} 
-              href={'https://practicum.yandex.ru/'} 
-              target={'_blank'} 
-              rel={'noreferrer'}
-            >{resources_ru.yandex_pr}</a>
-            <a 
-              className={'footer__info__links__link'} 
-              href={'https://github.com/NotKhrushchev'}
-              target={'_blank'} 
-              rel={'noreferrer'}
-            >Github</a>
+            <Link 
+              addtlClass={'footer__info__links__link'} 
+              wayTo={'https://practicum.yandex.ru/'} 
+              title={resources_ru.yandex_pr}
+            />
+            <Link 
+              addtlClass={'footer__info__links__link'} 
+              wayTo={'https://github.com/NotKhrushchev'}
+              title={'Github'}
+            />
           </div>
         </div>
       </div>

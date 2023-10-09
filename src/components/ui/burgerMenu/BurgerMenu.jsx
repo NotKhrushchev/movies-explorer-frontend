@@ -3,9 +3,9 @@ import './BurgerMenu.css';
 import AccountBtn from '../buttons/AccountBtn/AccountBtn';
 import crossIcon from '../../../images/icons/cross-icon.svg';
 import { resources_ru } from '../../../translations/resources_ru';
-import Link from '../Link/Link';
+import NLink from '../NLink/NLink';
 
-const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
+const BurgerMenu = ({ sideBar, setSideBar, navItems }) => {
 
   const hideSideBar = () => {
     /** Возвращаю скролл страницы при закрытии бокового меню */
@@ -22,9 +22,9 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
         <ul className={'side-bar__menu__items'}>
           {navItems.map((item, index) => 
             <li className={'side-bar__menu__items__item'} key={index}>
-              <Link 
-                linkBEMRelate={'side-bar__menu__items__item__link'} 
-                wayTo={item.wayTo} 
+              <NLink
+                addtlClass={'side-bar__menu__items__item__link'} 
+                wayTo={item.wayTo}
                 title={item.title} 
                 onClick={hideSideBar} 
               />
@@ -32,8 +32,7 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems, accountBtnRequired }) => {
           )}
         </ul>
         <AccountBtn 
-            btnBEMRelate={'side-bar__menu__account-btn'} 
-            iconBEMRelate={'side-bar__menu__account-btn__icon'} 
+            addtlClass={'side-bar__menu__account-btn'} 
             isMainPage={false}
         />
       </div>

@@ -1,0 +1,20 @@
+.nlink {
+  text-decoration: none;
+  color: black;
+  transition: opacity 0.2s ease-out;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.nlink.active {
+  font-weight: 500;
+}
+
+.nlink_main {
+  color: white !important;
+}
+
+.nlink:hover {
+  opacity: 0.7;
+}

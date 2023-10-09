@@ -19,8 +19,8 @@ const Profile = () => {
         </div>
       </div>
       <div className={'profile__controlls'}>
-        <AccountActionsBtn additionalClass={'profile__edit-btn'} text={resources_ru.edit} />
-        <AccountActionsBtn additionalClass={'profile__logout-btn'} text={resources_ru.logout} />
+        <AccountActionsBtn addtlClass={'profile__edit-btn'} text={resources_ru.edit} />
+        <AccountActionsBtn addtlClass={'profile__logout-btn'} text={resources_ru.logout} />
       </div>
     </div>
   );

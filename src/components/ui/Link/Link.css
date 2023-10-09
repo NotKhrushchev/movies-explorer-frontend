@@ -1,20 +1,9 @@
 .link {
-  text-decoration: none;
-  color: black;
-  transition: opacity 0.2s ease-out;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 18px;
-}
-
-.link.active {
-  font-weight: 500;
-}
-
-.link_main {
-  color: white;
+    text-decoration: none;
+    color: black;
+    transition: opacity 0.2s;
 }
 
 .link:hover {
-  opacity: 0.7;
+    opacity: 0.7;
 }

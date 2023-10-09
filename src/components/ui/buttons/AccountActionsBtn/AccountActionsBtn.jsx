@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AccountActionsBtn = ({ additionalClass, text }) => {
+const AccountActionsBtn = ({ addtlClass, text }) => {
   return (
-    <button className={`btn ${additionalClass}`}>{text}</button>
+    <button className={`btn ${addtlClass}`}>{text}</button>
   );
 };
 
