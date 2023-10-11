@@ -7,8 +7,8 @@ import { resources_ru } from '../../../../translations/resources_ru';
 const RegBtn = ({ addtlClass }) => {
   
   return (
-    <NavLink to='/signup' className={`${addtlClass} btn reg-btn`}>
-      {resources_ru.registration}
+    <NavLink to='/signup' className={`${addtlClass} btn`}>
+      {resources_ru.register}
     </NavLink>
   );
 };

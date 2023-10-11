@@ -3,6 +3,7 @@ import { resources_ru } from '../../../translations/resources_ru';
 import './FilterCheckbox.css';
 
 const FilterCheckbox = () => {
+  
   return (
     <div className={'filter-checkbox'}>
       <label className={'switch'}>

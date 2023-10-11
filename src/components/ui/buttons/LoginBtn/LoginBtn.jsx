@@ -7,7 +7,7 @@ import { resources_ru } from '../../../../translations/resources_ru';
 const LoginBtn = ({ addtlClass }) => {
   
   return (
-    <NavLink to='/signin' className={`${addtlClass} btn login-btn`}>
+    <NavLink to='/signin' className={`${addtlClass} btn`}>
       {resources_ru.login}
     </NavLink>
   );

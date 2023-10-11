@@ -11,7 +11,7 @@
   flex-direction: column;
 }
 
-.form {
+.search-movie__form {
   width: 100%;
   border-bottom: 1px solid #A0A0A0;
   display: flex;
@@ -19,12 +19,22 @@
   padding-bottom: 13px;
 }
 
-.form__input {
+.search-movie__form__input {
   width: 100%;
   font-size: 28px;
   font-weight: 500;
   border: none;
   outline: none;
+}
+
+.search-movie__form__find-btn {
+  padding: 8px 10px;
+  color: white;
+  background-color: #3456F3;
+  border-radius: 48px;
+  font-size: 11px;
+  line-height: 18px;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -33,14 +43,14 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .search-movie {
     padding: 164px 14px 51px;
   }
-  .form {
+  .search-movie__form {
     padding-bottom: 15px;
   }
-  .form__input {
+  .search-movie__form__input {
     font-size: 18px;
     line-height: normal;
   }

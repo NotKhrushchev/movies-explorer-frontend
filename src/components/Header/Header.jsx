@@ -56,8 +56,8 @@ const Header = ({ loggedIn = false, setSideBar }) => {
         :
         <>
           <nav className={'header__auth-nav'}>
-            <RegBtn addtlClass={'header__auth-nav__reg-btn'} />
-            <LoginBtn addtlClass={'header__auth-nav__login-btn'} />
+            <RegBtn addtlClass={'header__reg-btn'} />
+            <LoginBtn addtlClass={'header__login-btn'} />
           </nav>
         </>
       }

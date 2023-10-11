@@ -14,6 +14,13 @@
   gap: 38px 20px;
 }
 
+.movies-card-list__load-more-btn {
+  padding: 11px 148px;
+  background-color: #F9F9F9;
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .movies-card-list__loader {
   padding: 50px 0 80px;
 }
@@ -27,11 +34,14 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .movies-card-list {
     padding: 40px 10px 10px;
   }
   .movies-card-list__movies {
     gap: 34px;
+  }
+  .movies-card-list__load-more-btn {
+    padding: 11px 108px;
   }
 }

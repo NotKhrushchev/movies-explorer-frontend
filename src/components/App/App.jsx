@@ -8,15 +8,18 @@ import { Route, Routes } from 'react-router-dom';
 import { sideBarLinks } from '../../utils/constants';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
+import Register from '../Register/Register';
+import LoginBtn from '../ui/buttons/LoginBtn/LoginBtn';
 
 /** Корневой компонент */
 function App() {
   
   const [sideBar, setSideBar] = useState(false);
+  const loggedIn = false;
   
   return (
     <div className={'app'}>
-      <Header setSideBar={setSideBar} />
+      {loggedIn && <Header setSideBar={setSideBar} />}
       <Routes>
         <Route 
           path='/' 
@@ -30,6 +33,14 @@ function App() {
           path='/profile' 
           element={<Profile />} 
         />
+        <Route 
+          path='/signup' 
+          element={<Register />} 
+        />
+        <Route 
+          path='/signin' 
+          element={<LoginBtn />} 
+        />
       </Routes>
       <BurgerMenu 
         sideBar={sideBar} 
@@ -37,7 +48,7 @@ function App() {
         navItems={sideBarLinks} 
         accountBtnRequired={true} 
       />
-      <Footer />
+      {loggedIn && <Footer />}
     </div>
   );
 };

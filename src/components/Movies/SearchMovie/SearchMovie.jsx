@@ -1,22 +1,28 @@
 import React from 'react';
 import './SearchMovie.css';
 import { resources_ru } from '../../../translations/resources_ru';
-import FindBtn from '../../ui/buttons/FindBtn/FindBtn';
 import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox';
+import Btn from '../../ui/buttons/Btn';
 
 const SearchMovie = () => {
 
   return (
     <section className={'search-movie'}>
       <div className={'search-movie__content'}>
-        <form className={'form'} name={`search-movie-form`} onSubmit={() => {}}>
-          <input 
-            className={'form__input'} 
-            type={'text'} 
+        <form className={'search-movie__form'} name={`search-movie-form`} onSubmit={() => {}}>
+          <input
+            className={'search-movie__form__input'} 
+            type={'text'}
             id={'search-input'} 
+            name={'search-input'}
             placeholder={resources_ru.movie} 
           />
-          <FindBtn />
+          <Btn
+            addtlClass={'search-movie__form__find-btn'}
+            text={resources_ru.find}
+            ariaLabel={resources_ru.find}
+            type={'submit'}
+          />
         </form>
         <FilterCheckbox />
       </div>

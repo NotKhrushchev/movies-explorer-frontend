@@ -10,6 +10,17 @@
   object-fit: cover;
 }
 
+.movies-card__like-btn {
+  background-image: url(../../../images/icons/like-btn-icon.svg);
+  width: 24px;
+  height: 24px;
+  transition: background-image 0.2s;
+}
+
+.movies-card__like-btn:hover {
+  background-image: url(../../../images/icons/like-btn-hovered-btn.svg);
+}
+
 .movies-card__info {
   margin: 14px 0 29px;
   display: flex;
@@ -35,7 +46,7 @@ hr {
   font-size: 11px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .movies-card__name {
     font-size: 12px;
   }
