@@ -40,14 +40,17 @@
   border-bottom: 1px solid #E8E8E8;
 }
 
-.auth__form__input:focus ~ .auth__form__input-label {
+.auth__form__input:focus ~ .auth__form__input-label,
+.auth__form__input:valid ~ .auth__form__input-label {
   transform: translateY(-15px);
   font-size: 10px;
 }
 
-.auth__form__input:valid ~ .auth__form__input-label {
-  transform: translateY(-15px);
-  font-size: 10px;
+.auth__form__input:valid {
+  border-bottom: 1px solid #3456F3;
+}
+.auth__form__input-invalid {
+  color: #FF3055;
 }
 
 .auth__form__input-label {
