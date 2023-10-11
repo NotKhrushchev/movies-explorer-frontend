@@ -10,7 +10,7 @@ import LoginBtn from '../ui/buttons/LoginBtn/LoginBtn';
 import RegBtn from '../ui/buttons/RegBtn/RegBtn';
 import { useLocation } from 'react-router-dom';
 
-const Header = ({ loggedIn = false, setSideBar }) => {
+const Header = ({ loggedIn = true, setSideBar }) => {
 
   const isMainPage = !useLocation().pathname.split('/').pop();
 

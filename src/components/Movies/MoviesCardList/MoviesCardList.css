@@ -10,7 +10,7 @@
   justify-content: center;
   width: 100%;
   max-width: 1846px;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, 270px);
   gap: 38px 20px;
 }
 
@@ -30,6 +30,7 @@
     padding: 70px 30px 10px;
   }
   .movies-card-list__movies {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 339px));
     gap: 30px;
   }
 }

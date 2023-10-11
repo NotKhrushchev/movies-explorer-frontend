@@ -10,12 +10,14 @@ import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import SavedMovies from '../Movies/SavedMovies';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 /** Корневой компонент */
 function App() {
   
   const [sideBar, setSideBar] = useState(false);
-  const loggedIn = false;
+  const loggedIn = true;
   
   return (
     <div className={'app'}>
@@ -30,6 +32,10 @@ function App() {
           element={<Movies />} 
         />
         <Route 
+          path='/saved-movies' 
+          element={<SavedMovies />} 
+        />
+        <Route 
           path='/profile' 
           element={<Profile />} 
         />
@@ -39,7 +45,11 @@ function App() {
         />
         <Route 
           path='/signin' 
-          element={<Login/>} 
+          element={<Login />} 
+        />
+        <Route 
+          path='/*' 
+          element={<NotFoundPage />} 
         />
       </Routes>
       <BurgerMenu 

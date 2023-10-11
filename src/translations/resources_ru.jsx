@@ -49,5 +49,7 @@ export const resources_ru = {
   more: 'Ещё',
   hello: 'Привет',
   name: 'Имя',
-  edit: 'Редактировать'
+  edit: 'Редактировать',
+  page_not_found: 'Страница не найдена',
+  back: 'Назад'
 }
