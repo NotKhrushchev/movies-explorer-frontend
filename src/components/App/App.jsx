@@ -9,7 +9,7 @@ import { sideBarLinks } from '../../utils/constants';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
-import LoginBtn from '../ui/buttons/LoginBtn/LoginBtn';
+import Login from '../Login/Login';
 
 /** Корневой компонент */
 function App() {
@@ -39,7 +39,7 @@ function App() {
         />
         <Route 
           path='/signin' 
-          element={<LoginBtn />} 
+          element={<Login/>} 
         />
       </Routes>
       <BurgerMenu 

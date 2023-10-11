@@ -2,13 +2,8 @@ import React from 'react';
 import Auth from '../ui/Auth/Auth';
 import { resources_ru } from '../../translations/resources_ru';
 
-const Register = () => {
+const Login = () => {
   const inputFields = [
-    {
-      type: 'text',
-      name: 'name-input',
-      text: resources_ru.name
-    },
     {
       type: 'text',
       name: 'email-input',
@@ -23,12 +18,12 @@ const Register = () => {
 
   return (
     <Auth
-      type={'signup'}
-      title={resources_ru.welcome}
-      submitBtnText={resources_ru.submit_register}
+      type={'signin'}
+      title={resources_ru.glad_to_see}
+      submitBtnText={resources_ru.login}
       inputFields={inputFields}
     />
   );
 };
 
-export default Register;
+export default Login;

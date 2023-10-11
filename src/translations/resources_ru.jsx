@@ -12,6 +12,7 @@ export const resources_ru = {
   login: 'Войти',
   logout: 'Выйти из аккаунта',
   welcome: 'Добро пожаловать!',
+  glad_to_see: 'Рады видеть!',
   register: 'Регистрация',
   submit_register: 'Зарегистрироваться',
   password: 'Пароль',

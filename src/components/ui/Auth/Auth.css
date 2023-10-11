@@ -11,6 +11,7 @@
   align-items: baseline;
   display: flex;
   flex-direction: column;
+  height: 560px;
 }
 
 .auth__form__title {
@@ -40,11 +41,12 @@
 }
 
 .auth__form__input:focus ~ .auth__form__input-label {
-  transform: translateY(-20px);
+  transform: translateY(-15px);
   font-size: 10px;
 }
-.auth__form__input:active ~ .auth__form__input-label {
-  transform: translateY(-20px);
+
+.auth__form__input:valid ~ .auth__form__input-label {
+  transform: translateY(-15px);
   font-size: 10px;
 }
 
@@ -62,13 +64,20 @@
   margin-top: 6px;
 }
 
+.auth__form__actions {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0 0;
+}
+
 .auth__form__submit-btn {
   color: white;
   background-color: #3456F3;
-  padding: 14px 125px;
+  padding: 14px 0;
+  width: 396px;
   border-radius: 3px;
   font-size: 14px;
-  margin: 135px 0 16px;
+  margin-bottom: 16px;
 }
 
 .auth__form__prompt {
@@ -81,13 +90,10 @@
   color: #3456F3;
 }
 
-@media screen and (max-width: 1024px) {
-
-}
-
 @media screen and (max-width: 640px) {
   .auth__form {
     align-items: center;
+    height: 695px;
   }
   .auth__form__title {
     margin: 50px 0 80px;
@@ -96,6 +102,7 @@
     padding: 15px 68px;
     margin: 222px 0 14px;
     font-size: 12px;
+    width: 260px;
   }
   .auth__form__prompt {
     font-size: 12px;
