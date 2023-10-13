@@ -51,5 +51,6 @@ export const resources_ru = {
   name: 'Имя',
   edit: 'Редактировать',
   page_not_found: 'Страница не найдена',
-  back: 'Назад'
+  back: 'Назад',
+  my_photo: 'Мое фото'
 }

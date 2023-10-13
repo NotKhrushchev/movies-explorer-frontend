@@ -31,7 +31,7 @@
 }
 
 .search-movie__form__find-btn {
-  padding: 8px 10px;
+  padding: 8px 12px;
   color: white;
   background-color: #3456F3;
   border-radius: 48px;
@@ -40,13 +40,13 @@
   margin-left: 10px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .search-movie {
     padding: 80px 30px 61px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 320px) {
   .search-movie {
     padding: 90px 14px 51px;
   }

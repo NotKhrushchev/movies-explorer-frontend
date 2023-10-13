@@ -20,6 +20,10 @@
   font-weight: 500;
 }
 
+.auth__form__fields {
+  width: 100%;
+}
+
 .auth__form__input-data {
   width: 100%;
   position: relative;
@@ -93,7 +97,7 @@
   color: #3456F3;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 320px) {
   .auth__form {
     align-items: center;
     height: 695px;

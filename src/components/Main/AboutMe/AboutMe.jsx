@@ -3,6 +3,7 @@ import './AboutMe.css';
 import { resources_ru } from '../../../translations/resources_ru';
 import LinkIcon from '../../../images/icons/link-icon.svg';
 import Link from '../../ui/Link/Link';
+import MyPhoto from '../../../images/about-me-photo.jpg';
 
 const AboutMe = ({ portfolioItems = [] }) => {
   
@@ -10,7 +11,6 @@ const AboutMe = ({ portfolioItems = [] }) => {
     <section className={'about-me'} id={'me'}>
       <div className={'about-me__content'}>
         <p className={'about-me__header'}>{resources_ru.student}</p>
-        <hr />
         <div className={'about-me__info'}>
           <article className={'about-me__text'}>
             <h2 className={'about-me__text__title'}>{resources_ru.student_name}</h2>
@@ -22,7 +22,7 @@ const AboutMe = ({ portfolioItems = [] }) => {
               title={'Github'}
             />
           </article>
-          <div className={'about-me__photo'} />
+          <img src={MyPhoto} alt={resources_ru.my_photo} className={'about-me__photo'} />
         </div>
         <div className={'about-me__portfolio'}>
           <p className={'about-me__portfolio__title'}>{resources_ru.portfolio}</p>

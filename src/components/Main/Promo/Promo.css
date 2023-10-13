@@ -2,9 +2,9 @@
   min-height: 574px;
   background-color: #073042;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 75px 70px 75px;
-  gap: 190px
+  gap: 50px
 }
 
 .promo__info {
@@ -13,14 +13,22 @@
 }
 
 .promo__picture {
-  width: 310px;
-  height: 304px;
+  max-width: 310px;
+  max-height: 304px;
 }
 
 .promo__find-out-btn {
   color: white !important;
   margin-top: auto;
   margin-bottom: 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 9px 20px;
+  max-width: fit-content;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
 }
 
 .promo__title {
@@ -37,11 +45,12 @@
   font-weight: normal;
   max-width: 310px;
   margin-top: 36px;
+  margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .promo {
-    padding: 140px 44px 76px;
+    padding: 144px 44px 76px;
     flex-direction: column-reverse;
     align-items: center;
     gap: 48px;
@@ -56,13 +65,14 @@
   }
   .promo__subtitle {
     margin-top: 22px;
+    margin-bottom: 0;
   }
   .promo__find-out-btn {
     margin-top: 92px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 320px) {
   .promo {
     padding: 70px 10px 30px;
   }

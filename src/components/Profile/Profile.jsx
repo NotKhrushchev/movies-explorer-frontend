@@ -13,7 +13,6 @@ const Profile = () => {
           <p className={'profile__block__property'}>{resources_ru.name}</p>
           <p className={'profile__block__value'}>{`${'Никита'}`}</p>
         </div>
-        <hr />
         <div className={'profile__block'}>
           <p className={'profile__block__property'}>E-mail</p>
           <p className={'profile__block__value'}>{`${'Nikitafilemine1@gmail.com'}`}</p>

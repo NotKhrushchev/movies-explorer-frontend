@@ -12,20 +12,15 @@
 .about-me__header {
   font-size: 22px;
   font-weight: normal;
-  margin-bottom: 23px;
-}
-
-hr {
-  height: 1px;
-  background-color: black;
+  padding-bottom: 23px;
+  border-bottom: 1px solid black;
   width: 100%;
-  border: none;
 }
 
 .about-me__info {
   margin: 66px 0 100px;
   display: flex;
-  gap: 270px;
+  gap: 50px;
 }
 
 .about-me__text {
@@ -50,6 +45,7 @@ hr {
 .about-me__text__about {
   font-size: 14px;
   line-height: 22px;
+  margin-bottom: 10px;
 }
 
 .about-me__text__gh-link {
@@ -59,14 +55,13 @@ hr {
 }
 
 .about-me__photo {
-  max-width: 370px;
-  min-width: 370px;
-  height: 427px;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 255 / 307;
+  object-fit: cover;
+  max-width: 355px;
   border-radius: 10px;
-  background-image: url(../../../images/about-me-photo.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .about-me__portfolio__title {
@@ -74,7 +69,7 @@ hr {
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .about-me__portfolio__list {
@@ -115,16 +110,15 @@ hr {
 
 @media screen and (max-width: 1280px) {
   .about-me__photo {
-    max-width: 270px;
-    min-width: 270px;
-    height: 327px;
+    max-width: 255px;
+    max-height: 307px;
     margin: 0 auto;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .about-me {
-    padding: 90px 50px;
+    padding: 72px 50px;
   }
   .about-me__info {
     margin-bottom: 90px;
@@ -143,11 +137,6 @@ hr {
   .about-me__text__about {
     font-size: 12px;
     line-height: 18px;
-  }
-  .about-me__photo {
-    max-width: 255px;
-    min-width: 255px;
-    height: 307px;
   }
   .about-me__portfolio__list__item__link {
     font-size: 28px;
@@ -181,11 +170,6 @@ hr {
   }
   .about-me__text__gh-link {
     margin-top: 40px;
-  }
-  .about-me__photo {
-    max-width: 292px;
-    min-width: 292px;
-    height: 352px;
   }
   .about-me__portfolio__title {
     font-size: 14px;

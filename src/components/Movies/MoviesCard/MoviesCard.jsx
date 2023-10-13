@@ -23,7 +23,7 @@ const MoviesCard = ({ movie }) => {
           ariaLabel={resources_ru.like}
         />
       </div>
-      <hr />
+      <hr className={'movie-line'} />
       <span className={'movies-card__duration'}>{convertDurationToHours()}</span>
     </article>
   );

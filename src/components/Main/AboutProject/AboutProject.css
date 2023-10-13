@@ -12,13 +12,15 @@
 .about-project__header {
   font-size: 22px;
   font-weight: normal;
-  margin-bottom: 23px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid black;
+  width: 100%;
 }
 
 .about-project__info {
   margin: 70px 0 110px;
   display: flex;
-  gap: 40px;
+  gap: 50px;
   justify-content: space-between;
 }
 
@@ -68,20 +70,13 @@
   margin-top: 14px;
 }
 
-hr {
-  height: 1px;
-  background-color: black;
-  width: 100%;
-  border: none;
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .about-project {
-    padding: 90px 50px;
+    padding: 92px 50px;
   }
   .about-project__info {
-    margin: 70px 0 93px;
-    gap: 30px;
+    margin: 71px 0 94px;
+    gap: 38px;
   }
   .about-project__about__title {
     margin-bottom: 22px;
@@ -92,7 +87,7 @@ hr {
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 320px) {
   .about-project {
     padding: 70px 18px;
   }

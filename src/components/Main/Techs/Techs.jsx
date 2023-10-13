@@ -18,9 +18,8 @@ const Techs = () => {
     <section className={'techs'}>
       <div className={'techs__content'}>
         <p className={'techs__header'}>{resources_ru.techs}</p>
-        <hr />
         <div className={'techs__info'}>
-          <h2 className={'tech__title'}>{resources_ru.seven_techs}</h2>
+          <h2 className={'techs__title'}>{resources_ru.seven_techs}</h2>
           <p className={'techs__subtitle'}>{resources_ru.mastered_techs}</p>
         </div>
         <ul className={'techs__list'}>

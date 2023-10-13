@@ -10,7 +10,7 @@ import LoginBtn from '../ui/buttons/LoginBtn/LoginBtn';
 import RegBtn from '../ui/buttons/RegBtn/RegBtn';
 import { useLocation } from 'react-router-dom';
 
-const Header = ({ loggedIn = false, setSideBar }) => {
+const Header = ({ loggedIn, setSideBar, isVisible }) => {
 
   const isMainPage = !useLocation().pathname.split('/').pop();
 
@@ -22,7 +22,7 @@ const Header = ({ loggedIn = false, setSideBar }) => {
   };
 
   return (
-    <header className={`header ${isMainPage && 'header_main'}`}>
+    <header className={`header ${isMainPage && 'header_main'} ${!isVisible && 'hidden'}`}>
       <img src={moviesExplorerLogo} alt={resources_ru.movies_explorer_logo} draggable={false} className={'header__logo'} />
       {loggedIn === true
         ?

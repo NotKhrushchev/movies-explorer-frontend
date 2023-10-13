@@ -22,7 +22,7 @@
 }
 
 .movies-card__info {
-  margin: 14px 0 29px;
+  margin: 10px 0 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,7 +33,7 @@
   font-weight: 500;
 }
 
-hr {
+.movie-line {
   height: 1px;
   background-color: #E8E8E8;
   width: 100%;
@@ -46,7 +46,7 @@ hr {
   font-size: 11px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 320px) {
   .movies-card__name {
     font-size: 12px;
   }

@@ -22,7 +22,7 @@
 
 .not-found-page__subtitle {
   font-size: 16px;
-  margin-top: 5px;
+  margin-top: 9px;
 }
 
 .back-btn {
@@ -30,10 +30,10 @@
   color: #3456F3;
   position: absolute;
   align-self: center;
-  margin-top: 377px;
+  margin-top: 374px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 320px) {
   .not-found-page__title {
     font-size: 80px;
   }

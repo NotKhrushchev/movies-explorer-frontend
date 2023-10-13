@@ -8,7 +8,6 @@ const AboutProject = () => {
     <section className={'about-project'}>
       <div className={'about-project__content'}>
         <p className={'about-project__header'}>{resources_ru.about_project}</p>
-        <hr />
         <section className={'about-project__info'}>
           <div className={'about-project__about'}>
             <h2 className={'about-project__about__title'}>{resources_ru.diploma_stages}</h2>
