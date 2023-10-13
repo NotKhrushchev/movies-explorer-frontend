@@ -1,6 +1,5 @@
 .header {
   background-color: white;
-  position: fixed;
   width: 100%;
   padding: 18px 70px;
   display: flex;
@@ -73,6 +72,9 @@
 }
 
 @media screen and (max-width: 640px) {
+  .header {
+    padding: 18px 14px;
+  }
   .header__auth-nav {
     gap: 14px;
   }

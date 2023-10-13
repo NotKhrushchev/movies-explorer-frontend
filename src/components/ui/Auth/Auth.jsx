@@ -1,7 +1,7 @@
 import React from 'react';
 import Btn from '../buttons/Btn';
 import './Auth.css';
-import '../buttons/Btn.css'
+import '../buttons/Btn.css';
 import { resources_ru } from '../../../translations/resources_ru';
 import moviesExplorerLogo from '../../../images/logo/movies-explorer-logo.svg';
 import RegBtn from '../buttons/RegBtn/RegBtn';

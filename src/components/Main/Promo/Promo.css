@@ -3,7 +3,7 @@
   background-color: #073042;
   display: flex;
   justify-content: center;
-  padding: 150px 70px 75px;
+  padding: 75px 70px 75px;
   gap: 190px
 }
 
@@ -41,7 +41,7 @@
 
 @media screen and (max-width: 1024px) {
   .promo {
-    padding: 215px 44px 76px;
+    padding: 140px 44px 76px;
     flex-direction: column-reverse;
     align-items: center;
     gap: 48px;
@@ -64,7 +64,7 @@
 
 @media screen and (max-width: 640px) {
   .promo {
-    padding: 145px 10px 30px;
+    padding: 70px 10px 30px;
   }
   .promo__title {
     font-size: 30px;
