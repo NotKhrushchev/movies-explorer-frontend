@@ -93,6 +93,7 @@
   }
   .about-project__header {
     font-size: 18px;
+    padding-bottom: 25px;
   }
   .about-project__info {
     margin: 60px 0;
@@ -100,7 +101,7 @@
     flex-direction: column;
   }
   .about-project__about__title {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     font-size: 18px;
   }
   .about-project__about__subtitle {
@@ -109,9 +110,10 @@
   }
   .about-project__progress__text {
     font-size: 11px;
-    padding: 12px 0;
+    padding: 10px 0;
   }
   .about-project__progress__subtext {
     font-size: 11px;
+    margin-top: 10px;
   }
 }

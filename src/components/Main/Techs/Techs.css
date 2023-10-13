@@ -76,20 +76,25 @@
 @media screen and (max-width: 320px) {
   .techs {
     padding: 70px 18px;
+    background-color: white;
   }
   .techs__header {
     font-size: 18px;
+    padding-bottom: 30px;
   }
   .techs__info {
-    margin: 60px 0 70px;
+    margin: 53px 0 55px 0;
   }
   .techs__title {
     font-size: 30px;
-    margin-bottom: 24px;
+    margin-bottom: 13px;
   }
   .techs__subtitle {
     font-size: 11px;
     line-height: 16px;
+  }
+  .techs__list {
+    gap: 14px 9px;
   }
   .techs__list__item {
     font-size: 12px;

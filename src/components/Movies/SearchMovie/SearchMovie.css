@@ -48,10 +48,10 @@
 
 @media screen and (max-width: 320px) {
   .search-movie {
-    padding: 90px 14px 51px;
+    padding: 83px 14px 51px;
   }
   .search-movie__form {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
   }
   .search-movie__form__input {
     font-size: 18px;

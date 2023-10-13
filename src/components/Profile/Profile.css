@@ -63,12 +63,18 @@
 @media screen and (max-width: 768px) {
   .profile__info {
     margin-top: 96px;
-  }  
+  }
+  .profile__controlls {
+    margin-top: 210px;
+  }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 320px) {
   .profile__info {
     margin-top: 80px;
+  }
+  .profile__controlls {
+    margin-top: 349px;
   }
   .profile__edit-btn {
     font-size: 12px;
