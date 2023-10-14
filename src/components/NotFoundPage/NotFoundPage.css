@@ -33,7 +33,7 @@
   margin-top: 374px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .not-found-page__title {
     font-size: 80px;
   }

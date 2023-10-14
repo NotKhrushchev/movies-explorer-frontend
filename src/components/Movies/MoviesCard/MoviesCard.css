@@ -46,7 +46,7 @@
   font-size: 11px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .movies-card__name {
     font-size: 12px;
   }

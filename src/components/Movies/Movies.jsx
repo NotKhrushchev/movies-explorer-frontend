@@ -153,10 +153,10 @@ const Movies = () => {
   ]
   
   return (
-    <div className={'movies'}>
+    <main className={'movies'}>
       <SearchMovie />
       <MoviesCardList movies={movies} />
-    </div>
+    </main>
   );
 };
 

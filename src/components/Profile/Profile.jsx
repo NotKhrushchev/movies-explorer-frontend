@@ -2,11 +2,12 @@ import React from 'react';
 import { resources_ru } from '../../translations/resources_ru';
 import './Profile.css';
 import Btn from '../ui/buttons/Btn';
+import NLink from '../ui/NLink/NLink';
 
 const Profile = () => {
 
   return (
-    <div className={'profile'}>
+    <main className={'profile'}>
       <h1 className={'profile__title'}>{`${resources_ru.hello}, ${'Никита'}!`}</h1>
       <div className={'profile__info'}>
         <div className={'profile__block'}>
@@ -20,9 +21,9 @@ const Profile = () => {
       </div>
       <div className={'profile__controlls'}>
         <Btn addtlClass={'profile__edit-btn'} text={resources_ru.edit} ariaLabel={resources_ru.edit} />
-        <Btn addtlClass={'profile__logout-btn'} text={resources_ru.logout} ariaLabel={resources_ru.logout} />
+        <NLink wayTo={'/'} addtlClass={'profile__logout-btn'} title={resources_ru.logout} ariaLabel={resources_ru.logout} />
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -33,8 +33,9 @@ const AboutMe = ({ portfolioItems = [] }) => {
                   addtlClass={'about-me__portfolio__list__item__link'} 
                   wayTo={item.wayTo}
                   title={item.title}
-                />
-                <img src={LinkIcon} alt={resources_ru.link_icon} className={'about-me__portfolio__list__item__icon'} />
+                >
+                  <img src={LinkIcon} alt={resources_ru.link_icon} className={'about-me__portfolio__list__item__icon'} />
+                </Link>
               </li>
             )}
           </ul>

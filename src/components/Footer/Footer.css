@@ -10,6 +10,7 @@
 
 .footer__content {
   width: 100%;
+  max-width: 1846px;
   text-align: center;
 }
 
@@ -54,7 +55,7 @@ hr {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .footer {
     padding: 80px 10px 20px;
   }

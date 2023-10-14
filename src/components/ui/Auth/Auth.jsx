@@ -9,7 +9,7 @@ import LoginBtn from '../buttons/LoginBtn/LoginBtn';
 
 const Auth = ({type, title, submitBtnText, onSubmit, inputFields }) => {
   return (
-    <div className={'auth'}>
+    <main className={'auth'}>
       <form className={'auth__form'} onSubmit={onSubmit}>
         <img className={'auth__form__logo'} src={moviesExplorerLogo} alt={resources_ru.movies_explorer_logo} draggable={false} />
         <h1 className={'auth__form__title'}>{title}</h1>
@@ -47,7 +47,7 @@ const Auth = ({type, title, submitBtnText, onSubmit, inputFields }) => {
           }
         </div>
       </form>
-    </div>
+    </main>
   );
 };
 

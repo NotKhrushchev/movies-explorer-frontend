@@ -46,7 +46,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .search-movie {
     padding: 83px 14px 51px;
   }

@@ -3,12 +3,19 @@
   width: 100%;
   padding: 18px 70px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .header_main {
   background-color: #073042 !important;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1846px;
 }
 
 .header__nav {
@@ -71,7 +78,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .header {
     padding: 18px 14px;
   }

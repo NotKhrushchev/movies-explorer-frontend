@@ -62,7 +62,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 550px) {
   .filter-checkbox {
     align-self: center;
     gap: 13px;
