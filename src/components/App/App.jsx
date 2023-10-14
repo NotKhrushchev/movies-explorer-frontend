@@ -18,7 +18,7 @@ function App() {
   const currentPage = useLocation().pathname.split('/').pop();
   
   const [sideBar, setSideBar] = useState(false);
-  const loggedIn = false;
+  const loggedIn = true;
 
   const isHeaderVisible = () => {
     const isVisible = (currentPage === ''

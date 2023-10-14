@@ -47,7 +47,7 @@
   gap: 10px;
 }
 
-.techs__list__item {
+.techs__list-item {
   background-color: #E8E8E8;
   border-radius: 10px;
   font-size: 14px;
@@ -68,7 +68,7 @@
     font-size: 12px;
     line-height: 18px;
   }
-  .techs__list__item {
+  .techs__list-item {
     font-size: 12px;
   }
 }
@@ -96,7 +96,7 @@
   .techs__list {
     gap: 14px 9px;
   }
-  .techs__list__item {
+  .techs__list-item {
     font-size: 12px;
   }
 }

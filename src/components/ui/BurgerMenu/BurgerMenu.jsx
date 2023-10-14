@@ -16,23 +16,23 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems }) => {
 
   return (
     <nav className={sideBar ? 'side-bar active' : 'side-bar'}>
-      <div className={sideBar ? 'side-bar__blackout active' : 'side-bar'} onClick={hideSideBar} />
+      <div className={sideBar ? 'side-bar__blackout active' : ''} onClick={hideSideBar} />
       <div className={sideBar ? 'side-bar__menu active' : 'side-bar__menu'}>
-        <img src={crossIcon} alt={resources_ru.cross_icon} className={'side-bar__menu__cross'} draggable={false} onClick={hideSideBar} />
-        <ul className={'side-bar__menu__items'}>
+        <img src={crossIcon} alt={resources_ru.cross_icon} className={'side-bar__menu-cross'} draggable={false} onClick={hideSideBar} />
+        <ul className={'side-bar__menu-items'}>
           {navItems.map((item, index) => 
-            <li className={'side-bar__menu__items__item'} key={index}>
+            <li className={'side-bar__menu-items-item'} key={index}>
               <NLink
-                addtlClass={'side-bar__menu__items__item__link'} 
+                addtlClass={'side-bar__menu-items-item-link'} 
                 wayTo={item.wayTo}
-                title={item.title} 
+                title={item.title}
                 onClick={hideSideBar} 
               />
             </li>
           )}
         </ul>
         <AccountBtn 
-            addtlClass={'side-bar__menu__account-btn'} 
+            addtlClass={'side-bar__menu-account-btn'} 
             isMainPage={false}
         />
       </div>

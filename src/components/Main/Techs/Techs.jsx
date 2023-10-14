@@ -24,7 +24,7 @@ const Techs = () => {
         </div>
         <ul className={'techs__list'}>
           {techs.map((tech, index) => (
-            <li className={'techs__list__item'} key={index}>{tech}</li>
+            <li className={'techs__list-item'} key={index}>{tech}</li>
           ))}
           </ul>
       </div>

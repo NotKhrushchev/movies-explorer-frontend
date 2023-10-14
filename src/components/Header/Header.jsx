@@ -30,13 +30,13 @@ const Header = ({ loggedIn, setSideBar, isVisible }) => {
           <>
             <nav className='header__nav'>
               <NLink 
-                addtlClass={'header__nav__link'} 
+                addtlClass={'header__nav-link'} 
                 wayTo={'/movies'} 
                 title={resources_ru.movies} 
                 isMainPage={isMainPage} 
               />
               <NLink 
-                addtlClass={'header__nav__link'} 
+                addtlClass={'header__nav-link'} 
                 wayTo={'/saved-movies'} 
                 title={resources_ru.saved_movies} 
                 isMainPage={isMainPage} 
