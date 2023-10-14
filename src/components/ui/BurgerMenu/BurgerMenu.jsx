@@ -34,6 +34,7 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems }) => {
         <AccountBtn 
             addtlClass={'side-bar__menu-account-btn'} 
             isMainPage={false}
+            onClick={hideSideBar}
         />
       </div>
     </nav>

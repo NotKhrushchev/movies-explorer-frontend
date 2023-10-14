@@ -22,7 +22,7 @@ const Header = ({ loggedIn, setSideBar, isVisible }) => {
   };
 
   return (
-    <header className={`header ${isMainPage && 'header_main'} ${!isVisible && 'hidden'}`}>
+    <header className={`header ${isMainPage ? 'header_main' : ''} ${!isVisible ? 'hidden' : ''}`}>
       <div className={'header__content'}>
         <Logo addtlClass={'header__logo'} />
         {loggedIn === true

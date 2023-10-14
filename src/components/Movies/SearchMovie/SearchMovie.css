@@ -19,18 +19,18 @@
   padding-bottom: 13px;
 }
 
-.search-movie__form__input {
+.search-movie__form-input {
   width: 100%;
   font-size: 28px;
   font-weight: 500;
   border: none;
   outline: none;
 }
-.search-movie__form__input::placeholder {
+.search-movie__form-input::placeholder {
   color: #A0A0A0;
 }
 
-.search-movie__form__find-btn {
+.search-movie__form-find-btn {
   padding: 8px 12px;
   color: white;
   background-color: #3456F3;
@@ -53,7 +53,7 @@
   .search-movie__form {
     padding-bottom: 10px;
   }
-  .search-movie__form__input {
+  .search-movie__form-input {
     font-size: 18px;
     line-height: normal;
   }

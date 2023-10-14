@@ -11,14 +11,14 @@ const SearchMovie = () => {
       <div className={'search-movie__content'}>
         <form className={'search-movie__form'} name={`search-movie-form`} onSubmit={() => {}}>
           <input
-            className={'search-movie__form__input'} 
+            className={'search-movie__form-input'} 
             type={'text'}
             id={'search-input'} 
             name={'search-input'}
             placeholder={resources_ru.movie} 
           />
           <Btn
-            addtlClass={'search-movie__form__find-btn'}
+            addtlClass={'search-movie__form-find-btn'}
             text={resources_ru.find}
             ariaLabel={resources_ru.find}
             type={'submit'}
