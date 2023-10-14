@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import moviesExplorerLogo from '../../../images/logo/movies-explorer-logo.svg';
 import { resources_ru } from '../../../translations/resources_ru';
-import './Logo.css';
 
 
 const Logo = ({ addtlClass }) => {

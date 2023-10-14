@@ -17,7 +17,7 @@ const MoviesCard = ({ movie }) => {
     <article className={'movies-card'}>
       <img className={'movies-card__poster'} src={movie.image} alt={resources_ru.movie_poster} />
       <div className={'movies-card__info'}>
-        <p className={'movies-card__name'}>{movie.nameRU}</p>
+        <h2 className={'movies-card__name'}>{movie.nameRU}</h2>
         <Btn
           addtlClass={'movies-card__like-btn'}
           ariaLabel={resources_ru.like}

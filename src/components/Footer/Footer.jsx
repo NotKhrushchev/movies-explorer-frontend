@@ -12,7 +12,7 @@ const Footer = ({ isVisible} ) => {
         <hr />
         <div className={'footer__info'}>
           <p className={'footer__info-year'}>© 2023</p>
-          <div className={'footer__info-links'}>
+          <ul className={'footer__info-links'}>
             <Link 
               addtlClass={'footer__info-links-link'} 
               wayTo={'https://practicum.yandex.ru/'} 
@@ -23,7 +23,7 @@ const Footer = ({ isVisible} ) => {
               wayTo={'https://github.com/NotKhrushchev'}
               title={'Github'}
             />
-          </div>
+          </ul>
         </div>
       </div>
     </footer>
