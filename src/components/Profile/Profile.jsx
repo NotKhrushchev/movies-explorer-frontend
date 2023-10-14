@@ -9,16 +9,30 @@ const Profile = () => {
   return (
     <main className={'profile'}>
       <h1 className={'profile__title'}>{`${resources_ru.hello}, ${'Никита'}!`}</h1>
-      <div className={'profile__info'}>
-        <div className={'profile__block'}>
-          <p className={'profile__block-property'}>{resources_ru.name}</p>
-          <p className={'profile__block-value'}>{`${'Никита'}`}</p>
+      <form className={'profile__form'}>
+        <div className={'profile__form-section'}>
+          <label className={'profile__input-label'} htmlFor={'name-input'}>{resources_ru.name}</label>
+          <input 
+            className={'profile__input'} 
+            type={'text'} 
+            id={'name-input'} 
+            name={'name-input'} 
+            disabled 
+            value={'Никита'}
+          />
         </div>
-        <div className={'profile__block'}>
-          <p className={'profile__block-property'}>E-mail</p>
-          <p className={'profile__block-value'}>{`${'Nikitafilemine1@gmail.com'}`}</p>
+        <div className={'profile__form-section'}>
+          <label className={'profile__input-label'} htmlFor={'email-input'}>E-mail</label>
+          <input 
+            className={'profile__input'} 
+            type={'text'} 
+            id={'email-input'} 
+            name={'name-input'} 
+            disabled 
+            value={'Nikitafilemine1@gmail.com'}
+          />
         </div>
-      </div>
+      </form>
       <div className={'profile__controlls'}>
         <Btn addtlClass={'profile__edit-btn'} text={resources_ru.edit} ariaLabel={resources_ru.edit} />
         <NLink wayTo={'/'} addtlClass={'profile__logout-btn'} title={resources_ru.logout} ariaLabel={resources_ru.logout} />

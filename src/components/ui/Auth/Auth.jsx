@@ -22,6 +22,8 @@ const Auth = ({type, title, submitBtnText, onSubmit, inputFields }) => {
                 id={input.name}
                 className={'auth__form-input'}
                 required
+                minLength={input.minLength}
+                maxLength={input.maxLength}
               />
               <label className='auth__form-input-label'>{input.text}</label>
               <span className={'auth__form-input-error'}>Что-то пошло не так...</span>

@@ -7,14 +7,14 @@ const AboutProject = () => {
   return (
     <section className={'about-project'}>
       <div className={'about-project__content'}>
-        <p className={'about-project__header'}>{resources_ru.about_project}</p>
+        <h2 className={'about-project__header'}>{resources_ru.about_project}</h2>
         <section className={'about-project__info'}>
           <div className={'about-project__about'}>
-            <h2 className={'about-project__about-title'}>{resources_ru.diploma_stages}</h2>
+            <h3 className={'about-project__about-title'}>{resources_ru.diploma_stages}</h3>
             <p className={'about-project__about-subtitle'}>{resources_ru.diploma_stages_info}</p>
           </div>
           <div className={'about-project__about'}>
-            <h2 className={'about-project__about-title'}>{resources_ru.diploma_weeks}</h2>
+            <h4 className={'about-project__about-title'}>{resources_ru.diploma_weeks}</h4>
             <p className={'about-project__about-subtitle'}>{resources_ru.diploma_weeks_info}</p>
           </div>
         </section>

@@ -7,7 +7,9 @@ const Register = () => {
     {
       type: 'text',
       name: 'name-input',
-      text: resources_ru.name
+      text: resources_ru.name,
+      minLength: 2,
+      maxLength: 30
     },
     {
       type: 'text',
@@ -17,7 +19,8 @@ const Register = () => {
     {
       type: 'password',
       name: 'password-input',
-      text: resources_ru.password
+      text: resources_ru.password,
+      minLength: 8,
     }
   ];
 

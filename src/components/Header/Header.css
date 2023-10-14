@@ -32,12 +32,14 @@
 
 .header__burger-menu-icon {
   display: none;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
 }
 
-.header__burger-menu-icon:hover {
-  opacity: 0.8;
+.header__burger-menu-icon_bright {
+  background-image: url(../../images/icons/burger-menu-icon-bright.svg) !important;
+}
+
+.header__burger-menu-icon_dark {
+  background-image: url(../../images/icons/burger-menu-icon-dark.svg) !important;
 }
 
 .header__reg-btn {
@@ -72,6 +74,8 @@
   }
   .header__burger-menu-icon {
     display: block;
+    width: 40px;
+    height: 40px;
   }
   .header__account-btn {
     display: none !important;

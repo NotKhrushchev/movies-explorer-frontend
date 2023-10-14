@@ -13,13 +13,13 @@
   margin: 0;
 }
 
-.profile__info {
+.profile__form {
   width: 100%;
   margin-top: 125px;
   max-width: 410px;
 }
 
-.profile__block {
+.profile__form-section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -28,18 +28,24 @@
   margin-bottom: 18px;
 }
 
-.profile__block:last-of-type {
+.profile__form-section:last-of-type {
   border-bottom: none;
 }
 
-.profile__block-property {
-  font-size: 11px;
-  font-weight: 500;
-}
-
-.profile__block-value {
+.profile__input {
+  background: none;
   font-size: 11px;
   font-weight: 400;
+  text-align: end;
+  border: none;
+  outline: none;
+
+}
+
+.profile__input-label {
+  font-size: 11px;
+  font-weight: 500;
+  
 }
 
 .profile__controlls {

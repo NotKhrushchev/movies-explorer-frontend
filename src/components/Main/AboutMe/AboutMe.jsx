@@ -10,11 +10,11 @@ const AboutMe = ({ portfolioItems = [] }) => {
   return (
     <section className={'about-me'} id={'me'}>
       <div className={'about-me__content'}>
-        <p className={'about-me__header'}>{resources_ru.student}</p>
+        <h2 className={'about-me__header'}>{resources_ru.student}</h2>
         <div className={'about-me__info'}>
           <article className={'about-me__text'}>
-            <h2 className={'about-me__text-title'}>{resources_ru.student_name}</h2>
-            <h3 className={'about-me__text-subtitle'}>{resources_ru.profession_age}</h3>
+            <h3 className={'about-me__text-title'}>{resources_ru.student_name}</h3>
+            <h4 className={'about-me__text-subtitle'}>{resources_ru.profession_age}</h4>
             <p className={'about-me__text-about'}>{resources_ru.about_me}</p>
             <Link 
               addtlClass={'about-me__text-gh-link'} 

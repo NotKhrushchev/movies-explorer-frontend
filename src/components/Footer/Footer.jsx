@@ -9,7 +9,6 @@ const Footer = ({ isVisible} ) => {
     <footer className={`footer ${!isVisible && 'hidden'}`}>
       <div className={'footer__content'}>
         <h3 className={'footer__title'}>{resources_ru.stud_project}</h3>
-        <hr />
         <div className={'footer__info'}>
           <p className={'footer__info-year'}>© 2023</p>
           <ul className={'footer__info-links'}>

@@ -51,12 +51,9 @@
   position: absolute;
   top: 23px;
   right: 23px;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.side-bar__menu-cross:hover {
-  opacity: 0.7;
+  background-image: url(../../../images/icons/cross-icon.svg);
+  width: 22px;
+  height: 22px;
 }
 
 .side-bar__menu-items {

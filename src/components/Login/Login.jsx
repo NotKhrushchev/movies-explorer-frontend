@@ -12,7 +12,7 @@ const Login = () => {
     {
       type: 'password',
       name: 'password-input',
-      text: resources_ru.password
+      text: resources_ru.password,
     }
   ];
 

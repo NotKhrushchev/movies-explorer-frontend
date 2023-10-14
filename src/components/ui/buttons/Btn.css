@@ -5,7 +5,7 @@
   cursor: pointer;
   border: none;
   text-decoration: none;
-  transition: opacity 0.2s ease-out;
+  transition: opacity 0.15s ease-out;
 }
 
 .btn:hover {
