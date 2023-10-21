@@ -16,9 +16,9 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 /** Корневой компонент */
 function App() {
   const currentPage = useLocation().pathname.split('/').pop();
-  
+
   const [sideBar, setSideBar] = useState(false);
-  const loggedIn = true;
+  const loggedIn = false;
 
   const isHeaderVisible = () => {
     const isVisible = (currentPage === ''

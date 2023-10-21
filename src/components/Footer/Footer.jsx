@@ -3,7 +3,7 @@ import './Footer.css';
 import { resources_ru } from '../../translations/resources_ru';
 import Link from '../ui/Link/Link';
 
-const Footer = ({ isVisible} ) => {
+const Footer = ({ isVisible }) => {
   
   return (
     <footer className={`footer ${!isVisible && 'hidden'}`}>

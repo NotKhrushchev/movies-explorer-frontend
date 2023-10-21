@@ -50,12 +50,6 @@ const Header = ({ loggedIn, setSideBar, isVisible }) => {
               ariaLabel={resources_ru.burger_menu_icon}
               onClick={showSideBar}
             />
-            {/* <img 
-              src={isMainPage ? burgerMenuIconBright : burgerMenuIconDark} 
-              alt={resources_ru.burger_menu_icon} 
-              className={'header__burger-menu-icon'}
-              draggable={false}
-            /> */}
           </>
           :
           <>

@@ -51,5 +51,10 @@ export const resources_ru = {
   name: 'Имя',
   edit: 'Редактировать',
   page_not_found: 'Страница не найдена',
-  back: 'Назад'
+  back: 'Назад',
+  input_error: 'Что-то пошло не так...',
+  input_empty_err: 'Обязательное поле',
+  input_minLength_err: 'Минимальная длина поля: ',
+  input_maxLength_err: 'Максимальная длина поля: ',
+  input_type_err: 'Введите корректный '
 }

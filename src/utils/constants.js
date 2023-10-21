@@ -1,5 +1,6 @@
 import { resources_ru } from "../translations/resources_ru";
 
+// Ссылки для бокового меню
 const sideBarLinks = [
   {
     title: resources_ru.main,

@@ -28,6 +28,7 @@
   width: 100%;
   position: relative;
   margin-bottom: 23px;
+  height: 45px;
 }
 
 .auth__form-input-data:last-of-type {

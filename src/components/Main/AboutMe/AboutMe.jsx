@@ -22,10 +22,10 @@ const AboutMe = ({ portfolioItems = [] }) => {
               title={'Github'}
             />
           </article>
-          <img src={MyPhoto} alt={resources_ru.my_photo} className={'about-me__photo'} />
+          <img src={MyPhoto} alt={resources_ru.my_photo} className={'about-me__photo'} draggable={false} />
         </div>
         <div className={'about-me__portfolio'}>
-          <p className={'about-me__portfolio-title'}>{resources_ru.portfolio}</p>
+          {portfolioItems && <p className={'about-me__portfolio-title'}>{resources_ru.portfolio}</p>}
           <ul className={'about-me__portfolio-list'}>
             {portfolioItems.map((item, index) => 
               <li className={'about-me__portfolio-list-item'} key={index}>
@@ -34,7 +34,7 @@ const AboutMe = ({ portfolioItems = [] }) => {
                   wayTo={item.wayTo}
                   title={item.title}
                 >
-                  <img src={LinkIcon} alt={resources_ru.link_icon} className={'about-me__portfolio-list-item-icon'} />
+                  <img src={LinkIcon} alt={resources_ru.link_icon} className={'about-me__portfolio-list-item-icon'} draggable={false} />
                 </Link>
               </li>
             )}
