@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './FormInput.css'
 import useInputValidation from '../../../../utils/hooks/useInputValidation';
 
-const FormInput = ({ inputData, handleFormChange, validations, setFormValid }) => {
+const FormInput = ({ input, handleFormChange, setInputValids }) => {
 
-  const validation = useInputValidation(inputData.value, validations);
+  const validation = useInputValidation(input.value, input.validations);
+
   const {isValid} = validation;
   const {errorText} = validation;
   const [isInputBlur, setInputBlur] = useState(false);
@@ -14,26 +15,30 @@ const FormInput = ({ inputData, handleFormChange, validations, setFormValid }) =
     setInputBlur(true);
   }
 
+  // Обновляю объект валидности инпутов на каждый ввод
   useEffect(() => {
-    isValid && setFormValid(true);
-  }, [isValid, setFormValid]);
+    setInputValids((inputValids) => ({
+      ...inputValids,
+      [input.name]: isValid
+    }));
+  }, [isValid, setInputValids, input.name]);
 
   return (
     <div className={'input-block'}>
       <input
-        type={inputData.type}
-        name={inputData.name}
-        id={inputData.name}
+        type={input.type}
+        name={input.name}
+        id={input.name}
         className={`input ${(!isValid && isInputBlur) && 'input_invalid'}`}
         required
-        value={inputData.value}
+        value={input.value}
         onChange={handleFormChange}
         onBlur={handleInputOnBlur}
       />
-      <label className='input-label'>{inputData.text}</label>
+      <label className='input-label'>{input.text}</label>
       {(isInputBlur && !isValid) && <span className={'input-error'}>{errorText}</span>}
     </div>
   );
 };
 
-export default FormInput;
+export default React.memo(FormInput);

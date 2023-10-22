@@ -88,6 +88,11 @@
   margin-bottom: 16px;
 }
 
+.auth__form-submit-btn:disabled {
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+}
+
 .auth__form-prompt {
   font-size: 14px;
   align-self: center;

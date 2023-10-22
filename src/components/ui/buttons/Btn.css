@@ -11,3 +11,7 @@
 .btn:hover {
   opacity: 0.8;
 }
+
+.btn:disabled {
+  pointer-events: none;
+}

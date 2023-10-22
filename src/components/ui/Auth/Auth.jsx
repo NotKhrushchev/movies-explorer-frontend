@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Btn from '../buttons/Btn';
 import './Auth.css';
-import '../buttons/Btn.css';
 import { resources_ru } from '../../../translations/resources_ru';
 import moviesExplorerLogo from '../../../images/logo/movies-explorer-logo.svg';
 import RegBtn from '../buttons/RegBtn/RegBtn';
@@ -17,8 +16,16 @@ const Auth = ({
   handleFormChange
 }) => {
 
+  // Объект со значениями валидности каждого инпута
+  const [inputValids, setInputValids] = useState({});
   const [formValid, setFormValid] = useState(false);
-  
+
+  useEffect(() => {
+    // Глобальный обработчик валидности формы
+    Object.values(inputValids).every((e) => e === true) ? setFormValid(true) : setFormValid(false);
+
+  }, [inputValids]);
+
   return (
     <main className={'auth'}>
       <form className={'auth__form'} onSubmit={onSubmit}>
@@ -26,16 +33,22 @@ const Auth = ({
         <h1 className={'auth__form-title'}>{title}</h1>
         <div className={'auth__form-fields'}>
           {inputFields.map((input) => (
-            <FormInput inputData={input} handleFormChange={handleFormChange} key={input.name} validations={input.validations} setFormValid={setFormValid} />
+            <FormInput 
+              key={input.name}
+              input={input} 
+              handleFormChange={handleFormChange}
+              setInputValids={setInputValids}
+            />
           ))}
         </div>
         <div className={'auth__form-actions'}>
           <Btn
             addtlClass={'auth__form-submit-btn'}
             text={submitBtnText}
+            onClick={onSubmit}
             ariaLabel={submitBtnText}
             type={'submit'}
-            disabled={formValid}
+            disabled={!formValid}
           />
           {type === 'signup' 
             ?
@@ -53,4 +66,4 @@ const Auth = ({
   );
 };
 
-export default Auth;
+export default React.memo(Auth);

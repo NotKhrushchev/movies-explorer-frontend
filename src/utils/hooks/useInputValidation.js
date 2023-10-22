@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { resources_ru } from "../../translations/resources_ru";
 
 // Хук валидации инпута
-const useInputValidation = (value, validations) => {
+const useInputValidation = ((value, validations) => {
   
-  const [isValid, setIsValid] = useState(true);
-  const [isEmpty, setEmpty] = useState(true);
+  const [isValid, setIsValid] = useState(false);
+  const [isEmptyErr, setEmptyErr] = useState(false);
   const [minLengthErr, setMinLengthErr] = useState(false);
   const [maxLengthErr, setMaxLengthErr] = useState(false);
   const [typeError, setTypeError] = useState(false);
@@ -18,10 +18,10 @@ const useInputValidation = (value, validations) => {
         // Проверка на пустое поле
         case 'required':
           if (!value) {
-            setEmpty(true);
+            setEmptyErr(true);
             setErrorText(resources_ru.input_empty_err);
           } else {
-            setEmpty(false);
+            setEmptyErr(false);
           }
           break;
   
@@ -72,20 +72,22 @@ const useInputValidation = (value, validations) => {
   // Глобальная проверка на валидность инпута
   useEffect(() => {
     setIsValid(
-      !isEmpty &&
+      !isEmptyErr &&
       !minLengthErr &&
       !maxLengthErr &&
       !typeError
     );
-  }, [isEmpty, minLengthErr, maxLengthErr, typeError])
+  }, [isEmptyErr, minLengthErr, maxLengthErr, typeError])
 
   return {
-    isEmpty,
+    isEmptyErr,
     minLengthErr,
     maxLengthErr,
     errorText,
     isValid
   };
-} 
+})
+
+// React
 
 export default useInputValidation;
