@@ -50,7 +50,7 @@ const useInputValidation = (value, validations) => {
           switch (validations[validation]) {
             case 'email':
               const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-              if (!emailRegex.test(value.toLowerCase())) {
+              if (!emailRegex.test(value.toLowerCase()) && value) {
                 setTypeError(true);
                 setErrorText(`${resources_ru.input_type_err}${validations[validation]}`);
               } else {

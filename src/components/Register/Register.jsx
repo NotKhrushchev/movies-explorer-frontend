@@ -48,7 +48,7 @@ const Register = () => {
       value: '' || formValue.password,
       validations: {
         required: true,
-        minLength: 2
+        minLength: 8
       }
     }
   ];
