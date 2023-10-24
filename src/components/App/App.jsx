@@ -4,7 +4,7 @@ import BurgerMenu from '../ui/BurgerMenu/BurgerMenu';
 import './App.css';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { sideBarLinks } from '../../utils/constants';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
@@ -15,13 +15,30 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 /** Корневой компонент */
 function App() {
-  
+  const currentPage = useLocation().pathname.split('/').pop();
+
   const [sideBar, setSideBar] = useState(false);
-  const loggedIn = true;
+  const loggedIn = false;
+
+  const isHeaderVisible = () => {
+    const isVisible = (currentPage === ''
+    || currentPage === 'profile'
+    || currentPage === 'movies'
+    || currentPage === 'saved-movies'
+    );
+    return isVisible;
+  }
+  const isFooterVisible = () => {
+    const isVisible = (currentPage === ''
+    || currentPage === 'movies'
+    || currentPage === 'saved-movies'
+    );
+    return isVisible;
+  }
   
   return (
     <div className={'app'}>
-      {loggedIn && <Header setSideBar={setSideBar} />}
+      <Header loggedIn={loggedIn} setSideBar={setSideBar} isVisible={isHeaderVisible()} />
       <Routes>
         <Route 
           path='/' 
@@ -58,7 +75,7 @@ function App() {
         navItems={sideBarLinks} 
         accountBtnRequired={true} 
       />
-      {loggedIn && <Footer />}
+      {<Footer isVisible={isFooterVisible()} />}
     </div>
   );
 };

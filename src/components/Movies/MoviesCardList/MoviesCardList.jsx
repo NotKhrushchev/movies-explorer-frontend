@@ -8,11 +8,11 @@ const MoviesCardList = ({ movies }) => {
 
   return (
     <section className={'movies-card-list'}>
-      <div className={'movies-card-list__movies'}>
+      <ul className={'movies-card-list__movies'}>
         {movies.map((movie, index) => (
           <MoviesCard movie={movie} key={index} />
         ))}
-      </div>
+      </ul>
       <div className={'movies-card-list__loader'}>
         <Btn
           addtlClass={'movies-card-list__load-more-btn'}

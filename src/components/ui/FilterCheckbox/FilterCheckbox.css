@@ -54,14 +54,15 @@
   transform: translateX(20px);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .filter-checkbox {
     align-self: flex-end;
+    flex-direction: row-reverse;
     margin-top: 30px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 550px) {
   .filter-checkbox {
     align-self: center;
     gap: 13px;

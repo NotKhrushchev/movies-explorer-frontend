@@ -9,7 +9,7 @@ const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={'not-found-page'}>
+    <main className={'not-found-page'}>
       <div className={'not-found-page__content'}>
         <h1 className={'not-found-page__title'}>404</h1>
         <p className={'not-found-page__subtitle'}>{resources_ru.page_not_found}</p>
@@ -20,7 +20,7 @@ const NotFoundPage = () => {
           ariaLabel={resources_ru.back}
         />
       </div>
-    </div>
+    </main>
   );
 };
 

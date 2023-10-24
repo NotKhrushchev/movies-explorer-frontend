@@ -10,21 +10,24 @@ const SearchMovie = () => {
     <section className={'search-movie'}>
       <div className={'search-movie__content'}>
         <form className={'search-movie__form'} name={`search-movie-form`} onSubmit={() => {}}>
-          <input
-            className={'search-movie__form__input'} 
-            type={'text'}
-            id={'search-input'} 
-            name={'search-input'}
-            placeholder={resources_ru.movie} 
-          />
-          <Btn
-            addtlClass={'search-movie__form__find-btn'}
-            text={resources_ru.find}
-            ariaLabel={resources_ru.find}
-            type={'submit'}
-          />
+          <div className={'search-movie__input-block'}>
+            <input
+              className={'search-movie__form-input'} 
+              type={'text'}
+              id={'search-input'} 
+              name={'search-input'}
+              placeholder={resources_ru.movie}
+              required
+            />
+            <Btn
+              addtlClass={'search-movie__form-find-btn'}
+              text={resources_ru.find}
+              ariaLabel={resources_ru.find}
+              type={'submit'}
+            />
+          </div>
+          <FilterCheckbox />
         </form>
-        <FilterCheckbox />
       </div>
     </section>
   );

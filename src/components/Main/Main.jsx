@@ -10,25 +10,25 @@ const Main = () => {
   const myProjects = [
     {
       title: 'Статичный сайт',
-      wayTo: '*'
+      wayTo: 'https://github.com/NotKhrushchev/how-to-learn'
     },
     {
       title: 'Адаптивный сайт',
-      wayTo: '*'
+      wayTo: 'https://github.com/NotKhrushchev/russian-travel'
     },
     {
       title: 'Одностраничное приложение',
-      wayTo: '*'
+      wayTo: 'https://github.com/NotKhrushchev/react-mesto-api-full-gha'
     },
   ]
 
   return (
-    <div className={'main'}>
+    <main className={'main'}>
       <Promo />
       <AboutProject />
       <Techs />
       <AboutMe portfolioItems={myProjects} />
-    </div>
+    </main>
   );
 };
 

@@ -17,15 +17,14 @@ const Techs = () => {
   return (
     <section className={'techs'}>
       <div className={'techs__content'}>
-        <p className={'techs__header'}>{resources_ru.techs}</p>
-        <hr />
+        <h2 className={'techs__header'}>{resources_ru.techs}</h2>
         <div className={'techs__info'}>
-          <h2 className={'tech__title'}>{resources_ru.seven_techs}</h2>
+          <h3 className={'techs__title'}>{resources_ru.seven_techs}</h3>
           <p className={'techs__subtitle'}>{resources_ru.mastered_techs}</p>
         </div>
         <ul className={'techs__list'}>
           {techs.map((tech, index) => (
-            <li className={'techs__list__item'} key={index}>{tech}</li>
+            <li className={'techs__list-item'} key={index}>{tech}</li>
           ))}
           </ul>
       </div>
