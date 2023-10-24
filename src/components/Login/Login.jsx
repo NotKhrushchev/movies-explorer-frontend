@@ -36,7 +36,6 @@ const Login = () => {
       value: '' || formValue.password,
       validations: {
         required: true,
-        minLength: 8
       }
     }
   ];

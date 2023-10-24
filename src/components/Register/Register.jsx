@@ -2,6 +2,7 @@ import React from 'react';
 import Auth from '../ui/Auth/Auth';
 import { resources_ru } from '../../translations/resources_ru';
 import useForm from '../../utils/hooks/useForm';
+import auth from '../../utils/Api/MainApi/MainApi';
 
 const Register = () => {
 
@@ -14,10 +15,6 @@ const Register = () => {
   const form = useForm(regFormInitValue);
   const {formValue} = form;
   const {handleFormChange} = form;
-
-  const handleSignUp = (e) => {
-    e.preventDefault();
-  };
 
   const inputFields = [
     {
@@ -53,6 +50,13 @@ const Register = () => {
     }
   ];
 
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const {name, email, password} = formValue;
+    auth.signUn(name, email, password)
+      .then((res) => console.log(res))
+  };
+
   return (
     <Auth
       type={'signup'}
@@ -65,4 +69,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default React.memo(Register);
