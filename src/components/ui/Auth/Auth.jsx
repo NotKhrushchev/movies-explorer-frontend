@@ -6,6 +6,8 @@ import moviesExplorerLogo from '../../../images/logo/movies-explorer-logo.svg';
 import RegBtn from '../buttons/RegBtn/RegBtn';
 import LoginBtn from '../buttons/LoginBtn/LoginBtn';
 import FormInput from '../Form/FormInput/FormInput';
+import LoadingContext from '../../../contexts/loadingContext';
+import Preloader from '../Preloader/Preloader';
 
 const Auth = ({ 
   type, 
@@ -13,8 +15,12 @@ const Auth = ({
   submitBtnText, 
   onSubmit, 
   inputFields, 
-  handleFormChange
+  handleFormChange,
+  authErrMessage,
+  setErrText
 }) => {
+
+  const {isLoading} = React.useContext(LoadingContext);
 
   // Объект со значениями валидности каждого инпута
   const [inputValids, setInputValids] = useState({});
@@ -42,14 +48,19 @@ const Auth = ({
           ))}
         </div>
         <div className={'auth__form-actions'}>
-          <Btn
-            addtlClass={'auth__form-submit-btn'}
-            text={submitBtnText}
-            onClick={onSubmit}
-            ariaLabel={submitBtnText}
-            type={'submit'}
-            disabled={!formValid}
-          />
+          <p className={'auth__err-text'}>{authErrMessage}</p>
+          {!isLoading ? 
+            <Btn
+              addtlClass={'auth__form-submit-btn'}
+              text={!isLoading ? submitBtnText : `${submitBtnText}...`}
+              onClick={onSubmit}
+              ariaLabel={submitBtnText}
+              type={'submit'}
+              disabled={!formValid || isLoading}
+            />
+            :
+            <Preloader isSmall={true} />
+          }
           {type === 'signup' 
             ?
             <span className={'auth__form-prompt'}>

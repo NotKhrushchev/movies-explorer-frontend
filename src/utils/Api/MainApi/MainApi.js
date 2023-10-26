@@ -9,10 +9,10 @@ class MainApi {
   // Универсальная проверка ответа
   _checkAnswer(res) {
     if (res.ok) {
-        return res.json();
+        return res.json()
     }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  }
+    return Promise.reject(res.status);
+}
 
   signUn(name, email, password) {
     return fetch(`${this._baseUrl}/signup`, {
@@ -26,7 +26,7 @@ class MainApi {
         password: password
       })
     })
-    .then((res) => this._checkAnswer(res));
+    .then(res => this._checkAnswer(res));
   }
 }
 

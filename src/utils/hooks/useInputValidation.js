@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { resources_ru } from "../../translations/resources_ru";
+import validator from "validator";
 
 // Хук валидации инпута
 const useInputValidation = ((value, validations) => {
@@ -29,7 +30,7 @@ const useInputValidation = ((value, validations) => {
         case 'minLength':
           if (value.length < validations[validation] && value) {
             setMinLengthErr(true);
-            setErrorText(`${resources_ru.input_minLength_err}${validations[validation]}`);
+            setErrorText(`${resources_ru.input_minLength_err} ${validations[validation]}`);
           } else {
             setMinLengthErr(false);
           }
@@ -39,7 +40,7 @@ const useInputValidation = ((value, validations) => {
         case 'maxLength':
           if (value.length > validations[validation]) {
             setMaxLengthErr(true);
-            setErrorText(`${resources_ru.input_maxLength_err}${validations[validation]}`);
+            setErrorText(`${resources_ru.input_maxLength_err} ${validations[validation]}`);
           } else {
             setMaxLengthErr(false);
           }
@@ -49,10 +50,21 @@ const useInputValidation = ((value, validations) => {
         case 'type':
           switch (validations[validation]) {
             case 'email':
-              const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-              if (!emailRegex.test(value.toLowerCase()) && value) {
+              const isEmailValid = validator.isEmail(value);
+              if (!isEmailValid && value) {
                 setTypeError(true);
-                setErrorText(`${resources_ru.input_type_err}${validations[validation]}`);
+                setErrorText(`${resources_ru.input_type_err} ${validations[validation]}`);
+              } else {
+                setTypeError(false);
+              }
+              break;
+
+            case 'name':
+              const nameRegEx = /^[а-яА-Яa-zA-ZЁёәіңғүұқөһӘІҢҒҮҰҚӨҺ\-\s]*$/;
+              const isNameValid = nameRegEx.test(value);
+              if (!isNameValid && value) {
+                setTypeError(true);
+                setErrorText(`${resources_ru.input_type_err} имя`);
               } else {
                 setTypeError(false);
               }

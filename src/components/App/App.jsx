@@ -12,13 +12,17 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import SavedMovies from '../Movies/SavedMovies';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import UserContext from '../../contexts/userContext';
+import LoadingContext from '../../contexts/loadingContext';
 
 /** Корневой компонент */
 function App() {
   const currentPage = useLocation().pathname.split('/').pop();
 
   const [sideBar, setSideBar] = useState(false);
-  const loggedIn = false;
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState({});
 
   const isHeaderVisible = () => {
     const isVisible = (currentPage === ''
@@ -38,44 +42,48 @@ function App() {
   
   return (
     <div className={'app'}>
-      <Header loggedIn={loggedIn} setSideBar={setSideBar} isVisible={isHeaderVisible()} />
-      <Routes>
-        <Route 
-          path='/' 
-          element={<Main />} 
-        />
-        <Route 
-          path='/movies' 
-          element={<Movies />} 
-        />
-        <Route 
-          path='/saved-movies' 
-          element={<SavedMovies />} 
-        />
-        <Route 
-          path='/profile' 
-          element={<Profile />} 
-        />
-        <Route 
-          path='/signup' 
-          element={<Register />} 
-        />
-        <Route 
-          path='/signin' 
-          element={<Login />} 
-        />
-        <Route 
-          path='/*' 
-          element={<NotFoundPage />} 
-        />
-      </Routes>
-      <BurgerMenu 
-        sideBar={sideBar} 
-        setSideBar={setSideBar} 
-        navItems={sideBarLinks} 
-        accountBtnRequired={true} 
-      />
-      {<Footer isVisible={isFooterVisible()} />}
+      <UserContext.Provider value={{isLoggedIn, setLoggedIn, user, setUser}}>
+        <LoadingContext.Provider value={{isLoading, setIsLoading}}>
+          <Header setSideBar={setSideBar} isVisible={isHeaderVisible()} />
+          <Routes>
+            <Route 
+              path='/' 
+              element={<Main />} 
+            />
+            <Route 
+              path='/movies' 
+              element={<Movies />} 
+            />
+            <Route 
+              path='/saved-movies' 
+              element={<SavedMovies />} 
+            />
+            <Route 
+              path='/profile' 
+              element={<Profile />} 
+            />
+            <Route 
+              path='/signup' 
+              element={<Register />} 
+            />
+            <Route 
+              path='/signin' 
+              element={<Login />} 
+            />
+            <Route 
+              path='/*' 
+              element={<NotFoundPage />} 
+            />
+          </Routes>
+          <BurgerMenu 
+            sideBar={sideBar} 
+            setSideBar={setSideBar} 
+            navItems={sideBarLinks} 
+            accountBtnRequired={true} 
+          />
+          {<Footer isVisible={isFooterVisible()} />}
+        </LoadingContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 };

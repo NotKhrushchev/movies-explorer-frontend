@@ -8,11 +8,13 @@ import RegBtn from '../ui/buttons/RegBtn/RegBtn';
 import { useLocation } from 'react-router-dom';
 import Logo from '../ui/Logo/Logo';
 import Btn from '../ui/buttons/Btn';
+import UserContext from '../../contexts/userContext';
 
-const Header = ({ loggedIn, setSideBar, isVisible }) => {
+const Header = ({ setSideBar, isVisible }) => {
 
+  const {isLoggedIn} = React.useContext(UserContext);
   const isMainPage = !useLocation().pathname.split('/').pop();
-
+  
   const showSideBar = () => {
     /** Отключаю скролл страницы при открыитии бокового меню */
     document.querySelector('body').style.overflow = 'hidden';
@@ -24,7 +26,7 @@ const Header = ({ loggedIn, setSideBar, isVisible }) => {
     <header className={`header ${isMainPage ? 'header_main' : ''} ${!isVisible ? 'hidden' : ''}`}>
       <div className={'header__content'}>
         <Logo addtlClass={'header__logo'} />
-        {loggedIn === true
+        {isLoggedIn === true
           ?
           <>
             <nav className='header__nav'>

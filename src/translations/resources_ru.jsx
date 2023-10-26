@@ -54,7 +54,7 @@ export const resources_ru = {
   back: 'Назад',
   input_error: 'Что-то пошло не так...',
   input_empty_err: 'Обязательное поле',
-  input_minLength_err: 'Минимальная длина поля: ',
-  input_maxLength_err: 'Максимальная длина поля: ',
-  input_type_err: 'Введите корректный '
+  input_minLength_err: 'Минимальная длина поля:',
+  input_maxLength_err: 'Максимальная длина поля:',
+  input_type_err: 'Введите корректный(ое)'
 }

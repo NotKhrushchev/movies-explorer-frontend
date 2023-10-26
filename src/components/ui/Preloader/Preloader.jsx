@@ -1,12 +1,12 @@
 import React from 'react';
 import './Preloader.css';
 
-const Preloader = () => {
+const Preloader = ({ isSmall }) => {
 
   return (
-    <div className="preloader">
-      <div className="preloader__container">
-        <span className="preloader__round"></span>
+    <div className={!isSmall ? 'preloader' : 'preloader_small'}>
+      <div className={!isSmall ? 'preloader__container' : 'preloader__container_small'}>
+        <span className={!isSmall ? 'preloader__round' : 'preloader__round_small'}></span>
       </div>
     </div>
     );
