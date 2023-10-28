@@ -16,8 +16,7 @@ const Auth = ({
   onSubmit, 
   inputFields, 
   handleFormChange,
-  authErrMessage,
-  setErrText
+  authErrMessage
 }) => {
 
   const {isLoading} = React.useContext(LoadingContext);
@@ -49,7 +48,7 @@ const Auth = ({
         </div>
         <div className={'auth__form-actions'}>
           <p className={'auth__err-text'}>{authErrMessage}</p>
-          {!isLoading ? 
+          {!isLoading ?
             <Btn
               addtlClass={'auth__form-submit-btn'}
               text={!isLoading ? submitBtnText : `${submitBtnText}...`}

@@ -12,6 +12,17 @@ const getErrMessage =  (formType, errStatus) => {
           break;
       }
       break;
+
+    case 'signin':
+      switch (errStatus) {
+        case 401:
+          errText = 'Вы ввели неправильный логин или пароль.';
+          break;
+        default:
+          errText = 'При авторизации произошла ошибка. Токен не передан или передан не в том формате.';
+          break;
+      }
+      break;
   
     default:
       break;

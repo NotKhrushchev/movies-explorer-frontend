@@ -83,6 +83,7 @@
   font-size: 11px;
   color: #FF004C;
   margin-bottom: 20px;
+  max-width: 396px;
 }
 
 .auth__form-submit-btn {
@@ -120,6 +121,7 @@
   }
   .auth__err-text {
     font-size: 10px;
+    max-width: 260px;
   }
   .auth__form-submit-btn {
     padding: 15px 68px;

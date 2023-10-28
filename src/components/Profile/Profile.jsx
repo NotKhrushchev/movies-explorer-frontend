@@ -3,12 +3,15 @@ import { resources_ru } from '../../translations/resources_ru';
 import './Profile.css';
 import Btn from '../ui/buttons/Btn';
 import NLink from '../ui/NLink/NLink';
+import UserContext from '../../contexts/userContext';
 
 const Profile = () => {
 
+  const {currentUser} = React.useContext(UserContext);
+
   return (
     <main className={'profile'}>
-      <h1 className={'profile__title'}>{`${resources_ru.hello}, ${'Никита'}!`}</h1>
+      <h1 className={'profile__title'}>{`${resources_ru.hello}, ${currentUser?.name}!`}</h1>
       <form className={'profile__form'}>
         <div className={'profile__form-section'}>
           <label className={'profile__input-label'} htmlFor={'name-input'}>{resources_ru.name}</label>
@@ -18,7 +21,7 @@ const Profile = () => {
             id={'name-input'} 
             name={'name-input'} 
             disabled 
-            value={'Никита'}
+            value={currentUser?.name}
           />
         </div>
         <div className={'profile__form-section'}>
@@ -29,7 +32,7 @@ const Profile = () => {
             id={'email-input'} 
             name={'name-input'} 
             disabled 
-            value={'Nikitafilemine1@gmail.com'}
+            value={currentUser?.email}
           />
         </div>
       </form>

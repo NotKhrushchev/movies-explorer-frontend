@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Auth from '../ui/Auth/Auth';
 import { resources_ru } from '../../translations/resources_ru';
 import useForm from '../../utils/hooks/useForm';
 import auth from '../../utils/Api/MainApi/MainApi';
 import UserContext from '../../contexts/userContext';
 import LoadingContext from '../../contexts/loadingContext';
-import { getErrMessage } from '../../utils/hooks/getErrMessage';
-import { useNavigate } from 'react-router-dom';
+import { getErrMessage } from '../../utils/functions/getErrMessage';
 
 const Register = () => {
-
-  const navigate = useNavigate();
 
   const regFormInitValue = {
     name: '',
@@ -18,7 +15,7 @@ const Register = () => {
     password: ''
   };
 
-  const {setLoggedIn, setUser} = React.useContext(UserContext);
+  const {setCurrentUser} = React.useContext(UserContext);
   const {setIsLoading} = React.useContext(LoadingContext);
   const [errText, setErrText] = useState('');
 
@@ -65,16 +62,24 @@ const Register = () => {
     setErrText('');
   }, [formValue]);
 
-  const handleSignUp = (e) => {
+  const handleSignUp = useCallback((e) => {
     e.preventDefault();
     setIsLoading(true);
     const {name, email, password} = formValue;
     auth.signUn(name, email, password)
       .then((res) => {
-        setLoggedIn(true);
-        setUser(res);
-        // Кидаю пользователя на страницу с фильмами
-        navigate('/movies', {replace: true});
+        auth.signIn(email, password)
+          .then((res) => {
+            const token = res.token;
+            localStorage.setItem('jwt', token);
+            auth.getUserByToken(token)
+              .then((res) => {
+                setCurrentUser(res);
+              });
+          })
+          .catch((errStatus) => {
+            setErrText(getErrMessage('signin', errStatus));
+          })
       })
       .catch((errStatus) => {
         setErrText(getErrMessage('signup', errStatus));
@@ -82,7 +87,8 @@ const Register = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formValue]);
 
   return (
     <Auth
@@ -93,7 +99,6 @@ const Register = () => {
       handleFormChange={handleFormChange}
       onSubmit={handleSignUp}
       authErrMessage={errText}
-      setErrText={setErrText}
     />
   );
 };

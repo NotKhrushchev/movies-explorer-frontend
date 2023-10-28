@@ -12,8 +12,21 @@ class MainApi {
         return res.json()
     }
     return Promise.reject(res.status);
-}
+  }
 
+  // Проверка токена
+  getUserByToken(token) {
+    return fetch(`${this._baseUrl}/users/me`, {
+        method: 'GET',
+        headers: {
+          "Authorization" : `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+    })
+      .then(res => this._checkAnswer(res));
+  }
+
+  // Регистрация
   signUn(name, email, password) {
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
@@ -21,12 +34,25 @@ class MainApi {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password
+        name,
+        email,
+        password
       })
     })
-    .then(res => this._checkAnswer(res));
+      .then(res => this._checkAnswer(res));
+  }
+
+  // Вход
+  signIn(email, password) {
+    return fetch(`${this._baseUrl}/signin`, {
+      method: 'POST',
+      headers: this._defaultHeaders,
+      body: JSON.stringify({
+        email,
+        password
+      })
+    })
+      .then(res => this._checkAnswer(res));
   }
 }
 

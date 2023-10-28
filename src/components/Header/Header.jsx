@@ -12,7 +12,7 @@ import UserContext from '../../contexts/userContext';
 
 const Header = ({ setSideBar, isVisible }) => {
 
-  const {isLoggedIn} = React.useContext(UserContext);
+  const {currentUser} = React.useContext(UserContext);
   const isMainPage = !useLocation().pathname.split('/').pop();
   
   const showSideBar = () => {
@@ -26,7 +26,7 @@ const Header = ({ setSideBar, isVisible }) => {
     <header className={`header ${isMainPage ? 'header_main' : ''} ${!isVisible ? 'hidden' : ''}`}>
       <div className={'header__content'}>
         <Logo addtlClass={'header__logo'} />
-        {isLoggedIn === true
+        {currentUser
           ?
           <>
             <nav className='header__nav'>

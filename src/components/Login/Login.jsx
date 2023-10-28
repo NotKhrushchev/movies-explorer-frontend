@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Auth from '../ui/Auth/Auth';
 import { resources_ru } from '../../translations/resources_ru';
 import useForm from '../../utils/hooks/useForm';
+import UserContext from '../../contexts/userContext';
+import LoadingContext from '../../contexts/loadingContext';
+import auth from '../../utils/Api/MainApi/MainApi';
+import { getErrMessage } from '../../utils/functions/getErrMessage';
 
 const Login = () => {
 
@@ -10,13 +14,13 @@ const Login = () => {
     password: ''
   };
 
+  const {setCurrentUser} = React.useContext(UserContext);
+  const {setIsLoading} = React.useContext(LoadingContext);
+  const [errText, setErrText] = useState('');
+
   const form = useForm(logFormInitValue);
   const {formValue} = form;
   const {handleFormChange} = form;
-
-  const handleSignIn = (e) => {
-    e.preventDefault();
-  };
 
   const inputFields = [
     {
@@ -40,6 +44,32 @@ const Login = () => {
     }
   ];
 
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    const {email, password} = formValue;
+    auth.signIn(email, password)
+      .then((res) => {
+        const token = res.token;
+        localStorage.setItem('jwt', token);
+        auth.getUserByToken(token)
+          .then((res) => {
+            setCurrentUser(res);
+          });
+      })
+      .catch((errStatus) => {
+        setErrText(getErrMessage('signin', errStatus));
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
+  };
+
+  // Убираю ошибку формы если изменились инпуты
+  useEffect(() => {
+    setErrText('');
+  }, [formValue]);
+
   return (
     <Auth
       type={'signin'}
@@ -48,6 +78,7 @@ const Login = () => {
       inputFields={inputFields}
       handleFormChange={handleFormChange}
       onSubmit={handleSignIn}
+      authErrMessage={errText}
     />
   );
 };
