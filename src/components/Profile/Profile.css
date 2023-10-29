@@ -105,4 +105,9 @@
   .profile__logout-btn {
     font-size: 12px;
   }
+  .profile__form-submit-btn {
+    padding: 15px 68px;
+    font-size: 12px;
+    width: 260px;
+  }
 }

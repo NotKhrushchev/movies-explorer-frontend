@@ -95,7 +95,7 @@ const Profile = () => {
           !isLoading ?
             <Btn
               className={'profile__form-submit-btn'}
-              text={!isLoading ? 'Сохранить' : 'Сохранение...'}
+              text={!isLoading ? 'Сохранить' : 'Сохранить...'}
               onClick={handleEditUser}
               ariaLabel={'Сохранить'}
               type={'submit'}

@@ -1,161 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Movies.css';
 import SearchMovie from './SearchMovie/SearchMovie';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
+import moviesApi from '../../utils/Api/MoviesApi/MoviesApi';
+import Preloader from '../ui/Preloader/Preloader';
+import { resources_ru } from '../../translations/resources_ru';
 
 const Movies = () => {
-  
-  const movies = [
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-    {
-      country: 'America',
-      directior: 'Tarantino',
-      duration: 165,
-      year: '2012',
-      description: 'Эксцентричный охотник за головами, также известный как «Дантист», промышляет отстрелом самых опасных преступников на Диком Западе. Работенка пыльная, и без надежного помощника ему не обойтись. Но как найти такого и желательно не очень дорогого? Беглый раб по имени Джанго — прекрасная кандидатура. Правда, у нового помощника свои мотивы — кое с чем надо разобраться…',
-      image: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      trainerLink: 'https://www.youtube.com/watch?v=yBKruuHIzC4',
-      thumbnail: 'https://kinorazdel.com/usr/video/187/film/image/head.jpg',
-      nameRU: 'Джанго освобождённый',
-      nameEN: 'Django unchained'
-    },
-  ]
+
+  const [initMovies, setInitMovies] = useState(undefined);
+  const [movies, setMovies] = useState([]);
+  const [err, setErr] = useState(false);
+  const [isShortMovies, setShortMovies] = useState(false);
+
+  useEffect(() => {
+    moviesApi.getMovies()
+      .then((movies) => setInitMovies(movies))
+      .catch((err) => {
+        console.log(err);
+        setErr(true);
+      })
+  }, []);
+
+  // Отслеживаю переключатель на короткометражки
+  useEffect(() => {
+    if (isShortMovies) {
+      const shortMovies = initMovies.filter((movie) => movie.duration < 40);
+      setMovies(shortMovies);
+    } else {
+      setMovies(initMovies)
+    }
+  }, [isShortMovies, initMovies]);
   
   return (
     <main className={'movies'}>
-      <SearchMovie />
-      <MoviesCardList movies={movies} />
+      {initMovies ? 
+        <>
+          <SearchMovie setShortMovies={setShortMovies} isShortMovies={isShortMovies} />
+          <MoviesCardList movies={movies} />
+        </>
+        :
+        <div className={'movies__messages'}>
+          {!err ?
+          <div className={'movies__preloader'}>
+            <Preloader />
+          </div>
+          :
+          <div className={'movies__error'}>
+            <span className={'movies__error-text'}>{resources_ru.requestErr}</span>
+          </div>}
+        </div>
+      }
     </main>
   );
 };

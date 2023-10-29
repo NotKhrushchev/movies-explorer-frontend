@@ -9,7 +9,7 @@ const MoviesCardList = ({ movies }) => {
   return (
     <section className={'movies-card-list'}>
       <ul className={'movies-card-list__movies'}>
-        {movies.map((movie, index) => (
+        {movies && movies.map((movie, index) => (
           <MoviesCard movie={movie} key={index} />
         ))}
       </ul>
