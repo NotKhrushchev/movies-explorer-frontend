@@ -50,7 +50,7 @@ const Auth = ({
           <p className={'auth__err-text'}>{authErrMessage}</p>
           {!isLoading ?
             <Btn
-              addtlClass={'auth__form-submit-btn'}
+              className={'auth__form-submit-btn'}
               text={!isLoading ? submitBtnText : `${submitBtnText}...`}
               onClick={onSubmit}
               ariaLabel={submitBtnText}
@@ -63,11 +63,11 @@ const Auth = ({
           {type === 'signup' 
             ?
             <span className={'auth__form-prompt'}>
-              {resources_ru.already_have_account} <LoginBtn addtlClass={'auth__form-nav-link btn'} />
+              {resources_ru.already_have_account} <LoginBtn className={'auth__form-nav-link btn'} />
             </span>
             :
             <span className={'auth__form-prompt'}>
-              {resources_ru.dont_have_account} <RegBtn addtlClass={'auth__form-nav-link btn'} />
+              {resources_ru.dont_have_account} <RegBtn className={'auth__form-nav-link btn'} />
             </span>
           }
         </div>

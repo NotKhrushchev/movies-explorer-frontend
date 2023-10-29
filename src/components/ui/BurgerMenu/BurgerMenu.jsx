@@ -19,7 +19,7 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems }) => {
       <div className={sideBar ? 'side-bar__blackout active' : ''} onClick={hideSideBar} />
       <div className={sideBar ? 'side-bar__menu active' : 'side-bar__menu'}>
         <Btn
-          addtlClass={'side-bar__menu-cross'}
+          className={'side-bar__menu-cross'}
           onClick={hideSideBar}
           ariaLabel={resources_ru.cross_icon}
         />
@@ -27,7 +27,7 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems }) => {
           {navItems.map((item, index) => 
             <li className={'side-bar__menu-items-item'} key={index}>
               <NLink
-                addtlClass={'side-bar__menu-items-item-link'} 
+                className={'side-bar__menu-items-item-link'} 
                 wayTo={item.wayTo}
                 title={item.title}
                 onClick={hideSideBar} 
@@ -36,7 +36,7 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems }) => {
           )}
         </ul>
         <AccountBtn 
-            addtlClass={'side-bar__menu-account-btn'} 
+            className={'side-bar__menu-account-btn'} 
             isMainPage={false}
             onClick={hideSideBar}
         />

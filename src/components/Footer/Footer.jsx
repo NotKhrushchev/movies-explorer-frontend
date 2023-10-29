@@ -13,12 +13,12 @@ const Footer = ({ isVisible }) => {
           <p className={'footer__info-year'}>© 2023</p>
           <ul className={'footer__info-links'}>
             <Link 
-              addtlClass={'footer__info-links-link'} 
+              className={'footer__info-links-link'} 
               wayTo={'https://practicum.yandex.ru/'} 
               title={resources_ru.yandex_pr}
             />
             <Link 
-              addtlClass={'footer__info-links-link'} 
+              className={'footer__info-links-link'} 
               wayTo={'https://github.com/NotKhrushchev'}
               title={'Github'}
             />

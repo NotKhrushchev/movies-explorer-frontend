@@ -28,7 +28,7 @@ const useInputValidation = ((value, validations) => {
   
         // Проверка на минимальную длину
         case 'minLength':
-          if (value.length < validations[validation] && value) {
+          if (value?.length < validations[validation] && value) {
             setMinLengthErr(true);
             setErrorText(`${resources_ru.input_minLength_err} ${validations[validation]}`);
           } else {
@@ -38,7 +38,7 @@ const useInputValidation = ((value, validations) => {
   
         // Проверка на максимальную длину
         case 'maxLength':
-          if (value.length > validations[validation]) {
+          if (value?.length > validations[validation]) {
             setMaxLengthErr(true);
             setErrorText(`${resources_ru.input_maxLength_err} ${validations[validation]}`);
           } else {
@@ -50,7 +50,7 @@ const useInputValidation = ((value, validations) => {
         case 'type':
           switch (validations[validation]) {
             case 'email':
-              const isEmailValid = validator.isEmail(value);
+              const isEmailValid = validator?.isEmail(String(value));
               if (!isEmailValid && value) {
                 setTypeError(true);
                 setErrorText(`${resources_ru.input_type_err} ${validations[validation]}`);

@@ -20,7 +20,7 @@ const SearchMovie = () => {
               required
             />
             <Btn
-              addtlClass={'search-movie__form-find-btn'}
+              className={'search-movie__form-find-btn'}
               text={resources_ru.find}
               ariaLabel={resources_ru.find}
               type={'submit'}

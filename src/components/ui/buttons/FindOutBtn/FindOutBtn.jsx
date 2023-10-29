@@ -4,12 +4,12 @@ import './FindOutBtn.css';
 import { resources_ru } from '../../../../translations/resources_ru';
 import Link from '../../Link/Link';
 
-const FindOutBtn = ({ addtlClass }) => {
+const FindOutBtn = ({ className }) => {
   
   return (
     <Link 
       wayTo={'#me'} 
-      addtlClass={`${addtlClass} btn find-out-btn`}
+      className={`${className} btn find-out-btn`}
       title={resources_ru.find_out}
       isAnchorLink={true}
     />

@@ -4,10 +4,10 @@ import '../Btn.css';
 import './LoginBtn.css';
 import { resources_ru } from '../../../../translations/resources_ru';
 
-const LoginBtn = ({ addtlClass }) => {
+const LoginBtn = ({ className }) => {
   
   return (
-    <NavLink to='/signin' className={`${addtlClass} btn`}>
+    <NavLink to='/signin' className={`${className} btn`}>
       {resources_ru.login}
     </NavLink>
   );

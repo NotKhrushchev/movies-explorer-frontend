@@ -15,7 +15,7 @@ const MoviesCardList = ({ movies }) => {
       </ul>
       <div className={'movies-card-list__loader'}>
         <Btn
-          addtlClass={'movies-card-list__load-more-btn'}
+          className={'movies-card-list__load-more-btn'}
           text={resources_ru.more}
         />
       </div>

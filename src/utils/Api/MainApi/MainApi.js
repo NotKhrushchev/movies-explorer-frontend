@@ -23,23 +23,21 @@ class MainApi {
           "Content-Type": "application/json"
         }
     })
-      .then(res => this._checkAnswer(res));
+      .then((res) => this._checkAnswer(res));
   }
 
   // Регистрация
   signUn(name, email, password) {
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: this._defaultHeaders,
       body: JSON.stringify({
         name,
         email,
         password
       })
     })
-      .then(res => this._checkAnswer(res));
+      .then((res) => this._checkAnswer(res));
   }
 
   // Вход
@@ -52,7 +50,22 @@ class MainApi {
         password
       })
     })
-      .then(res => this._checkAnswer(res));
+      .then((res) => this._checkAnswer(res));
+  }
+
+  editUser(name, email) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'PATCH',
+      headers: {
+        "Authorization": `Bearer ${localStorage.jwt}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          name,
+          email
+      })
+    })
+      .then((res) => console.log(res))
   }
 }
 

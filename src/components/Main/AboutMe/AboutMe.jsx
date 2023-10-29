@@ -17,7 +17,7 @@ const AboutMe = ({ portfolioItems = [] }) => {
             <h4 className={'about-me__text-subtitle'}>{resources_ru.profession_age}</h4>
             <p className={'about-me__text-about'}>{resources_ru.about_me}</p>
             <Link 
-              addtlClass={'about-me__text-gh-link'} 
+              className={'about-me__text-gh-link'} 
               wayTo={'https://github.com/NotKhrushchev'} 
               title={'Github'}
             />
@@ -30,7 +30,7 @@ const AboutMe = ({ portfolioItems = [] }) => {
             {portfolioItems.map((item, index) => 
               <li className={'about-me__portfolio-list-item'} key={index}>
                 <Link 
-                  addtlClass={'about-me__portfolio-list-item-link'} 
+                  className={'about-me__portfolio-list-item-link'} 
                   wayTo={item.wayTo}
                   title={item.title}
                 >

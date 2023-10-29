@@ -19,7 +19,7 @@ const MoviesCard = ({ movie }) => {
       <div className={'movies-card__info'}>
         <h2 className={'movies-card__name'}>{movie.nameRU}</h2>
         <Btn
-          addtlClass={'movies-card__like-btn'}
+          className={'movies-card__like-btn'}
           ariaLabel={resources_ru.like}
         />
       </div>
