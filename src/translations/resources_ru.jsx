@@ -8,6 +8,7 @@ export const resources_ru = {
   burger_menu_icon: 'Иконка бургер-меню',
   main: 'Главная',
   like: 'Нравится',
+  save: 'Сохранить',
   cross_icon: 'Иконка крестика',
   login: 'Войти',
   logout: 'Выйти из аккаунта',

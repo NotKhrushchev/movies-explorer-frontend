@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { resources_ru } from '../../translations/resources_ru';
 import './Profile.css';
 import Btn from '../ui/buttons/Btn';
@@ -8,12 +8,19 @@ import useForm from '../../utils/hooks/useForm';
 import FormInput from '../ui/Form/FormInput/FormInput';
 import Preloader from '../ui/Preloader/Preloader';
 import auth from '../../utils/Api/MainApi/MainApi';
+import { isEqual } from 'lodash';
 
 const Profile = () => {
 
+  const {setCurrentUser} = React.useContext(UserContext);
   const {currentUser} = React.useContext(UserContext);
   const [isOnEdit, setOnEdit] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isInfoChanged, setInfoChanged] = useState(false);
+
+  // Объект со значениями валидности каждого инпута
+  const [inputValids, setInputValids] = useState({});
+  const [formValid, setFormValid] = useState(false);
 
   const userFormInitValue = {
     name: currentUser?.name,
@@ -49,12 +56,27 @@ const Profile = () => {
     }
   ];
 
+  // Отслеживаю изменение данных пользователя
+  useEffect(() => {
+    !isEqual(userFormInitValue, formValue) ? setInfoChanged(true) : setInfoChanged(false);
+  }, [formValue, isLoading])
+
+  useEffect(() => {
+    // Глобальный обработчик валидности формы
+    Object.values(inputValids).every((e) => e === true) ? setFormValid(true) : setFormValid(false);
+  }, [inputValids]);
+
   const handleEditUser = useCallback(() => {
+    setIsLoading(true);
     const {name, email} = formValue;
     auth.editUser(name, email)
-      .then(() => setOnEdit(false))
+      .then(() => {
+        setCurrentUser({...currentUser, name, email});
+        setOnEdit(false);
+      })
       .catch((err) => console.log(err))
-  }, [formValue]);
+      .finally(() => setIsLoading(false))
+  }, [formValue, setCurrentUser, currentUser]);
 
   return (
     <main className={'profile'}>
@@ -68,15 +90,16 @@ const Profile = () => {
             key={input.name}
             input={input} 
             handleFormChange={handleFormChange}
+            setInputValids={setInputValids}
             noErrSpan={true}
             extra={{
-              disabled: isLoading
+              disabled: !isOnEdit
             }}
           />
         )}
       </form>
       <div className={'profile__controlls'}>
-        { !isOnEdit ? 
+        {!isOnEdit ? 
           <>
             <Btn 
               className={'profile__edit-btn'} 
@@ -95,14 +118,14 @@ const Profile = () => {
           !isLoading ?
             <Btn
               className={'profile__form-submit-btn'}
-              text={!isLoading ? 'Сохранить' : 'Сохранить...'}
+              text={!isLoading ? resources_ru.save : `${resources_ru.save}...`}
               onClick={handleEditUser}
               ariaLabel={'Сохранить'}
               type={'submit'}
-              disabled={isLoading}
+              disabled={!formValid || !isInfoChanged}
             />
             :
-            <Preloader isSmall={true} />
+            <Preloader className={'profile__preloader'} isSmall={true} />
         }
       </div>
     </main>
