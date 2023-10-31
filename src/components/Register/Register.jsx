@@ -17,7 +17,7 @@ const Register = () => {
 
   const {setCurrentUser} = React.useContext(UserContext);
   const {setIsLoading} = React.useContext(LoadingContext);
-  const [errText, setErrText] = useState('');
+  const [errMessage, setErrMessage] = useState('');
 
   const form = useForm(regFormInitValue);
   const {formValue} = form;
@@ -59,7 +59,7 @@ const Register = () => {
 
   // Убираю ошибку формы если изменились инпуты
   useEffect(() => {
-    setErrText('');
+    setErrMessage('');
   }, [formValue]);
 
   const handleSignUp = useCallback((e) => {
@@ -78,11 +78,11 @@ const Register = () => {
               });
           })
           .catch((errStatus) => {
-            setErrText(getErrMessage('signin', errStatus));
+            setErrMessage(getErrMessage('signin', errStatus));
           })
       })
       .catch((errStatus) => {
-        setErrText(getErrMessage('signup', errStatus));
+        setErrMessage(getErrMessage('signup', errStatus));
       })
       .finally(() => {
         setIsLoading(false);
@@ -98,7 +98,7 @@ const Register = () => {
       inputFields={inputFields}
       handleFormChange={handleFormChange}
       onSubmit={handleSignUp}
-      authErrMessage={errText}
+      authErrMessage={errMessage}
     />
   );
 };

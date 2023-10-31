@@ -9,14 +9,18 @@ import FormInput from '../ui/Form/FormInput/FormInput';
 import Preloader from '../ui/Preloader/Preloader';
 import auth from '../../utils/Api/MainApi/MainApi';
 import { isEqual } from 'lodash';
+import { getErrMessage } from '../../utils/functions/getErrMessage';
+import LoadingContext from '../../contexts/loadingContext';
 
 const Profile = () => {
 
   const {setCurrentUser} = React.useContext(UserContext);
   const {currentUser} = React.useContext(UserContext);
+  const {setIsLoading} = React.useContext(LoadingContext);
+  const {isLoading} = React.useContext(LoadingContext);
   const [isOnEdit, setOnEdit] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [isInfoChanged, setInfoChanged] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
   // Объект со значениями валидности каждого инпута
   const [inputValids, setInputValids] = useState({});
@@ -66,6 +70,11 @@ const Profile = () => {
     Object.values(inputValids).every((e) => e === true) ? setFormValid(true) : setFormValid(false);
   }, [inputValids]);
 
+  // Убираю ошибку формы если изменились инпуты
+  useEffect(() => {
+    setErrMessage('');
+  }, [formValue]);
+
   const handleEditUser = useCallback(() => {
     setIsLoading(true);
     const {name, email} = formValue;
@@ -74,60 +83,69 @@ const Profile = () => {
         setCurrentUser({...currentUser, name, email});
         setOnEdit(false);
       })
-      .catch((err) => console.log(err))
+      .catch((errStatus) => {
+        setErrMessage(getErrMessage('editUser', errStatus));
+      })
       .finally(() => setIsLoading(false))
   }, [formValue, setCurrentUser, currentUser]);
 
   return (
     <main className={'profile'}>
-      <h1 className={'profile__title'}>{`${resources_ru.hello}, ${currentUser?.name}!`}</h1>
       <form className={'profile__form'}>
-        {inputFields.map((input) => 
-          <FormInput
-            inputClassName={'profile__input'}
-            labelClassName={'profile__input-label'}
-            inputBlockClassName={`profile__form-section ${isOnEdit && 'profile__form-section_active'}`}
-            key={input.name}
-            input={input} 
-            handleFormChange={handleFormChange}
-            setInputValids={setInputValids}
-            noErrSpan={true}
-            extra={{
-              disabled: !isOnEdit
-            }}
-          />
-        )}
-      </form>
-      <div className={'profile__controlls'}>
-        {!isOnEdit ? 
-          <>
-            <Btn 
-              className={'profile__edit-btn'} 
-              text={resources_ru.edit} 
-              ariaLabel={resources_ru.edit}
-              onClick={() => setOnEdit(true)}
+        <h1 className={'profile__title'}>{`${resources_ru.hello}, ${currentUser?.name}!`}</h1>
+        <>
+          {inputFields.map((input) => 
+            <FormInput
+              inputClassName={'profile__input'}
+              labelClassName={'profile__input-label'}
+              inputBlockClassName={`profile__input-section ${isOnEdit && 'profile__input-section_active'}`}
+              key={input.name}
+              input={input} 
+              handleFormChange={handleFormChange}
+              setInputValids={setInputValids}
+              noErrSpan={true}
+              extra={{
+                disabled: !isOnEdit
+              }}
             />
-            <NLink 
-              wayTo={'/'} 
-              className={'profile__logout-btn'} 
-              title={resources_ru.logout} 
-              ariaLabel={resources_ru.logout} 
-            />
-          </>
-          :
-          !isLoading ?
-            <Btn
-              className={'profile__form-submit-btn'}
-              text={!isLoading ? resources_ru.save : `${resources_ru.save}...`}
-              onClick={handleEditUser}
-              ariaLabel={'Сохранить'}
-              type={'submit'}
-              disabled={!formValid || !isInfoChanged}
-            />
+          )}
+        </>
+        <div className={'profile__controlls'}>
+          {!isOnEdit ? 
+            <>
+              <Btn 
+                className={'profile__edit-btn'} 
+                text={resources_ru.edit} 
+                ariaLabel={resources_ru.edit}
+                onClick={() => setOnEdit(true)}
+              />
+              <Btn
+                className={'profile__logout-btn'} 
+                text={resources_ru.logout} 
+                ariaLabel={resources_ru.logout} 
+                onClick={() => {
+                  localStorage.removeItem('jwt');
+                }}
+              />
+            </>
             :
-            <Preloader className={'profile__preloader'} isSmall={true} />
-        }
-      </div>
+            <>
+              <span className={'profile__err-text'}>{errMessage}</span>
+              {!isLoading ?
+              <Btn
+                className={'profile__form-submit-btn'}
+                text={resources_ru.save}
+                onClick={handleEditUser}
+                ariaLabel={'Сохранить'}
+                type={'submit'}
+                disabled={!formValid || !isInfoChanged}
+              />
+              :
+              <Preloader isSmall={true} />}
+            </>
+          }
+        </div>
+      </form>
     </main>
   );
 };

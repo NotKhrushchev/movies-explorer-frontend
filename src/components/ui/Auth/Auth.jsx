@@ -47,11 +47,11 @@ const Auth = ({
           ))}
         </div>
         <div className={'auth__form-actions'}>
-          <p className={'auth__err-text'}>{authErrMessage}</p>
+          <span className={'auth__err-text'}>{authErrMessage}</span>
           {!isLoading ?
             <Btn
               className={'auth__form-submit-btn'}
-              text={!isLoading ? submitBtnText : `${submitBtnText}...`}
+              text={submitBtnText}
               onClick={onSubmit}
               ariaLabel={submitBtnText}
               type={'submit'}

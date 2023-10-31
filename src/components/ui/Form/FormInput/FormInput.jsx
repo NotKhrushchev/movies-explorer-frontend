@@ -16,7 +16,7 @@ const FormInput = ({
   const validation = useInputValidation(input.value, input.validations);
 
   const {isValid} = validation;
-  const {errorText} = validation;
+  const {errMessage} = validation;
   const [isInputBlur, setInputBlur] = useState(false);
 
   // Отслеживаю уход с инпута для отображения ошибки валидации
@@ -46,7 +46,7 @@ const FormInput = ({
         {...extra}
       />
       <label className={`${labelClassName || 'input-label'}`}>{input.text}</label>
-      {(isInputBlur && !isValid && !noErrSpan) && <span className={'input-error'}>{errorText}</span>}
+      {(isInputBlur && !isValid && !noErrSpan) && <span className={'input-error'}>{errMessage}</span>}
     </div>
   );
 };

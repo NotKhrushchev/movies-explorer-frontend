@@ -10,7 +10,7 @@ const useInputValidation = ((value, validations) => {
   const [minLengthErr, setMinLengthErr] = useState(false);
   const [maxLengthErr, setMaxLengthErr] = useState(false);
   const [typeError, setTypeError] = useState(false);
-  const [errorText, setErrorText] = useState('');
+  const [errMessage, setErrMessage] = useState('');
 
   useEffect(() => {
     for (const validation in validations) {
@@ -20,7 +20,7 @@ const useInputValidation = ((value, validations) => {
         case 'required':
           if (!value) {
             setEmptyErr(true);
-            setErrorText(resources_ru.input_empty_err);
+            setErrMessage(resources_ru.input_empty_err);
           } else {
             setEmptyErr(false);
           }
@@ -30,7 +30,7 @@ const useInputValidation = ((value, validations) => {
         case 'minLength':
           if (value?.length < validations[validation] && value) {
             setMinLengthErr(true);
-            setErrorText(`${resources_ru.input_minLength_err} ${validations[validation]}`);
+            setErrMessage(`${resources_ru.input_minLength_err} ${validations[validation]}`);
           } else {
             setMinLengthErr(false);
           }
@@ -40,7 +40,7 @@ const useInputValidation = ((value, validations) => {
         case 'maxLength':
           if (value?.length > validations[validation]) {
             setMaxLengthErr(true);
-            setErrorText(`${resources_ru.input_maxLength_err} ${validations[validation]}`);
+            setErrMessage(`${resources_ru.input_maxLength_err} ${validations[validation]}`);
           } else {
             setMaxLengthErr(false);
           }
@@ -53,7 +53,7 @@ const useInputValidation = ((value, validations) => {
               const isEmailValid = validator?.isEmail(String(value));
               if (!isEmailValid && value) {
                 setTypeError(true);
-                setErrorText(`${resources_ru.input_type_err} ${validations[validation]}`);
+                setErrMessage(`${resources_ru.input_type_err} ${validations[validation]}`);
               } else {
                 setTypeError(false);
               }
@@ -64,7 +64,7 @@ const useInputValidation = ((value, validations) => {
               const isNameValid = nameRegEx.test(value);
               if (!isNameValid && value) {
                 setTypeError(true);
-                setErrorText(`${resources_ru.input_type_err} имя`);
+                setErrMessage(`${resources_ru.input_type_err} имя`);
               } else {
                 setTypeError(false);
               }
@@ -95,7 +95,7 @@ const useInputValidation = ((value, validations) => {
     isEmptyErr,
     minLengthErr,
     maxLengthErr,
-    errorText,
+    errMessage,
     isValid
   };
 })

@@ -16,7 +16,8 @@ const Login = () => {
 
   const {setCurrentUser} = React.useContext(UserContext);
   const {setIsLoading} = React.useContext(LoadingContext);
-  const [errText, setErrText] = useState('');
+  const {isLoading} = React.useContext(LoadingContext);
+  const [errMessage, setErrMessage] = useState('');
 
   const form = useForm(logFormInitValue);
   const {formValue} = form;
@@ -58,7 +59,7 @@ const Login = () => {
           });
       })
       .catch((errStatus) => {
-        setErrText(getErrMessage('signin', errStatus));
+        setErrMessage(getErrMessage('signin', errStatus));
       })
       .finally(() => {
         setIsLoading(false);
@@ -67,8 +68,8 @@ const Login = () => {
 
   // Убираю ошибку формы если изменились инпуты
   useEffect(() => {
-    setErrText('');
-  }, [formValue]);
+    setErrMessage('');
+  }, [formValue, isLoading]);
 
   return (
     <Auth
@@ -78,7 +79,7 @@ const Login = () => {
       inputFields={inputFields}
       handleFormChange={handleFormChange}
       onSubmit={handleSignIn}
-      authErrMessage={errText}
+      authErrMessage={errMessage}
     />
   );
 };

@@ -66,12 +66,6 @@
   transition: all 0.2s ease;
 }
 
-.auth__form-input-error {
-  font-size: 10px;
-  color: #FF3055;
-  margin-top: 6px;
-}
-
 .auth__form-actions {
   display: flex;
   flex-direction: column;
