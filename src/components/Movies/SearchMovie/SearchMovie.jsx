@@ -4,7 +4,7 @@ import { resources_ru } from '../../../translations/resources_ru';
 import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox';
 import Btn from '../../ui/buttons/Btn';
 
-const SearchMovie = ({ setShortMovies, isShortMovies }) => {
+const SearchMovie = ({ setShortMoviesFilter }) => {
 
   return (
     <section className={'search-movie'}>
@@ -26,7 +26,7 @@ const SearchMovie = ({ setShortMovies, isShortMovies }) => {
               type={'submit'}
             />
           </div>
-          <FilterCheckbox setShortMovies={setShortMovies} isShortMovies={isShortMovies} />
+          <FilterCheckbox setShortMoviesFilter={setShortMoviesFilter} />
         </form>
       </div>
     </section>

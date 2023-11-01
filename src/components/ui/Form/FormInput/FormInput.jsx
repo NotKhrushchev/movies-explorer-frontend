@@ -13,7 +13,7 @@ const FormInput = ({
   extra
 }) => {
 
-  const validation = useInputValidation(input.value, input.validations);
+  const validation = useInputValidation(input?.value, input?.validations);
 
   const {isValid} = validation;
   const {errMessage} = validation;
@@ -28,24 +28,24 @@ const FormInput = ({
   useEffect(() => {
     setInputValids && setInputValids((inputValids) => ({
       ...inputValids,
-      [input.name]: isValid
+      [input?.name]: isValid
     }));
-  }, [isValid, setInputValids, input.name]);
+  }, [isValid, setInputValids, input?.name]);
 
   return (
     <div className={`${inputBlockClassName || 'input-block'}`}>
       <input
-        type={input.type}
-        name={input.name}
-        id={input.name}
+        type={input?.type}
+        name={input?.name}
+        id={input?.name}
         className={`${inputClassName || 'input'} ${(!isValid && isInputBlur && !noErrSpan) && 'input_invalid'}`}
         required
-        value={input.value}
+        value={input?.value}
         onChange={handleFormChange}
         onBlur={handleInputOnBlur}
         {...extra}
       />
-      <label className={`${labelClassName || 'input-label'}`}>{input.text}</label>
+      <label className={`${labelClassName || 'input-label'}`}>{input?.text}</label>
       {(isInputBlur && !isValid && !noErrSpan) && <span className={'input-error'}>{errMessage}</span>}
     </div>
   );

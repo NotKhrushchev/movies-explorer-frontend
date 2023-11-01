@@ -125,6 +125,7 @@ const Profile = () => {
                 ariaLabel={resources_ru.logout} 
                 onClick={() => {
                   localStorage.removeItem('jwt');
+                  localStorage.removeItem('isShortMoviesFilter');
                 }}
               />
             </>

@@ -55,7 +55,7 @@ function App() {
       setCurrentUser(undefined);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localStorage.jwt]);
+  }, [localStorage?.jwt]);
 
   // Проверяю токен при загрузке приложения
   useEffect(() => {

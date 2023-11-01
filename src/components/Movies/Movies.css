@@ -3,7 +3,7 @@
 }
 
 .movies__messages {
-  margin-top: 30vh;
+  margin-top: 10vh;
 }
 
 .movies__error {
@@ -17,10 +17,19 @@
   font-size: 15px;
   color: #A0A0A0;
   display: block;
-  max-width: 50%;
+  max-width: 30%;
 }
 
 @media screen and (max-width: 768px) {
+  .movies__messages {
+    margin-top: 0;
+  }
+  .movies__error-text {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 550px) {
   .movies__error-text {
     font-size: 11px;
   }
