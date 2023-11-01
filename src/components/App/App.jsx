@@ -16,12 +16,15 @@ import UserContext from '../../contexts/userContext';
 import LoadingContext from '../../contexts/loadingContext';
 import { useEffect } from 'react';
 import auth from '../../utils/Api/MainApi/MainApi';
+import moviesApi from '../../utils/Api/MoviesApi/MoviesApi';
 
 /** Корневой компонент */
 function App() {
   const currentPage = useLocation().pathname.split('/').pop();
   const navigate = useNavigate();
 
+  const [initMovies, setInitMovies] = useState([]);
+  const [initMoviesErr, setInitMoviesErr] = useState(false);
   const [sideBar, setSideBar] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -57,9 +60,15 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localStorage?.jwt]);
 
-  // Проверяю токен при загрузке приложения
+  // Проверяю токен и подгружаю фильмы при загрузке приложения
   useEffect(() => {
     handleTokenCheck();
+    moviesApi.getMovies()
+      .then((initMovies) => {
+        setInitMoviesErr(false);
+        setInitMovies(initMovies)
+      })
+      .catch(() => setInitMoviesErr(true))
   }, [handleTokenCheck]);
   
   return (
@@ -74,7 +83,7 @@ function App() {
             />
             <Route 
               path='/movies' 
-              element={<Movies />} 
+              element={<Movies initMovies={initMovies} initMoviesErr={initMoviesErr} />} 
             />
             <Route 
               path='/saved-movies' 

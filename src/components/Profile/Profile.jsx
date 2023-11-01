@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { resources_ru } from '../../translations/resources_ru';
 import './Profile.css';
 import Btn from '../ui/buttons/Btn';
-import NLink from '../ui/NLink/NLink';
 import UserContext from '../../contexts/userContext';
 import useForm from '../../utils/hooks/useForm';
 import FormInput from '../ui/Form/FormInput/FormInput';
@@ -11,9 +10,11 @@ import auth from '../../utils/Api/MainApi/MainApi';
 import { isEqual } from 'lodash';
 import { getErrMessage } from '../../utils/functions/getErrMessage';
 import LoadingContext from '../../contexts/loadingContext';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
 
+  const navigate = useNavigate();
   const {setCurrentUser} = React.useContext(UserContext);
   const {currentUser} = React.useContext(UserContext);
   const {setIsLoading} = React.useContext(LoadingContext);
@@ -63,6 +64,8 @@ const Profile = () => {
   // Отслеживаю изменение данных пользователя
   useEffect(() => {
     !isEqual(userFormInitValue, formValue) ? setInfoChanged(true) : setInfoChanged(false);
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formValue, isLoading])
 
   useEffect(() => {
@@ -74,6 +77,12 @@ const Profile = () => {
   useEffect(() => {
     setErrMessage('');
   }, [formValue]);
+
+  const signOut = () => {
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('isShortMoviesFilter');
+    navigate('/', {replace: true});
+  }
 
   const handleEditUser = useCallback(() => {
     setIsLoading(true);
@@ -87,7 +96,7 @@ const Profile = () => {
         setErrMessage(getErrMessage('editUser', errStatus));
       })
       .finally(() => setIsLoading(false))
-  }, [formValue, setCurrentUser, currentUser]);
+  }, [formValue, setCurrentUser, currentUser, setIsLoading]);
 
   return (
     <main className={'profile'}>
@@ -123,10 +132,7 @@ const Profile = () => {
                 className={'profile__logout-btn'} 
                 text={resources_ru.logout} 
                 ariaLabel={resources_ru.logout} 
-                onClick={() => {
-                  localStorage.removeItem('jwt');
-                  localStorage.removeItem('isShortMoviesFilter');
-                }}
+                onClick={signOut}
               />
             </>
             :

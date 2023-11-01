@@ -2,53 +2,48 @@ import React, { useCallback, useEffect, useState } from 'react';
 import './Movies.css';
 import SearchMovie from './SearchMovie/SearchMovie';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
-import moviesApi from '../../utils/Api/MoviesApi/MoviesApi';
 import Preloader from '../ui/Preloader/Preloader';
 import { resources_ru } from '../../translations/resources_ru';
 import LoadingContext from '../../contexts/loadingContext';
 
-const Movies = () => {
-
-  const [initMovies, setInitMovies] = useState(undefined);
+const Movies = ({ initMovies, initMoviesErr }) => {
+  
   const {setIsLoading} = React.useContext(LoadingContext);
   const {isLoading} = React.useContext(LoadingContext);
   const [filter, setFilter] = useState({
     isShortMoviesFilter: JSON.parse(localStorage?.isShortMoviesFilter || 'false'),
     nameFilter: ''
   });
-  const [filteredMovies, setFilteredMovies] = useState([]);
-  const [isErr, setErr] = useState(false);
+  const [movies, setMovies] = useState([]);
+  const [shortMovies, setShortMovies] = useState([]);
 
   // Обработка чека на фильтр по короткометражкам
-  const handleShortFilmsFilter = () => {
+  const handleShortFilmsFilter = useCallback(() => {
     setFilter({...filter, isShortMoviesFilter: !filter.isShortMoviesFilter});
     localStorage.setItem('isShortMoviesFilter', !filter.isShortMoviesFilter);
-  };
+  }, [filter]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    filter?.isShortMoviesFilter === true ? setShortMovies(
+      movies.filter((movie) => movie.duration < 40)
+    ) : setShortMovies(movies);
+    setIsLoading(false);
+  }, [movies, setIsLoading, filter.isShortMoviesFilter])
 
   // При загрузке страницы загружаю фильмы
   useEffect(() => {
-    moviesApi.getMovies()
-      .then((movies) => setInitMovies(movies))
-      .catch((err) => {
-        console.log(err);
-        setErr(true);
-      })
-  }, []);
-
-  // const handleSearchMovie = useCallback(() => {
-  //   if (initMovies) {
-  //     setFilteredMovies(initMovies.map)
-  //   }
-  // }, [initMovies])
+    initMovies && setMovies(initMovies);
+  }, [initMovies]);
   
   return (
     <main className={'movies'}>
       <SearchMovie setShortMoviesFilter={handleShortFilmsFilter} />
-      {!!filteredMovies.length && !isLoading && !isErr ? 
-          <MoviesCardList movies={filteredMovies} />
+      {!!movies.length && !isLoading && !initMoviesErr ? 
+          <MoviesCardList movies={!shortMovies.length ? movies : shortMovies} />
         :
         <div className={'movies__messages'}>
-          {!isErr ?
+          {!initMoviesErr ?
           isLoading && 
             <div className={'movies__preloader'}>
               <Preloader />
@@ -64,4 +59,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default React.memo(Movies);
