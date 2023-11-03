@@ -16,14 +16,11 @@ import UserContext from '../../contexts/userContext';
 import LoadingContext from '../../contexts/loadingContext';
 import { useEffect } from 'react';
 import auth from '../../utils/Api/MainApi/MainApi';
-import moviesApi from '../../utils/Api/MoviesApi/MoviesApi';
 
 /** Корневой компонент */
 function App() {
   const currentPage = useLocation().pathname.split('/').pop();
   const navigate = useNavigate();
-  const [isMoviesErr, setMoviesErr] = useState(false);
-  const [initMovies, setInitMovies] = useState(JSON.parse(localStorage?.initMovies || null));
   const [sideBar, setSideBar] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -44,22 +41,6 @@ function App() {
     return isVisible;
   }
 
-  // Загружаю фильмы при загрузке приложения если они отсутствуют в хранилище
-  useEffect(() => {
-    if (!initMovies) {
-      setIsLoading(true);
-      moviesApi.getMovies()
-        .then((movies) => {
-          console.log(movies);
-          localStorage.setItem('initMovies', JSON.stringify(movies));
-          setInitMovies(movies);
-          console.log('Initial movies loaded');
-        })
-        .catch(() => setMoviesErr(true))
-        .finally(() => setIsLoading(false));
-    }
-  }, []);
-
   // Проверка токена
   const handleTokenCheck = useCallback(() => {
     if (localStorage?.jwt) {
@@ -72,7 +53,7 @@ function App() {
     } else {
       setCurrentUser(undefined);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localStorage?.jwt]);
 
   // Проверяю токен и подгружаю фильмы при загрузке приложения
@@ -92,7 +73,7 @@ function App() {
             />
             <Route 
               path='/movies' 
-              element={<Movies initMovies={initMovies} isMoviesErr={isMoviesErr} />} 
+              element={<Movies />} 
             />
             <Route 
               path='/saved-movies' 

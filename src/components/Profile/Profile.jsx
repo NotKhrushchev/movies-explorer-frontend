@@ -77,8 +77,7 @@ const Profile = () => {
   }, [formValue]);
 
   const signOut = () => {
-    localStorage.removeItem('jwt');
-    localStorage.removeItem('isShortMoviesFilter');
+    localStorage.clear();
     navigate('/', {replace: true});
   }
 
