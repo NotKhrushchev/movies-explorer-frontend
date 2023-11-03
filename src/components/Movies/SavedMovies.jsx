@@ -40,4 +40,4 @@ const SavedMovies = () => {
   );
 };
 
-export default SavedMovies;
+export default React.memo(SavedMovies);

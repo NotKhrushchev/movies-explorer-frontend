@@ -83,8 +83,7 @@ const Movies = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(notFound);
-
+  
   return (
     <main className={'movies'}>
       <SearchMovie 

@@ -16,6 +16,7 @@ import UserContext from '../../contexts/userContext';
 import LoadingContext from '../../contexts/loadingContext';
 import { useEffect } from 'react';
 import auth from '../../utils/Api/MainApi/MainApi';
+import ProtectedRoute from '../ui/ProtectedRoute/ProtectedRoute';
 
 /** Корневой компонент */
 function App() {
@@ -73,15 +74,27 @@ function App() {
             />
             <Route 
               path='/movies' 
-              element={<Movies />} 
+              element={
+                <ProtectedRoute
+                  element={Movies}
+                />
+              } 
             />
             <Route 
               path='/saved-movies' 
-              element={<SavedMovies />} 
+              element={
+                <ProtectedRoute
+                  element={SavedMovies}
+                />
+              } 
             />
             <Route 
               path='/profile' 
-              element={<Profile />} 
+              element={
+                <ProtectedRoute
+                  element={Profile}
+                />
+              } 
             />
             <Route 
               path='/signup' 
