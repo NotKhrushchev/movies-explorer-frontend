@@ -37,13 +37,13 @@
   border-bottom: 1px solid #3456F3;
 }
 .input_invalid {
-  color: #FF3055;
+  color: #FF004C;
   border-bottom: 1px solid #E8E8E8 !important;
 }
 
 .input-error {
   font-size: 10px;
-  color: #FF3055;
+  color: #FF004C;
   margin-top: 6px;
   display: block;
 }

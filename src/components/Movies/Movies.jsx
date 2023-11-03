@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './Movies.css';
 import SearchMovie from './SearchMovie/SearchMovie';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
@@ -6,44 +6,61 @@ import Preloader from '../ui/Preloader/Preloader';
 import { resources_ru } from '../../translations/resources_ru';
 import LoadingContext from '../../contexts/loadingContext';
 
-const Movies = ({ initMovies, initMoviesErr }) => {
+const Movies = ({ initMovies, isMoviesErr }) => {
   
+  // Использую useRef для предотвращения лишних рендеров
+  const nameFilterRef = useRef(undefined);
   const {setIsLoading} = React.useContext(LoadingContext);
+  const [isNotFound, setNotFound] = useState(false);
   const {isLoading} = React.useContext(LoadingContext);
-  const [filter, setFilter] = useState({
-    isShortMoviesFilter: JSON.parse(localStorage?.isShortMoviesFilter || 'false'),
-    nameFilter: ''
-  });
-  const [movies, setMovies] = useState([]);
+  const [isShortFilter, setShortFilter] = useState(JSON.parse(localStorage?.isShortFilter || 'false'));
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [shortMovies, setShortMovies] = useState([]);
 
   // Обработка чека на фильтр по короткометражкам
   const handleShortFilmsFilter = useCallback(() => {
-    setFilter({...filter, isShortMoviesFilter: !filter.isShortMoviesFilter});
-    localStorage.setItem('isShortMoviesFilter', !filter.isShortMoviesFilter);
-  }, [filter]);
-
+    setShortFilter(!isShortFilter);
+    localStorage.setItem('isShortFilter', !isShortFilter);
+  }, [isShortFilter]);
   useEffect(() => {
     setIsLoading(true);
-    filter?.isShortMoviesFilter === true ? setShortMovies(
-      movies.filter((movie) => movie.duration < 40)
-    ) : setShortMovies(movies);
+    isShortFilter === true ? setShortMovies(
+      filteredMovies.filter((movie) => movie.duration < 40)
+    ) : setShortMovies([]);
     setIsLoading(false);
-  }, [movies, setIsLoading, filter.isShortMoviesFilter])
+  }, [filteredMovies, setIsLoading, isShortFilter]);
 
-  // При загрузке страницы загружаю фильмы
-  useEffect(() => {
-    initMovies && setMovies(initMovies);
-  }, [initMovies]);
-  
+  // Обработка ввода в форму поиска по названию
+  const handleSearchMovie = useCallback((e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    const nameFilter = nameFilterRef.current.value.toLowerCase();
+    localStorage.setItem('nameFilter', nameFilter);
+    setFilteredMovies(
+      initMovies.filter((movie) => movie.nameRU.toLowerCase().includes(nameFilter))
+    )
+    setIsLoading(true);
+
+  }, [initMovies, isShortFilter, setIsLoading]);
+
+  // useEffect(() => {
+  //   filteredMovies ? localStorage.setItem('filteredMovies', filteredMovies) : setNotFound(true);
+  // }, [filteredMovies])
+
   return (
     <main className={'movies'}>
-      <SearchMovie setShortMoviesFilter={handleShortFilmsFilter} />
-      {!!movies.length && !isLoading && !initMoviesErr ? 
-          <MoviesCardList movies={!shortMovies.length ? movies : shortMovies} />
+      <SearchMovie 
+        setShortMoviesFilter={handleShortFilmsFilter}
+        handleSearchMovie={handleSearchMovie}
+        nameFilterRef={nameFilterRef}
+        isMoviesErr={isMoviesErr}
+        isFormDisable={!initMovies.length}
+      />
+      {!!filteredMovies.length && !isLoading && !isMoviesErr ? 
+          <MoviesCardList movies={!shortMovies.length ? filteredMovies : shortMovies} />
         :
         <div className={'movies__messages'}>
-          {!initMoviesErr ?
+          {!isMoviesErr && !isNotFound ?
           isLoading && 
             <div className={'movies__preloader'}>
               <Preloader />

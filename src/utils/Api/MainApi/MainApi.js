@@ -65,7 +65,7 @@ class MainApi {
           email
       })
     })
-      .then((res) => console.log(res))
+      .then((res) => this._checkAnswer(res))
   }
 }
 

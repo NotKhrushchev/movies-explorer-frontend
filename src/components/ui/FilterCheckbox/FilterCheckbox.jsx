@@ -2,7 +2,7 @@ import React from 'react';
 import { resources_ru } from '../../../translations/resources_ru';
 import './FilterCheckbox.css';
 
-const FilterCheckbox = ({ setShortMoviesFilter }) => {
+const FilterCheckbox = ({ setShortMoviesFilter, isDisabled }) => {
 
   const isFilter = JSON.parse(localStorage.getItem('isShortMoviesFilter') || 'false');
   
@@ -14,7 +14,8 @@ const FilterCheckbox = ({ setShortMoviesFilter }) => {
           id={'short-films'} 
           className={'filter-checkbox__input'}
           defaultChecked={isFilter}
-          onChange={setShortMoviesFilter} 
+          onChange={setShortMoviesFilter}
+          disabled={isDisabled}
         />
         <span className={'slider'}></span>
       </label>

@@ -22,9 +22,8 @@ import moviesApi from '../../utils/Api/MoviesApi/MoviesApi';
 function App() {
   const currentPage = useLocation().pathname.split('/').pop();
   const navigate = useNavigate();
-
-  const [initMovies, setInitMovies] = useState([]);
-  const [initMoviesErr, setInitMoviesErr] = useState(false);
+  const [isMoviesErr, setMoviesErr] = useState(false);
+  const [initMovies, setInitMovies] = useState(localStorage.getItem('initMovies'));
   const [sideBar, setSideBar] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -45,6 +44,21 @@ function App() {
     return isVisible;
   }
 
+  // Загружаю фильмы при загрузке приложения
+  useEffect(() => {
+    if (!localStorage.initMovies) {
+      setIsLoading(true);
+      moviesApi.getMovies()
+        .then((movies) => {
+          localStorage.setItem('initMovies', JSON.stringify(movies));
+          setInitMovies(movies);
+          console.log('Initial movies loaded');
+        })
+        .catch(() => setMoviesErr(true))
+        .finally(() => setIsLoading(false))
+    }
+  }, []);
+
   // Проверка токена
   const handleTokenCheck = useCallback(() => {
     if (localStorage.jwt) {
@@ -63,12 +77,6 @@ function App() {
   // Проверяю токен и подгружаю фильмы при загрузке приложения
   useEffect(() => {
     handleTokenCheck();
-    moviesApi.getMovies()
-      .then((initMovies) => {
-        setInitMoviesErr(false);
-        setInitMovies(initMovies)
-      })
-      .catch(() => setInitMoviesErr(true))
   }, [handleTokenCheck]);
   
   return (
@@ -83,7 +91,7 @@ function App() {
             />
             <Route 
               path='/movies' 
-              element={<Movies initMovies={initMovies} initMoviesErr={initMoviesErr} />} 
+              element={<Movies initMovies={initMovies} isMoviesErr={isMoviesErr} />} 
             />
             <Route 
               path='/saved-movies' 

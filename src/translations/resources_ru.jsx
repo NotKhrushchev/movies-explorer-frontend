@@ -17,6 +17,7 @@ export const resources_ru = {
   register: 'Регистрация',
   submit_register: 'Зарегистрироваться',
   password: 'Пароль',
+  search_err: 'Нужно ввести ключевое слово',
   already_have_account: 'Уже зарегистрированы?',
   dont_have_account: 'Еще не зарегистрироавны?',
   promo_title: 'Учебный проект студента факультета Веб-разработки.',
