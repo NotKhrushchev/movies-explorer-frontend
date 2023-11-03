@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.switch_disabled {
+  cursor: default;
+}
+
 .slider {
   position: absolute;
   z-index: -1;
@@ -30,7 +34,7 @@
   border-radius: 20px;
 }
 
-.filter-checkbox__input:disabled {
+.filter-checkbox__input:disabled + .switch {
   cursor: none;
 }
 

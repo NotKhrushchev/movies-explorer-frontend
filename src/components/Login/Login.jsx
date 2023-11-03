@@ -15,8 +15,7 @@ const Login = () => {
   };
 
   const {setCurrentUser} = React.useContext(UserContext);
-  const {setIsLoading} = React.useContext(LoadingContext);
-  const {isLoading} = React.useContext(LoadingContext);
+  const {isLoading, setIsLoading} = React.useContext(LoadingContext);
   const [errMessage, setErrMessage] = useState('');
 
   const form = useForm(logFormInitValue);

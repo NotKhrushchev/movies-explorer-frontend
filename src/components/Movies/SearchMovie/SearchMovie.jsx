@@ -4,7 +4,8 @@ import { resources_ru } from '../../../translations/resources_ru';
 import FilterCheckbox from '../../ui/FilterCheckbox/FilterCheckbox';
 import Btn from '../../ui/buttons/Btn';
 
-const SearchMovie = ({ setShortMoviesFilter, handleSearchMovie, nameFilterRef, isMoviesErr, isFormDisable }) => {
+const SearchMovie = ({ setShortMoviesFilter, handleSearchMovie, setNameFilter, nameFilter, isFormDisable }) => {
+  console.log(nameFilter);
 
   return (
     <section className={'search-movie'}>
@@ -12,14 +13,14 @@ const SearchMovie = ({ setShortMoviesFilter, handleSearchMovie, nameFilterRef, i
         <form className={'search-movie__form'} name={`search-movie-form`} onSubmit={handleSearchMovie}>
           <div className={'search-movie__input-block'}>
             <input
-              ref={nameFilterRef}
+              value={nameFilter}
               className={'search-movie__form-input'}
               type={'text'}
               id={'search-input'} 
               name={'search-input'}
               disabled={isFormDisable}
               placeholder={resources_ru.movie}
-              required
+              onChange={setNameFilter}
             />
             <Btn
               className={'search-movie__form-find-btn'}

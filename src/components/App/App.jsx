@@ -23,7 +23,7 @@ function App() {
   const currentPage = useLocation().pathname.split('/').pop();
   const navigate = useNavigate();
   const [isMoviesErr, setMoviesErr] = useState(false);
-  const [initMovies, setInitMovies] = useState(localStorage.getItem('initMovies'));
+  const [initMovies, setInitMovies] = useState(JSON.parse(localStorage?.initMovies || null));
   const [sideBar, setSideBar] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -44,25 +44,26 @@ function App() {
     return isVisible;
   }
 
-  // Загружаю фильмы при загрузке приложения
+  // Загружаю фильмы при загрузке приложения если они отсутствуют в хранилище
   useEffect(() => {
-    if (!localStorage.initMovies) {
+    if (!initMovies) {
       setIsLoading(true);
       moviesApi.getMovies()
         .then((movies) => {
+          console.log(movies);
           localStorage.setItem('initMovies', JSON.stringify(movies));
           setInitMovies(movies);
           console.log('Initial movies loaded');
         })
         .catch(() => setMoviesErr(true))
-        .finally(() => setIsLoading(false))
+        .finally(() => setIsLoading(false));
     }
   }, []);
 
   // Проверка токена
   const handleTokenCheck = useCallback(() => {
-    if (localStorage.jwt) {
-      auth.getUserByToken(localStorage.jwt)
+    if (localStorage?.jwt) {
+      auth.getUserByToken(localStorage?.jwt)
         .then(res => {
           setCurrentUser(res);
           navigate('/movies', {replace: true});

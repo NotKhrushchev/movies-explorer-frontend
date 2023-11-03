@@ -37,8 +37,10 @@
   font-size: 28px;
   font-weight: 500;
   border: none;
+  background: none;
   outline: none;
 }
+
 .search-movie__form-input::placeholder {
   color: #A0A0A0;
 }

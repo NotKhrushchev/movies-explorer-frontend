@@ -15,10 +15,8 @@ import { useNavigate } from 'react-router-dom';
 const Profile = () => {
 
   const navigate = useNavigate();
-  const {setCurrentUser} = React.useContext(UserContext);
-  const {currentUser} = React.useContext(UserContext);
-  const {setIsLoading} = React.useContext(LoadingContext);
-  const {isLoading} = React.useContext(LoadingContext);
+  const {setCurrentUser, currentUser} = React.useContext(UserContext);
+  const {setIsLoading, isLoading} = React.useContext(LoadingContext);
   const [isOnEdit, setOnEdit] = useState(false);
   const [isInfoChanged, setInfoChanged] = useState(false);
   const [errMessage, setErrMessage] = useState('');
