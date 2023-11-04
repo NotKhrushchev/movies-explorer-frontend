@@ -53,6 +53,7 @@ class MainApi {
       .then((res) => this._checkAnswer(res));
   }
 
+  // Редактирование пользователя
   editUser(name, email) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
@@ -67,10 +68,21 @@ class MainApi {
     })
       .then((res) => this._checkAnswer(res))
   }
+
+  // Получить сохраненные фильмы
+  getSavedMovies() {
+    return fetch(`${this._baseUrl}/movies`, {
+      headers: {
+        "Authorization": `Bearer ${localStorage?.jwt}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    .then((res) => this._checkAnswer(res));
+  }
 }
 
-const auth = new MainApi({
+const mainApi = new MainApi({
   baseUrl: 'https://api.vmmoviesexplorer.nomoredomainsrocks.ru'
 });
 
-export default auth;
+export default mainApi;

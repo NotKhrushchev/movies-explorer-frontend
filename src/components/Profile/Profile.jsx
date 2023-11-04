@@ -6,7 +6,7 @@ import UserContext from '../../contexts/userContext';
 import useForm from '../../utils/hooks/useForm';
 import FormInput from '../ui/Form/FormInput/FormInput';
 import Preloader from '../ui/Preloader/Preloader';
-import auth from '../../utils/Api/MainApi/MainApi';
+import mainApi from '../../utils/Api/MainApi/MainApi';
 import { isEqual } from 'lodash';
 import { getErrMessage } from '../../utils/functions/getErrMessage';
 import LoadingContext from '../../contexts/loadingContext';
@@ -84,7 +84,7 @@ const Profile = () => {
   const handleEditUser = useCallback(() => {
     setIsLoading(true);
     const {name, email} = formValue;
-    auth.editUser(name, email)
+    mainApi.editUser(name, email)
       .then(() => {
         setCurrentUser({...currentUser, name, email});
         setOnEdit(false);
@@ -99,7 +99,7 @@ const Profile = () => {
     <main className={'profile'}>
       <form className={'profile__form'}>
         <h1 className={'profile__title'}>{`${resources_ru.hello}, ${currentUser?.name}!`}</h1>
-        <>
+        <div>
           {inputFields.map((input) => 
             <FormInput
               inputClassName={'profile__input'}
@@ -115,7 +115,7 @@ const Profile = () => {
               }}
             />
           )}
-        </>
+        </div>
         <div className={'profile__controlls'}>
           {!isOnEdit ? 
             <>

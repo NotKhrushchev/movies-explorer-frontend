@@ -4,7 +4,7 @@ import { resources_ru } from '../../translations/resources_ru';
 import useForm from '../../utils/hooks/useForm';
 import UserContext from '../../contexts/userContext';
 import LoadingContext from '../../contexts/loadingContext';
-import auth from '../../utils/Api/MainApi/MainApi';
+import mainApi from '../../utils/Api/MainApi/MainApi';
 import { getErrMessage } from '../../utils/functions/getErrMessage';
 
 const Login = () => {
@@ -48,11 +48,11 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     const {email, password} = formValue;
-    auth.signIn(email, password)
+    mainApi.signIn(email, password)
       .then((res) => {
         const token = res.token;
         localStorage.setItem('jwt', token);
-        auth.getUserByToken(token)
+        mainApi.getUserByToken(token)
           .then((res) => {
             setCurrentUser(res);
           });

@@ -15,13 +15,15 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import UserContext from '../../contexts/userContext';
 import LoadingContext from '../../contexts/loadingContext';
 import { useEffect } from 'react';
-import auth from '../../utils/Api/MainApi/MainApi';
+import mainApi from '../../utils/Api/MainApi/MainApi';
 import ProtectedRoute from '../ui/ProtectedRoute/ProtectedRoute';
 
 /** Корневой компонент */
 function App() {
   const currentPage = useLocation().pathname.split('/').pop();
   const navigate = useNavigate();
+  const [savedMovies, setSavedMovies] = useState([]);
+  const [savedMoviesErr, setSavedMoviesErr] = useState(false);
   const [sideBar, setSideBar] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -45,7 +47,7 @@ function App() {
   // Проверка токена
   const handleTokenCheck = useCallback(() => {
     if (localStorage?.jwt) {
-      auth.getUserByToken(localStorage?.jwt)
+      mainApi.getUserByToken(localStorage?.jwt)
         .then(res => {
           setCurrentUser(res);
           navigate('/movies', {replace: true});
@@ -61,6 +63,16 @@ function App() {
   useEffect(() => {
     handleTokenCheck();
   }, [handleTokenCheck]);
+
+  useEffect(() => {
+    if (currentUser) {
+      setIsLoading(true)
+      mainApi.getSavedMovies()
+        .then((savedMovies) => setSavedMovies(savedMovies))
+        .catch(() => setSavedMoviesErr(true))
+        .finally(() => setIsLoading(false));
+    }
+  }, []);
   
   return (
     <div className={'app'}>
@@ -85,6 +97,7 @@ function App() {
               element={
                 <ProtectedRoute
                   element={SavedMovies}
+                  savedMovies={savedMovies}
                 />
               } 
             />

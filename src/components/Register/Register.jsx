@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Auth from '../ui/Auth/Auth';
 import { resources_ru } from '../../translations/resources_ru';
 import useForm from '../../utils/hooks/useForm';
-import auth from '../../utils/Api/MainApi/MainApi';
+import mainApi from '../../utils/Api/MainApi/MainApi';
 import UserContext from '../../contexts/userContext';
 import LoadingContext from '../../contexts/loadingContext';
 import { getErrMessage } from '../../utils/functions/getErrMessage';
@@ -66,13 +66,13 @@ const Register = () => {
     e.preventDefault();
     setIsLoading(true);
     const {name, email, password} = formValue;
-    auth.signUn(name, email, password)
+    mainApi.signUn(name, email, password)
       .then((res) => {
-        auth.signIn(email, password)
+        mainApi.signIn(email, password)
           .then((res) => {
             const token = res.token;
             localStorage.setItem('jwt', token);
-            auth.getUserByToken(token)
+            mainApi.getUserByToken(token)
               .then((res) => {
                 setCurrentUser(res);
               });
