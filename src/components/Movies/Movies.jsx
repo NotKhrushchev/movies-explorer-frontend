@@ -7,7 +7,7 @@ import { resources_ru } from '../../translations/resources_ru';
 import LoadingContext from '../../contexts/loadingContext';
 import moviesApi from '../../utils/Api/MoviesApi/MoviesApi';
 
-const Movies = () => {
+const Movies = ({ savedMovies }) => {
   
   const [initMovies, setInitMovies] = useState(JSON.parse(localStorage?.initMovies || 'false'));
   const [shortFilter, setShortFilter] = useState(JSON.parse((localStorage?.shortFilter) || 'false'));
@@ -40,7 +40,7 @@ const Movies = () => {
     setEmptyFiled(false);
     setMovies(() => {
       let filteredMovies = initMovies.filter((movie) => 
-        movie.nameRU.toLowerCase().includes(nameFilter)|| movie.nameEN.toLowerCase().includes(nameFilter.toLowerCase())
+        movie.nameRU.toLowerCase().includes(nameFilter.toLowerCase())|| movie.nameEN.toLowerCase().includes(nameFilter.toLowerCase())
       );
       if (shortFilter) {
         filteredMovies = filteredMovies.filter((movie) => movie.duration < 40);
@@ -76,14 +76,14 @@ const Movies = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shortFilter]);
 
-  useEffect((e) => {
+  useEffect(() => {
     if (initMovies && nameFilter) {
       setNotFound(false);
       filterMovies(initMovies);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   return (
     <main className={'movies'}>
       <SearchMovie 
@@ -95,7 +95,7 @@ const Movies = () => {
         isEmptyField={isEmptyField}
       />
       {(movies.length !== 0 && !isLoading && !moviesErr && !notFound) ? 
-          <MoviesCardList movies={movies} />
+          <MoviesCardList movies={movies} savedMovies={savedMovies} />
         :
         <div className={'movies__messages'}>
           {!moviesErr && !notFound ?

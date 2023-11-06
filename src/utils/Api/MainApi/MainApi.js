@@ -9,7 +9,7 @@ class MainApi {
   // Универсальная проверка ответа
   _checkAnswer(res) {
     if (res.ok) {
-        return res.json()
+      return res.json();
     }
     return Promise.reject(res.status);
   }
@@ -17,11 +17,11 @@ class MainApi {
   // Проверка токена
   getUserByToken(token) {
     return fetch(`${this._baseUrl}/users/me`, {
-        method: 'GET',
-        headers: {
-          "Authorization" : `Bearer ${token}`,
-          "Content-Type": "application/json"
-        }
+      method: 'GET',
+      headers: {
+        "Authorization" : `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
     })
       .then((res) => this._checkAnswer(res));
   }
@@ -62,8 +62,8 @@ class MainApi {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-          name,
-          email
+        name,
+        email
       })
     })
       .then((res) => this._checkAnswer(res))
@@ -76,6 +76,26 @@ class MainApi {
         "Authorization": `Bearer ${localStorage?.jwt}`,
         'Content-Type': 'application/json'
       },
+    })
+    .then((res) => this._checkAnswer(res));
+  }
+
+  saveMovie(movie) {
+    return fetch(`${this._baseUrl}/movies`, {
+      method: 'POST',
+      headers: {
+        "Authorization": `Bearer ${localStorage?.jwt}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...movie,
+        image: `https://api.nomoreparties.co/${movie.image.url}`,
+        thumbnail: `https://api.nomoreparties.co/${movie.image.url}`,
+        movieId: movie.id,
+        id: undefined,
+        created_at: undefined,
+        updated_at: undefined
+      })
     })
     .then((res) => this._checkAnswer(res));
   }

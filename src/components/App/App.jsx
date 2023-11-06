@@ -66,12 +66,12 @@ function App() {
 
   useEffect(() => {
     if (currentUser) {
-      setIsLoading(true)
+      setIsLoading(true);
       mainApi.getSavedMovies()
         .then((savedMovies) => setSavedMovies(savedMovies))
         .catch(() => setSavedMoviesErr(true))
         .finally(() => setIsLoading(false));
-    }
+    };
   }, []);
   
   return (
@@ -89,6 +89,11 @@ function App() {
               element={
                 <ProtectedRoute
                   element={Movies}
+                  /**
+                   * Передаю сохраненные фильмы 
+                   * для отрисовки кнопки лайка у карточки
+                   */ 
+                  savedMovies={savedMovies}
                 />
               } 
             />

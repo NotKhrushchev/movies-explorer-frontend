@@ -25,7 +25,6 @@ const getMoviesShowParam = () => {
 };
 
 const handleResize = (setCount) => {
-  console.log('sdsdfsdf');
   if (window.innerWidth >= 1860) {
     setCount(getMoviesShowParam().initRows);
   } else if (window.innerWidth < 1860) {
