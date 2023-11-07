@@ -2,4 +2,6 @@
 
 Ссылка на pull request: https://github.com/NotKhrushchev/movies-explorer-frontend/pull/2
 
+Ссылка на задеплоенный на сервере проект: https://vmmoviesexplorer.nomoredomainsmonster.ru
+
 frontent часть проекта movies-explorer;
