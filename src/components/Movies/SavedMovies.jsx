@@ -3,12 +3,12 @@ import './Movies.css';
 import SearchMovie from './SearchMovie/SearchMovie';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 
-const SavedMovies = ({ savedMovies }) => {
+const SavedMovies = ({ savedMovies, setSavedMovies }) => {
 
   return (
     <div className={'movies'}>
       <SearchMovie />
-      <MoviesCardList movies={savedMovies} isSavedMovies={true} />
+      <MoviesCardList movies={savedMovies} setSavedMovies={setSavedMovies} isSavedMovies={true} />
     </div>
   );
 };

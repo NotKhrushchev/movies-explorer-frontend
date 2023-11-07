@@ -7,7 +7,7 @@ import { resources_ru } from '../../translations/resources_ru';
 import LoadingContext from '../../contexts/loadingContext';
 import moviesApi from '../../utils/Api/MoviesApi/MoviesApi';
 
-const Movies = ({ savedMovies }) => {
+const Movies = ({ savedMovies, setSavedMovies }) => {
   
   const [initMovies, setInitMovies] = useState(JSON.parse(localStorage?.initMovies || 'false'));
   const [shortFilter, setShortFilter] = useState(JSON.parse((localStorage?.shortFilter) || 'false'));
@@ -95,7 +95,11 @@ const Movies = ({ savedMovies }) => {
         isEmptyField={isEmptyField}
       />
       {(movies.length !== 0 && !isLoading && !moviesErr && !notFound) ? 
-          <MoviesCardList movies={movies} savedMovies={savedMovies} />
+          <MoviesCardList 
+            movies={movies} 
+            savedMovies={savedMovies} 
+            setSavedMovies={setSavedMovies} 
+          />
         :
         <div className={'movies__messages'}>
           {!moviesErr && !notFound ?

@@ -68,12 +68,13 @@ function App() {
     if (currentUser) {
       setIsLoading(true);
       mainApi.getSavedMovies()
-        .then((savedMovies) => setSavedMovies(savedMovies))
+        .then((savedMovies) => {
+          setSavedMovies(savedMovies)})
         .catch(() => setSavedMoviesErr(true))
         .finally(() => setIsLoading(false));
     };
-  }, []);
-  
+  }, [currentUser, setSavedMovies]);
+
   return (
     <div className={'app'}>
       <UserContext.Provider value={{currentUser, setCurrentUser}}>
@@ -94,6 +95,7 @@ function App() {
                    * для отрисовки кнопки лайка у карточки
                    */ 
                   savedMovies={savedMovies}
+                  setSavedMovies={setSavedMovies}
                 />
               } 
             />
@@ -103,6 +105,7 @@ function App() {
                 <ProtectedRoute
                   element={SavedMovies}
                   savedMovies={savedMovies}
+                  setSavedMovies={setSavedMovies}
                 />
               } 
             />

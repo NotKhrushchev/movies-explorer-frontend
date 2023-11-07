@@ -38,14 +38,13 @@ const MovieCard = ({ movie, savedMovies, onMovieBtnClick }) => {
           <Btn
             className={isInSaved(movie) ? `movie-card__save-btn_active` : `movie-card__save-btn`}
             ariaLabel={resources_ru.remove_from_saved}
-            onClick={() => onMovieBtnClick(movie)}
-            disabled={isInSaved(movie)}
+            onClick={() => isInSaved(movie) ? onMovieBtnClick.removeMovieFromSaved(movie) : onMovieBtnClick.saveMovie(movie)}
           />
           :
           <Btn
             className={'movie-card__remove-from-saved-btn'}
             ariaLabel={resources_ru.save}
-            onClick={() => onMovieBtnClick(movie)}
+            onClick={() => onMovieBtnClick.removeMovieFromSaved(movie)}
           />
         }
       </div>

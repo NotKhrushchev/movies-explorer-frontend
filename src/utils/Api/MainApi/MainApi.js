@@ -80,6 +80,7 @@ class MainApi {
     .then((res) => this._checkAnswer(res));
   }
 
+  // Добавить фильм в сохраненные
   saveMovie(movie) {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
@@ -96,6 +97,18 @@ class MainApi {
         created_at: undefined,
         updated_at: undefined
       })
+    })
+    .then((res) => this._checkAnswer(res));
+  }
+
+  // Удалить фильм из сохраненных
+  removeFromSaved(movieId) {
+    return fetch(`${this._baseUrl}/movies/${movieId}`, {
+      method: 'DELETE',
+      headers: {
+        "Authorization": `Bearer ${localStorage?.jwt}`,
+        'Content-Type': 'application/json'
+      }
     })
     .then((res) => this._checkAnswer(res));
   }

@@ -6,7 +6,7 @@ import { resources_ru } from '../../../translations/resources_ru';
 import { getMoviesShowParam } from '../../../utils/functions/expandMoviesShow';
 import mainApi from '../../../utils/Api/MainApi/MainApi';
 
-const MoviesCardList = ({ movies, savedMovies, isSavedMovies }) => {
+const MoviesCardList = ({ movies, savedMovies, setSavedMovies, isSavedMovies }) => {
 
   const [count, setCount] = useState(0);
   const slicedMovies = movies.slice(0, count);
@@ -40,12 +40,19 @@ const MoviesCardList = ({ movies, savedMovies, isSavedMovies }) => {
     setCount((state) => state + getMoviesShowParam().step);
   };
 
-  // Добавиль фильм в сохраненные
+  // Добавить фильм в сохраненные
   const saveMovie = (movie) => {
     mainApi.saveMovie(movie)
-      .then((res) => console.log(res))
+      .then((movie) => setSavedMovies([...savedMovies, movie]))
       .catch((err) => console.log(err))
   };
+
+  const removeMovieFromSaved = (movie) => {
+    const movieId = movie.id || movie.movieId;
+    mainApi.removeFromSaved(movie.id ? movie.id : movie.movieId)
+      .then(() => setSavedMovies((savedMovies) => savedMovies.filter((savedMovie) => savedMovie.movieId !== movieId)))
+      .catch((err) => console.log(err))
+  }
 
   return (
     <section className={'movies-card-list'}>
@@ -55,16 +62,23 @@ const MoviesCardList = ({ movies, savedMovies, isSavedMovies }) => {
           <MovieCard 
             key={index} 
             movie={movie} 
-            onMovieBtnClick={saveMovie} 
-            savedMovies={savedMovies} 
+            onMovieBtnClick={{
+              saveMovie,
+              removeMovieFromSaved
+            }} 
+            savedMovies={savedMovies}
           />
         )) : 
         movies.map((movie, index) => (
-          <MovieCard movie={movie} key={index} />
+          <MovieCard 
+            key={index} 
+            movie={movie} 
+            onMovieBtnClick={{removeMovieFromSaved}} 
+          />
         ))
         }
       </ul>
-      {!isSavedMovies && 
+      {(!isSavedMovies && slicedMovies.length !== movies.length) && 
         <div className={'movies-card-list__loader'}>
           <Btn
             className={'movies-card-list__load-more-btn'}
