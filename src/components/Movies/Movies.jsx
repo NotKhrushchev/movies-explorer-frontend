@@ -91,6 +91,7 @@ const Movies = ({ savedMovies, setSavedMovies }) => {
         handleSearchMovie={handleSearchMovie}
         setNameFilter={setMoviesNameFilter}
         nameFilter={nameFilter}
+        shortFilter={shortFilter}
         isFormDisable={isLoading}
         isEmptyField={isEmptyField}
       />

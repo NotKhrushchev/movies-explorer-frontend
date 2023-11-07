@@ -96,6 +96,7 @@ function App() {
                    */ 
                   savedMovies={savedMovies}
                   setSavedMovies={setSavedMovies}
+                  savedMoviesErr={savedMoviesErr}
                 />
               } 
             />

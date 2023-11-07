@@ -3,9 +3,9 @@ import { resources_ru } from '../../../translations/resources_ru';
 import './FilterCheckbox.css';
 import LoadingContext from '../../../contexts/loadingContext';
 
-const FilterCheckbox = ({ setShortMoviesFilter, isDisabled }) => {
+const FilterCheckbox = ({ setShortMoviesFilter, isDisabled, isFilter }) => {
 
-  const isFilter = JSON.parse(localStorage?.shortFilter || 'false');
+  // const isFilter = JSON.parse(localStorage?.shortFilter || 'false');
   const {isLoading} = React.useContext(LoadingContext);
 
   return (
