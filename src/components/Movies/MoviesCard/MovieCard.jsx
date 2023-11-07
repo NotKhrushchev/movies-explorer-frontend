@@ -31,7 +31,9 @@ const MovieCard = ({ movie, savedMovies, onMovieBtnClick }) => {
       <img 
         className={'movie-card__poster'} 
         src={movie.image.url ? `https://api.nomoreparties.co/${movie.image.url}` : movie.image}
-        alt={resources_ru.movie_poster} />
+        alt={resources_ru.movie_poster}
+        onClick={() => window.open(`${movie.trailerLink}`, '_blank')}
+      />
       <div className={'movie-card__info'}>
         <h2 className={'movie-card__name'}>{movie.nameRU}</h2>
         {currentPage === 'movies' ? 

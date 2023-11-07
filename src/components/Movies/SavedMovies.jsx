@@ -53,7 +53,7 @@ const SavedMovies = ({ savedMovies, setSavedMovies, savedMoviesErr }) => {
   useEffect(() => {
     savedMovies && filterMovies(savedMovies);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shortFilter]);
+  }, [shortFilter, savedMovies]);
 
   return (
     <div className={'movies'}>

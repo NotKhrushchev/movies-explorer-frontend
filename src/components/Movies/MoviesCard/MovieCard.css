@@ -8,6 +8,7 @@
   aspect-ratio: 270 / 151;
   background-color: #E8E8E8;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .movie-card__save-btn {
