@@ -10,6 +10,7 @@
 
 .footer__content {
   width: 100%;
+  max-width: 1846px;
   text-align: center;
 }
 
@@ -17,14 +18,8 @@
   font-size: 13px;
   font-weight: 400;
   color: #A0A0A0;
-  margin-bottom: 20px;
-}
-
-hr {
-  height: 1px;
-  background-color: #E8E8E8;
-  width: 100%;
-  border: none;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E8E8E8;
 }
 
 .footer__info {
@@ -33,28 +28,28 @@ hr {
   justify-content: space-between;
 }
 
-.footer__info__year {
+.footer__info-year {
   font-size: 13px;
   font-weight: 400;
 }
 
-.footer__info__links {
+.footer__info-links {
   display: flex;
   gap: 20px;
 }
 
-.footer__info__links__link {
+.footer__info-links-link {
   font-size: 13px;
   font-weight: 400;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .footer {
     padding: 80px 30px 20px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 550px) {
   .footer {
     padding: 80px 10px 20px;
   }
@@ -65,17 +60,17 @@ hr {
     margin-top: 30px;
     flex-direction: column-reverse;
   }
-  .footer__info__year {
+  .footer__info-year {
     font-size: 12px;
   }
-  .footer__info__links {
+  .footer__info-links {
     flex-direction: column;
     gap: 12px;
   }
-  .footer__info__links__link {
+  .footer__info-links-link {
     font-size: 12px;
   }
-  .footer__info__year {
+  .footer__info-year {
     margin-top: 30px;
   }
 }

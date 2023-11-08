@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './NLink.css';
 
-const NLink = ({ addtlClass, wayTo, title, isMainPage, onClick }) => {
+const NLink = ({ className, wayTo, title, isMainPage, onClick }) => {
   
   return (
-    <NavLink to={wayTo} className={`nlink ${addtlClass} ${isMainPage && 'nlink_main'}`} onClick={onClick}>{title}</NavLink>
+    <NavLink to={wayTo} className={`nlink ${className} ${isMainPage && 'nlink_main'}`} onClick={onClick}>{title}</NavLink>
   );
 };
 

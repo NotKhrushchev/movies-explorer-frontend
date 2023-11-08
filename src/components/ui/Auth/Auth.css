@@ -14,66 +14,43 @@
   height: 560px;
 }
 
-.auth__form__title {
+.auth__form-title {
   margin: 40px 0 55px;
   font-size: 24px;
   font-weight: 500;
 }
 
-.auth__form__input-data {
+.auth__form-fields {
+  width: 100%;
+}
+
+.auth__form-input-data {
   width: 100%;
   position: relative;
   margin-bottom: 23px;
+  height: 45px;
 }
 
-.auth__form__input-data:last-of-type {
+.auth__form-input-data:last-of-type {
   margin-bottom: 0;
 }
 
-.auth__form__input {
-  width: 100%;
-  font-size: 14px;
-  font-weight: 400;
-  padding-bottom: 10px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #E8E8E8;
-}
 
-.auth__form__input:focus ~ .auth__form__input-label,
-.auth__form__input:valid ~ .auth__form__input-label {
-  transform: translateY(-15px);
-  font-size: 10px;
-}
-
-.auth__form__input:valid {
-  border-bottom: 1px solid #3456F3;
-}
-.auth__form__input-invalid {
-  color: #FF3055;
-}
-
-.auth__form__input-label {
-  position: absolute;
-  left: 0;
-  color: #A0A0A0;
-  pointer-events: none;
-  transition: all 0.2s ease;
-}
-
-.auth__form__input-error {
-  font-size: 10px;
-  color: #FF3055;
-  margin-top: 6px;
-}
-
-.auth__form__actions {
+.auth__form-actions {
   display: flex;
   flex-direction: column;
   margin: auto 0 0;
+  text-align: center;
 }
 
-.auth__form__submit-btn {
+.auth__err-text {
+  font-size: 11px;
+  color: #FF004C;
+  margin-bottom: 20px;
+  max-width: 396px;
+}
+
+.auth__form-submit-btn {
   color: white;
   background-color: #3456F3;
   padding: 14px 0;
@@ -83,31 +60,40 @@
   margin-bottom: 16px;
 }
 
-.auth__form__prompt {
+.auth__form-submit-btn:disabled {
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+}
+
+.auth__form-prompt {
   font-size: 14px;
   align-self: center;
   color: #A0A0A0;
 }
 
-.auth__form__nav-link {
+.auth__form-nav-link {
   color: #3456F3;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 550px) {
   .auth__form {
     align-items: center;
-    height: 695px;
+    height: 693px;
   }
-  .auth__form__title {
-    margin: 50px 0 80px;
+  .auth__form-title {
+    margin: 50px 0 98px;
   }
-  .auth__form__submit-btn {
+  .auth__err-text {
+    font-size: 10px;
+    max-width: 260px;
+  }
+  .auth__form-submit-btn {
     padding: 15px 68px;
-    margin: 222px 0 14px;
+    margin: auto 0 14px;
     font-size: 12px;
     width: 260px;
   }
-  .auth__form__prompt {
+  .auth__form-prompt {
     font-size: 12px;
   }
 }

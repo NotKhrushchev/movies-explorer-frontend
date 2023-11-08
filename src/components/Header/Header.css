@@ -1,15 +1,21 @@
 .header {
   background-color: white;
-  position: fixed;
   width: 100%;
   padding: 18px 70px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .header_main {
   background-color: #073042 !important;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1846px;
 }
 
 .header__nav {
@@ -26,12 +32,14 @@
 
 .header__burger-menu-icon {
   display: none;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
 }
 
-.header__burger-menu-icon:hover {
-  opacity: 0.8;
+.header__burger-menu-icon_bright {
+  background-image: url(../../images/icons/burger-menu-icon-bright.svg) !important;
+}
+
+.header__burger-menu-icon_dark {
+  background-image: url(../../images/icons/burger-menu-icon-dark.svg) !important;
 }
 
 .header__reg-btn {
@@ -54,25 +62,30 @@
   line-height: 16px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .header {
     padding: 15px 30px;
   }
   .header__nav {
     display: none;
   }
-  .header__nav__link {
+  .header__nav-link {
     font-size: 22px;
   }
   .header__burger-menu-icon {
     display: block;
+    width: 40px;
+    height: 40px;
   }
   .header__account-btn {
     display: none !important;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 550px) {
+  .header {
+    padding: 18px 14px;
+  }
   .header__auth-nav {
     gap: 14px;
   }
