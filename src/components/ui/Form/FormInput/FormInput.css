@@ -25,10 +25,6 @@
   color: #A0A0A0;
   pointer-events: none;
   transition: all 0.2s ease;
-}
-
-.input:focus ~ .input-label,
-.input:valid ~ .input-label {
   transform: translateY(-15px);
   font-size: 10px;
 }
