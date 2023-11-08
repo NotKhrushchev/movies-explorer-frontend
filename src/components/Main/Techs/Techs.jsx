@@ -23,8 +23,8 @@ const Techs = () => {
           <p className={'techs__subtitle'}>{resources_ru.mastered_techs}</p>
         </div>
         <ul className={'techs__list'}>
-          {techs.map((tech, index) => (
-            <li className={'techs__list-item'} key={index}>{tech}</li>
+          {techs.map((tech) => (
+            <li className={'techs__list-item'} key={tech}>{tech}</li>
           ))}
           </ul>
       </div>

@@ -69,7 +69,8 @@ const SavedMovies = ({ savedMovies, setSavedMovies, savedMoviesErr }) => {
           <MoviesCardList 
             movies={movies} 
             savedMovies={savedMovies} 
-            setSavedMovies={setSavedMovies} 
+            setSavedMovies={setSavedMovies}
+            isSavedMovies={true}
           />
         :
         <div className={'movies__messages'}>

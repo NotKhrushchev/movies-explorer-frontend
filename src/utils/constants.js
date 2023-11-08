@@ -16,6 +16,15 @@ const sideBarLinks = [
   }
 ];
 
+const screenWidth = {
+  max: 1860,
+  beforeMax: 1590,
+  medium: 1280,
+  small: 990,
+  smallest: 768
+}
+
 export {
-  sideBarLinks
+  sideBarLinks,
+  screenWidth
 }

@@ -88,11 +88,12 @@ const Profile = () => {
       .then(() => {
         setCurrentUser({...currentUser, name, email});
         setOnEdit(false);
+        alert(resources_ru.info_updated_successfully);
       })
       .catch((errStatus) => {
         setErrMessage(getErrMessage('editUser', errStatus));
       })
-      .finally(() => setIsLoading(false))
+      .finally(() => setIsLoading(false));
   }, [formValue, setCurrentUser, currentUser, setIsLoading]);
 
   return (

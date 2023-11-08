@@ -5,6 +5,7 @@ import Btn from '../../ui/buttons/Btn';
 import { resources_ru } from '../../../translations/resources_ru';
 import { getMoviesShowParam } from '../../../utils/functions/expandMoviesShow';
 import mainApi from '../../../utils/Api/MainApi/MainApi';
+import { screenWidth } from '../../../utils/constants';
 
 const MoviesCardList = ({ movies, savedMovies, setSavedMovies, isSavedMovies }) => {
 
@@ -16,24 +17,24 @@ const MoviesCardList = ({ movies, savedMovies, setSavedMovies, isSavedMovies }) 
     if (!isSavedMovies) {
       setCount(getMoviesShowParam().initRows);
       const handleResize = () => {
-        if (window.innerWidth >= 1860) {
+        if (window.innerWidth >= screenWidth.max) {
           setCount(getMoviesShowParam().initRows);
-        } else if (window.innerWidth < 1860) {
+        } else if (window.innerWidth < screenWidth.max) {
           setCount(getMoviesShowParam().initRows);
-        } else if (window.innerWidth < 1570) {
+        } else if (window.innerWidth < screenWidth.beforeMax) {
           setCount(getMoviesShowParam().initRows);
-        } else if (window.innerWidth < 1280) {
+        } else if (window.innerWidth < screenWidth.medium) {
           setCount(getMoviesShowParam().initRows);
-        } else if (window.innerWidth < 990) {
+        } else if (window.innerWidth < screenWidth.small) {
           setCount(getMoviesShowParam().initRows);
-        } else if (window.innerWidth < 768) {
+        } else if (window.innerWidth < screenWidth.smallest) {
           setCount(getMoviesShowParam().initRows);
         }
       };
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     };
-  }, [isSavedMovies]);
+  }, [isSavedMovies, movies]);
 
   // Отобразить больше фильмов
   const handleShowMore = () => {
@@ -52,15 +53,16 @@ const MoviesCardList = ({ movies, savedMovies, setSavedMovies, isSavedMovies }) 
     mainApi.removeFromSaved(movie.id ? movie.id : movie.movieId)
       .then(() => setSavedMovies((savedMovies) => savedMovies.filter((savedMovie) => savedMovie.movieId !== movieId)))
       .catch((err) => console.log(err))
-  }
+  };
+  console.log(slicedMovies, movies);
 
   return (
     <section className={'movies-card-list'}>
       <ul className={'movies-card-list__movies'}>
         {(slicedMovies.length > 0 && !isSavedMovies) ? 
-        slicedMovies.map((movie, index) => (
+        slicedMovies.map((movie) => (
           <MovieCard 
-            key={index} 
+            key={movie._id} 
             movie={movie} 
             onMovieBtnClick={{
               saveMovie,
@@ -69,9 +71,9 @@ const MoviesCardList = ({ movies, savedMovies, setSavedMovies, isSavedMovies }) 
             savedMovies={savedMovies}
           />
         )) : 
-        movies.map((movie, index) => (
+        movies.map((movie) => (
           <MovieCard 
-            key={index} 
+            key={movie._id} 
             movie={movie} 
             onMovieBtnClick={{removeMovieFromSaved}} 
           />

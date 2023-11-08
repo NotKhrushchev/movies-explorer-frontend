@@ -4,7 +4,7 @@ import BurgerMenu from '../ui/BurgerMenu/BurgerMenu';
 import './App.css';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { sideBarLinks } from '../../utils/constants';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
@@ -21,7 +21,6 @@ import ProtectedRoute from '../ui/ProtectedRoute/ProtectedRoute';
 /** Корневой компонент */
 function App() {
   const currentPage = useLocation().pathname.split('/').pop();
-  const navigate = useNavigate();
   const [savedMovies, setSavedMovies] = useState([]);
   const [savedMoviesErr, setSavedMoviesErr] = useState(false);
   const [sideBar, setSideBar] = useState(false);
@@ -50,7 +49,6 @@ function App() {
       mainApi.getUserByToken(localStorage?.jwt)
         .then(res => {
           setCurrentUser(res);
-          navigate('/movies', {replace: true});
         })
         .catch(err => console.log(err));
     } else {

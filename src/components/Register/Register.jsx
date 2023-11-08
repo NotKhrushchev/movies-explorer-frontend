@@ -6,6 +6,7 @@ import mainApi from '../../utils/Api/MainApi/MainApi';
 import UserContext from '../../contexts/userContext';
 import LoadingContext from '../../contexts/loadingContext';
 import { getErrMessage } from '../../utils/functions/getErrMessage';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
@@ -18,6 +19,7 @@ const Register = () => {
   const {setCurrentUser} = React.useContext(UserContext);
   const {setIsLoading} = React.useContext(LoadingContext);
   const [errMessage, setErrMessage] = useState('');
+  const navigate = useNavigate();
 
   const form = useForm(regFormInitValue);
   const {formValue} = form;
@@ -75,6 +77,7 @@ const Register = () => {
             mainApi.getUserByToken(token)
               .then((res) => {
                 setCurrentUser(res);
+                navigate('/movies', {replace: true});
               });
           })
           .catch((errStatus) => {

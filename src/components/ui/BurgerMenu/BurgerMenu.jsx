@@ -24,8 +24,8 @@ const BurgerMenu = ({ sideBar, setSideBar, navItems }) => {
           ariaLabel={resources_ru.cross_icon}
         />
         <ul className={'side-bar__menu-items'}>
-          {navItems.map((item, index) => 
-            <li className={'side-bar__menu-items-item'} key={index}>
+          {navItems.map((item) => 
+            <li className={'side-bar__menu-items-item'} key={item.wayTo}>
               <NLink
                 className={'side-bar__menu-items-item-link'} 
                 wayTo={item.wayTo}

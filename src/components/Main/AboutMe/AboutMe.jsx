@@ -6,7 +6,7 @@ import Link from '../../ui/Link/Link';
 import MyPhoto from '../../../images/about-me-photo.jpg';
 
 const AboutMe = ({ portfolioItems = [] }) => {
-  
+
   return (
     <section className={'about-me'} id={'me'}>
       <div className={'about-me__content'}>
@@ -27,8 +27,8 @@ const AboutMe = ({ portfolioItems = [] }) => {
         <div className={'about-me__portfolio'}>
           {portfolioItems && <p className={'about-me__portfolio-title'}>{resources_ru.portfolio}</p>}
           <ul className={'about-me__portfolio-list'}>
-            {portfolioItems.map((item, index) => 
-              <li className={'about-me__portfolio-list-item'} key={index}>
+            {portfolioItems.map((item) => 
+              <li className={'about-me__portfolio-list-item'} key={item.wayTo}>
                 <Link 
                   className={'about-me__portfolio-list-item-link'} 
                   wayTo={item.wayTo}

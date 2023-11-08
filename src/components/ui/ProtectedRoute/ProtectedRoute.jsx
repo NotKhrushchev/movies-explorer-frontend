@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Navigate } from 'react-router-dom';
-import UserContext from '../../../contexts/userContext';
 
 const ProtectedRoute = ({ element: Component, ...props }) => {
-  const {currentUser} = useContext(UserContext);
+  const loggedId = localStorage?.jwt;
   return (
-    currentUser ? <Component {...props}/> : <Navigate to='/signin'/>
+    loggedId ? <Component {...props}/> : <Navigate to='/'/>
   );
 };
 

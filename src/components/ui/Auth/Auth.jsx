@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Btn from '../buttons/Btn';
 import './Auth.css';
 import { resources_ru } from '../../../translations/resources_ru';
-import moviesExplorerLogo from '../../../images/logo/movies-explorer-logo.svg';
 import RegBtn from '../buttons/RegBtn/RegBtn';
 import LoginBtn from '../buttons/LoginBtn/LoginBtn';
 import FormInput from '../Form/FormInput/FormInput';
 import LoadingContext from '../../../contexts/loadingContext';
 import Preloader from '../Preloader/Preloader';
+import Logo from '../Logo/Logo';
 
 const Auth = ({ 
   type, 
@@ -34,7 +34,7 @@ const Auth = ({
   return (
     <main className={'auth'}>
       <form className={'auth__form'} onSubmit={onSubmit}>
-        <img className={'auth__form-logo'} src={moviesExplorerLogo} alt={resources_ru.movies_explorer_logo} draggable={false} />
+        <Logo className={'auth__form-logo'} />
         <h1 className={'auth__form-title'}>{title}</h1>
         <div className={'auth__form-fields'}>
           {inputFields.map((input) => (
